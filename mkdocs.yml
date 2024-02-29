@@ -87,9 +87,6 @@ plugins:
           name: 简体中文
           build: true
           site_name: 计算机教育中缺失的一课
-          # theme:
-          #   palette:
-          #     primary: red
           nav_translations:
             Home: 课程首页
             Lectures: 讲座列表
@@ -113,6 +110,16 @@ nav:
     - 2020/security.md
     - 2020/potpourri.md
     - 2020/qa.md
+  - Solution:
+    - 2020/solutions/course-shell-solution.md
+    - 2020/solutions/shell-tools-solution.md
+    - 2020/solutions/editors-solution.md
+    - 2020/solutions/data-wrangling-solution.md
+    - 2020/solutions/command-line-solution.md
+    - 2020/solutions/version-control-solution.md
+    - 2020/solutions/debugging-profiling-solution.md 
+    - 2020/solutions/metaprogramming-solution.md
+    - 2020/solutions/security-solution.md
   - Archive:
     - 2019 Lectures: 2019/index.md
   - About: about.md
