@@ -96,10 +96,12 @@ plugins:
             Archive: 归档课程
             About: 关于本课程
             Solution: 习题解答
+            Introduction: 课程简介
 
 nav:
   - Home: index.md
   - Lectures:
+    - Introduction: 2020/index.md
     - 2020/course-shell.md
     - 2020/shell-tools.md
     - 2020/editors.md

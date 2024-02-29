@@ -17,7 +17,7 @@ only enables you to spend less time on figuring out how to bend your tools to
 your will, but it also lets you solve problems that would previously seem
 impossibly complex.
 
-Read about the [motivation behind this class](about.md).
+Read about the [motivation behind this class](2020/about.md).
 
 <!-- {% comment %} -->
 # Registration
@@ -33,17 +33,17 @@ Sign up for the IAP 2020 class by filling out this [registration form](https://f
 <!-- {% endcomment %} -->
 
 
-- **1/13/20**: [Course overview + the shell](course-shell.md)
-- **1/14/20**: [Shell Tools and Scripting](shell-tools.md)
-- **1/15/20**: [Editors (Vim)](editors.md)
-- **1/16/20**: [Data Wrangling](data-wrangling.md)
-- **1/21/20**: [Command-line Environment](command-line.md)
-- **1/22/20**: [Version Control (Git)](version-control.md)
-- **1/23/20**: [Debugging and Profiling](debugging-profiling.md)
-- **1/27/20**: [Metaprogramming](metaprogramming.md)
-- **1/28/20**: [Security and Cryptography](security.md)
-- **1/29/20**: [Potpourri](potpourri.md)
-- **1/30/20**: [Q&A](qa.md)
+- **1/13/20**: [Course overview + the shell](2020/course-shell.md)
+- **1/14/20**: [Shell Tools and Scripting](2020/shell-tools.md)
+- **1/15/20**: [Editors (2020/Vim)](editors.md)
+- **1/16/20**: [Data Wrangling](2020/data-wrangling.md)
+- **1/21/20**: [Command-line Environment](2020/command-line.md)
+- **1/22/20**: [Version Control (2020/Git)](version-control.md)
+- **1/23/20**: [Debugging and Profiling](2020/debugging-profiling.md)
+- **1/27/20**: [Metaprogramming](2020/metaprogramming.md)
+- **1/28/20**: [Security and Cryptography](2020/security.md)
+- **1/29/20**: [Potpourri](2020/potpourri.md)
+- **1/30/20**: [Q&A](2020/qa.md)
 
 Video recordings of the lectures are available [on
 YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J).
