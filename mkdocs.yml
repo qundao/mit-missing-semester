@@ -1,5 +1,6 @@
 site_name: MIT - The Missing Semester of Your CS Education
 repo_url: https://github.com/hantang/wayback-missing-semester
+site_url: https://hantang.github.io/wayback-missing-semester/
 
 theme:
   name: material
