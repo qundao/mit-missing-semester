@@ -169,7 +169,7 @@ ssh myserver journalctl
  | awk '{print $2}' | paste -sd,
 ```
 
-如果您使用的是 MacOS：注意这个命令并不能配合 MacOS 系统默认的 BSD `paste`使用。参考[课程概览与 shell](https://missing-semester-cn.github.io/2020/course-shell/)的习题内容获取更多相关信息。
+如果您使用的是 MacOS：注意这个命令并不能配合 MacOS 系统默认的 BSD `paste`使用。参考[课程概览与 shell](course-shell.md)的习题内容获取更多相关信息。
 
 我们可以利用 `paste`命令来合并行(`-s`)，并指定一个分隔符进行分割 (`-d`)，那`awk`的作用又是什么呢？
 
@@ -261,7 +261,7 @@ ffmpeg -loglevel panic -i /dev/video0 -frames 1 -f image2 -
 ```
 
 # 课后练习
-[习题解答]({{site.url}}/{{site.solution_url}}/{{page.solution.url}})
+[习题解答](solutions/data-wrangling-solution.md)
 
 1. 学习一下这篇简短的 [交互式正则表达式教程](https://regexone.com/).
 2. 统计words文件 (`/usr/share/dict/words`) 中包含至少三个`a` 且不以`'s` 结尾的单词个数。这些单词中，出现频率前三的末尾两个字母是什么？ `sed`的 `y`命令，或者 `tr` 程序也许可以帮你解决大小写的问题。共存在多少种词尾两字母组合？还有一个很 有挑战性的问题：哪个组合从未出现过？

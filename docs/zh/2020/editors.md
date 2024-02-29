@@ -239,7 +239,7 @@ Vim 由一个位于 `~/.vimrc` 的文本配置文件（包含 Vim 脚本命令�
 
 我们提供一个文档详细的基本设置，你可以用它当作你的初始设置。我们推荐使用这个设置因为
 它修复了一些 Vim 默认设置奇怪行为。
-**在[这儿](/2020/files/vimrc) 下载我们的设置，然后将它保存成
+**在[这儿](files/vimrc) 下载我们的设置，然后将它保存成
 `~/.vimrc`.**
 
 Vim 能够被重度自定义，花时间探索自定义选项是值得的。你可以参考其他人的在 GitHub
@@ -341,7 +341,7 @@ notebooks](https://github.com/lambdalisue/jupyter-vim-binding) 中用 Vim 快捷
     - 首先用`q{字符}q`清除宏
     - 录制该宏，用 `@{字符}` 来递归调用该宏
     （在录制完成之前不会有任何操作）
-- 例子：将 xml 转成 json ([file](/2020/files/example-data.xml))
+- 例子：将 xml 转成 json ([file](files/example-data.xml))
     - 一个有 "name" / "email" 键对象的数组
     - 用一个 Python 程序？
     - 用 sed / 正则表达式
@@ -376,28 +376,28 @@ notebooks](https://github.com/lambdalisue/jupyter-vim-binding) 中用 Vim 快捷
 - [Practical Vim](https://pragprog.com/titles/dnvim2/)（书籍）
 
 # 课后练习
-[习题解答]({{site.url}}/{{site.solution_url}}/{{page.solution.url}})
+[习题解答](solutions/editors-solution.md)
 1. 完成 `vimtutor`。备注：它在一个
    [80x24](https://en.wikipedia.org/wiki/VT100)（80 列，24 行）
    终端窗口看起来效果最好。
-1. 下载我们提供的 [vimrc](/2020/files/vimrc)，然后把它保存到 `~/.vimrc`。 通读这个注释详细的文件
+2. 下载我们提供的 [vimrc](files/vimrc)，然后把它保存到 `~/.vimrc`。 通读这个注释详细的文件
    （用 Vim!）， 然后观察 Vim 在这个新的设置下看起来和使用起来有哪些细微的区别。
-1. 安装和配置一个插件：
+3. 安装和配置一个插件：
    [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim).
    1. 用 `mkdir -p ~/.vim/pack/vendor/start` 创建插件文件夹
-   1. 下载这个插件： `cd ~/.vim/pack/vendor/start; git clone
+   2. 下载这个插件： `cd ~/.vim/pack/vendor/start; git clone
       https://github.com/ctrlpvim/ctrlp.vim`
-   1. 阅读这个插件的
+   3. 阅读这个插件的
       [文档](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md)。
        尝试用 CtrlP 来在一个工程文件夹里定位一个文件，打开 Vim, 然后用 Vim 命令控制行开始
       `:CtrlP`.
-    1. 自定义 CtrlP：添加
+    4. 自定义 CtrlP：添加
        [configuration](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md#basic-options)
        到你的 `~/.vimrc` 来用按 Ctrl-P 打开 CtrlP
-1. 练习使用 Vim, 在你自己的机器上重做 [演示](#demo)。
-1. 下个月用 Vim 完成*所有的*文件编辑。每当不够高效的时候，或者你感觉 “一定有一个更好的方式”时，
+4. 练习使用 Vim, 在你自己的机器上重做 [演示](#demo)。
+5. 下个月用 Vim 完成*所有的*文件编辑。每当不够高效的时候，或者你感觉 “一定有一个更好的方式”时，
    尝试求助搜索引擎，很有可能有一个更好的方式。如果你遇到难题，可以来我们的答疑时间或者给我们发邮件。
-1. 在其他工具中设置 Vim 快捷键 （见上面的操作指南）。
-1. 进一步自定义你的 `~/.vimrc` 和安装更多插件。
-1. （高阶）用 Vim 宏将 XML 转换到 JSON ([例子文件](/2020/files/example-data.xml))。
+6. 在其他工具中设置 Vim 快捷键 （见上面的操作指南）。
+7. 进一步自定义你的 `~/.vimrc` 和安装更多插件。
+8. （高阶）用 Vim 宏将 XML 转换到 JSON ([例子文件](files/example-data.xml))。
    尝试着先完全自己做，但是在你卡住的时候可以查看上面[宏](#macros) 章节。

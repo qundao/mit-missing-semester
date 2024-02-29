@@ -9,7 +9,7 @@ index: 3
   ```bash
   vimtutor
   ```
-2. 下载我们的[vimrc](https://missing-semester-cn.github.io/2020/files/vimrc)，然后把它保存到 `~/.vimrc`。 通读这个注释详细的文件 （用 Vim!）， 然后观察 Vim 在这个新的设置下看起来和使用起来有哪些细微的区别。
+2. 下载我们的[vimrc](../files/vimrc)，然后把它保存到 `~/.vimrc`。 通读这个注释详细的文件 （用 Vim!）， 然后观察 Vim 在这个新的设置下看起来和使用起来有哪些细微的区别。
 3. 安装和配置一个插件： `ctrlp.vim`.
    1. 用 `mkdir -p ~/.vim/pack/vendor/start` 创建插件文件夹
    2. 下载这个插件： `cd ~/.vim/pack/vendor/start; git clone https://github.com/ctrlpvim/ctrlp.vim`   
@@ -45,7 +45,7 @@ index: 3
     ```
    3. 在 vim 命令行中执行 `:PlugInstall`
  ![1.png](/images/3/3.png)
-8. (高阶)用 Vim 宏将 XML 转换到 JSON ([例子文件](https://missing-semester-cn.github.io/2020/files/example-data.xml))。 尝试着先完全自己做，但是在你卡住的时候可以查看上面 [宏](https://missing-semester-cn.github.io/2020/editors/#macros) 章节。  
+8. (高阶)用 Vim 宏将 XML 转换到 JSON ([例子文件](../files/example-data.xml))。 尝试着先完全自己做，但是在你卡住的时候可以查看上面 [宏](../editors.md#宏) 章节。  
 
    可以先查看[转化后的JSON文件](demoCode/3/example-data.json)，了解最终的转换效果。
    ```bash
