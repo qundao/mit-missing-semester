@@ -61,16 +61,16 @@ if  ! make ; then
      exit 1
 fi
 ```
-![1.png]({{site.url}}/2020/solutions/images/8/1.png)
+![1.png](images/8/1.png)
 
 
 ### 4. 基于 GitHub Pages 创建任意一个可以自动发布的页面。添加一个GitHub Action 到该仓库，对仓库中的所有 shell 文件执行 shellcheck([方法之一](https://github.com/marketplace/actions/shellcheck))；
 
-![1.png]({{site.url}}/2020/solutions/images/8/2.png)
-![1.png]({{site.url}}/2020/solutions/images/8/3.png)
+![1.png](images/8/2.png)
+![1.png](images/8/3.png)
 进入仓库的 [action](https://github.com/missing-semester-cn/The-Missing-Solutions/actions) 
 页面，修改`blank.yml`
-![1.png]({{site.url}}/2020/solutions/images/8/4.png)
+![1.png](images/8/4.png)
 ```
 # This is a basic workflow to help you get started with Actions
 
@@ -84,11 +84,11 @@ name: CI
         uses: ludeeus/action-shellcheck@1.1.0
 ```
 执行 action 后，可能会出现错误
-![1.png]({{site.url}}/2020/solutions/images/8/5.png)
+![1.png](images/8/5.png)
 根据提示修改错误
-![1.png]({{site.url}}/2020/solutions/images/8/6.png)
+![1.png](images/8/6.png)
 重新执行 action
-![1.png]({{site.url}}/2020/solutions/images/8/7.png)
+![1.png](images/8/7.png)
 
 ### 5. 构建属于您的 GitHub action，对仓库中所有的.md文件执行 [proselint](http://proselint.com/) 或 [write-good](https://github.com/btford/write-good)，在您的仓库中开启这一功能，提交一个包含错误的文件看看该功能是否生效。
 

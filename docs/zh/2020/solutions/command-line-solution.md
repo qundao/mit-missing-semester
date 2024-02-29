@@ -173,7 +173,7 @@ index: 5
    Serving HTTP on 0.0.0.0 port 8888 (http://0.0.0.0:8888/) ...
    127.0.0.1 - - [15/May/2021 02:45:53] "GET / HTTP/1.1" 200 -
    ```
-   ![1.png]({{site.url}}/2020/solutions/images/5/1.png)
+   ![1.png](images/5/1.png)
 
 5. 使用`sudo vim /etc/ssh/sshd_config` 编辑 SSH 服务器配置，通过修改`PasswordAuthentication`的值来禁用密码验证。通过修改`PermitRootLogin`的值来禁用 root 登录。然后使用`sudo service sshd restart`重启 ssh 服务器，然后重新尝试。
    ```

@@ -13,18 +13,18 @@ index: 6
     ```bash
     git log --all --graph --decorate
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/6/1.png)
+    ![1.png](images/6/1.png)
 4. 是谁最后修改了 README.md文件？（提示：使用 git log 命令并添加合适的参数）
    ```bash
    git log -1 README.md
    ```
    *	-x 选项：查看最新的 x 次提交或特定文件的版本信息
-![1.png]({{site.url}}/2020/solutions/images/6/2.png)
+![1.png](images/6/2.png)
 5. 最后一次修改_config.yml 文件中 collections: 行时的提交信息是什么？（提示：使用 git blame 和 git show）
     ```bash
     git blame _config.yml | grep collections
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/6/3.png)
+    ![1.png](images/6/3.png)
     ```bash
     git show --pretty=format:"%s" a88b4eac | head -1
     ```
@@ -32,7 +32,7 @@ index: 6
     ```bash
     git log --pretty=format:"%s" a88b4eac -1
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/6/4.png)
+    ![1.png](images/6/4.png)
 6. 使用 Git 时的一个常见错误是提交本不应该由 Git 管理的大文件，或是将含有敏感信息的文件提交给 Git 。尝试向仓库中添加一个文件并添加提交信息，然后将其从历史中删除 ( 这篇文章也许会有帮助)；
 7. 首先提交一些敏感信息
     ```bash
@@ -41,7 +41,7 @@ index: 6
     git commit -m "add password123 to file"
     git log HEAD
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/6/5.png)
+    ![1.png](images/6/5.png)
 8. 使用`git filter-branch`清除提交记录
     ```bash
     git filter-branch --force --index-filter\
@@ -49,14 +49,14 @@ index: 6
     --prune-empty --tag-name-filter cat -- --all
     ```
     文件已经删除
-    ![1.png]({{site.url}}/2020/solutions/images/6/6.png)
+    ![1.png](images/6/6.png)
     提交记录已经删除
-    ![1.png]({{site.url}}/2020/solutions/images/6/7.png)
+    ![1.png](images/6/7.png)
 9. 从 GitHub 上克隆某个仓库，修改一些文件。当您使用 git stash 会发生什么？当您执行 git log --all --oneline 时会显示什么？通过 git stash pop 命令来撤销 git stash 操作，什么时候会用到这一技巧？
-    ![1.png]({{site.url}}/2020/solutions/images/6/8.png)
-    ![1.png]({{site.url}}/2020/solutions/images/6/9.png)
-    ![1.png]({{site.url}}/2020/solutions/images/6/10.png)
-    ![1.png]({{site.url}}/2020/solutions/images/6/11.png)
+    ![1.png](images/6/8.png)
+    ![1.png](images/6/9.png)
+    ![1.png](images/6/10.png)
+    ![1.png](images/6/11.png)
 	
 	- 接下来，将在视频展示的demo仓库上展示stash操作
 
@@ -182,5 +182,5 @@ index: 6
     ```
     在本地进行修改后，提交到 fork 后的仓库，然后[发起 PR](https://github.com/missing-semester/missing-semester/pulls)
 
-    ![1.png]({{site.url}}/2020/solutions/images/6/12.png)
+    ![1.png](images/6/12.png)
 

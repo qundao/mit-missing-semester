@@ -41,15 +41,15 @@ index: 7
     Plug 'neomake/neomake'
     call plug#end()
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/7/1.png)
+    ![1.png](images/7/1.png)
     然后在 vim 执行`:PlugInstall`安装插件
-    ![1.png]({{site.url}}/2020/solutions/images/7/2.png)
+    ![1.png](images/7/2.png)
     在需要检查的 shell 脚本中，执行`:Neomake` 即可进行 shellcheck 检查。然后光标移动到对应行时可以看到告警或错误。
-    ![1.png]({{site.url}}/2020/solutions/images/7/3.png)
+    ![1.png](images/7/3.png)
 
 3. (进阶题) 请阅读 [可逆调试](https://undo.io/resources/reverse-debugging-whitepaper/) 并尝试创建一个可以工作的例子（使用 [`rr`](https://rr-project.org/) 或 [`RevPDB`](https://morepypy.blogspot.com/2016/07/reverse-debugging-for-python.html)）。
 
-    此例主要参考了[debug-c-and-c++-programs-with-rr](https://developers.redhat.com/blog/2021/05/03/instant-replay-debugging-c-and-c-programs-with-rr#requirements_and_setup)，使用的代码是[demo.c]({{site.url}}/2020/solutions/demoCode/7/demo.c)
+    此例主要参考了[debug-c-and-c++-programs-with-rr](https://developers.redhat.com/blog/2021/05/03/instant-replay-debugging-c-and-c-programs-with-rr#requirements_and_setup)，使用的代码是[demo.c](demoCode/7/demo.c)
     ```shell
     # perf内置在linux-tools中，使用rr需要先安装perf
     ~/debug $ sudo apt install linux-tools-common linux-tools-generic linux-tools-`uname -r`
@@ -343,9 +343,9 @@ index: 7
    pip install "setuptools<58.0.0"
    pip install pycallgraph
    ```
-   ![1.png]({{site.url}}/2020/solutions/images/7/4.png)
+   ![1.png](images/7/4.png)
    放开注释内容后，再次执行：
-   ![1.png]({{site.url}}/2020/solutions/images/7/5.png)
+   ![1.png](images/7/5.png)
    注意：如果你是 Python 2.7的话，需要修改一下注释的内容:
    ```python
    from backports.functools_lru_cache import lru_cache
@@ -353,23 +353,23 @@ index: 7
    不过生成的图片里面会包含很多不相关的内容。
 
 2. 我们经常会遇到的情况是某个我们希望去监听的端口已经被其他进程占用了。让我们通过进程的PID查找相应的进程。首先执行 `python -m http.server 4444` 启动一个最简单的 web 服务器来监听 `4444` 端口。在另外一个终端中，执行 `lsof | grep LISTEN` 打印出所有监听端口的进程及相应的端口。找到对应的 PID 然后使用 `kill <PID>` 停止该进程。  
-      ![1.png]({{site.url}}/2020/solutions/images/7/6.png)
+      ![1.png](images/7/6.png)
 
 3. 限制进程资源也是一个非常有用的技术。执行 `stress -c 3` 并使用`htop` 对 CPU 消耗进行可视化。现在，执行`taskset --cpu-list 0,2 stress -c 3` 并可视化。`stress` 占用了3个 CPU 吗？为什么没有？阅读[`man taskset`](http://man7.org/linux/man-pages/man1/taskset.1.html)来寻找答案。附加题：使用 [`cgroups`](http://man7.org/linux/man-pages/man7/cgroups.7.html)来实现相同的操作，限制`stress -m`的内存使用。  
     首先是设备正常运行状态下的资源占用情况：
-    ![1.png]({{site.url}}/2020/solutions/images/7/7.png)
+    ![1.png](images/7/7.png)
     创建负载：
     ```bash
     stress -c 3
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/7/8.png)
+    ![1.png](images/7/8.png)
     限制资源消耗
     ```bash
     taskset --cpu-list 0,2 stress -c 3
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/7/9.png)
+    ![1.png](images/7/9.png)
     taskset 命令可以将任务绑定到指定CPU核心。  
-    ![1.png]({{site.url}}/2020/solutions/images/7/10.png)
+    ![1.png](images/7/10.png)
     接下来看`cgroups`是如何工作的，我参考了两篇文章：
     - [Linux资源管理之cgroups简介](https://tech.meituan.com/2015/03/31/cgroups.html)
     - [Linux-insidesControl Groups](https://0xax.gitbooks.io/linux-insides/content/Cgroups/linux-cgroups-1.html)    ß
@@ -378,7 +378,7 @@ index: 7
     ```bash
     stress -m 3 --vm-bytes 512M
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/7/11.png)
+    ![1.png](images/7/11.png)
     由于题目要求限制内存的使用，首先我们看一下内存设备是否已经挂载：
     ```bash
     root@raspberrypi:~# lssubsys -am
@@ -429,12 +429,12 @@ index: 7
     stress: FAIL: [832] (451) failed run completed in 5s
     ```
     执行失败。
-    ![1.png]({{site.url}}/2020/solutions/images/7/12.png)  
+    ![1.png](images/7/12.png)  
     如果是申请 1M 内存，则可以成功运行：
     ```bash
     cgexec -g memory:cgroup_test_group stress -m 3 --vm-bytes 1M
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/7/13.png)  
+    ![1.png](images/7/13.png)  
     下面是使用cgroupV2限制stress命令内存的示例：
 
     比较新版本的Ubuntu默认安装`cgroup v2`，可以参考[Ubuntu激活cgroupv2](https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/ubuntu_linux/cgroup/enable_cgroup_v2_ubuntu_20.04.html)。下面，将使用cgroupv2实现限制进程内存消耗的操作，更多信息可参考[详解CgroupV2](https://zorrozou.github.io/docs/%E8%AF%A6%E8%A7%A3Cgroup%20V2.html)。
@@ -522,5 +522,5 @@ index: 7
     ```
 4. (进阶题) `curl ipinfo.io` 命令或执行 HTTP 请求并获取关于您 IP 的信息。打开 [Wireshark](https://www.wireshark.org/) 并抓取 `curl` 发起的请求和收到的回复报文。（提示：可以使用`http`进行过滤，只显示 HTTP 报文）
     这里我使用的是`curl www.baidu.com`，请求百度的首页并过滤了除 HTTP 之外的其他报文：
-    ![1.png]({{site.url}}/2020/solutions/images/7/14.png)  
-    ![1.png]({{site.url}}/2020/solutions/images/7/15.png)  
+    ![1.png](images/7/14.png)  
+    ![1.png](images/7/15.png)  

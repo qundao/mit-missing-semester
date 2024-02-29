@@ -186,7 +186,7 @@ Linux 系统可以直接按照上面的教程操作，MacOS 上的操作过程�
     create mode 100644 security/notsafefile
     create mode 100644 security/secfile
     ```
-    ![1.png]({{site.url}}/2020/solutions/images/9/1.png)
+    ![1.png](images/9/1.png)
 
     创建一个带签名的标签，并验证
     ```shell

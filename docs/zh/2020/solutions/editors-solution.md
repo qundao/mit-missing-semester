@@ -17,14 +17,14 @@ index: 3
        ```vim
        set runtimepath^=~/.vim/pack/vendor/start/ctrlp.vim 
        ```
-   1. 请阅读这个插件的[文档](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md)。 尝试用 CtrlP 来在一个工程文件夹里定位一个文件， 打开 Vim, 然后用 Vim 命令控制行开始 :CtrlP.  ![1.png]({{site.url}}/2020/solutions/images/3/1.png)
+   1. 请阅读这个插件的[文档](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md)。 尝试用 CtrlP 来在一个工程文件夹里定位一个文件， 打开 Vim, 然后用 Vim 命令控制行开始 :CtrlP.  ![1.png](images/3/1.png)
    2. 自定义 CtrlP： 添加 [configuration](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md#basic-options) 到你的 ~/.vimrc 来用按 Ctrl-P 打开 CtrlP
        ```vim
        let g:ctrlp_map ='<c-p>' 
        let g:ctrlp_cmd = 'CtrlP'
        let g:ctrlp_working_path_mode = 'ra' #设置默认路径为当前路径
        ```
-       ![1.png]({{site.url}}/2020/solutions/images/3/2.png)
+       ![1.png](images/3/2.png)
 4. 练习使用 Vim, 在你自己的机器上重做演示。
 5. 下个月用 Vim 完成_所有_的文件编辑。每当不够高效的时候，或者你感觉 “一定有一个更好的方式”， 尝试求助搜索引擎，很有可能有一个更好的方式。如果你遇到难题， 来我们的答疑时间或者给我们发邮件。
 6. 在你的其他工具中设置 Vim 快捷键 （见上面的操作指南）。
@@ -44,10 +44,10 @@ index: 3
     call plug#end()
     ```
    3. 在 vim 命令行中执行 `:PlugInstall`
- ![1.png]({{site.url}}/2020/solutions//images/3/3.png)
+ ![1.png](/images/3/3.png)
 8. (高阶)用 Vim 宏将 XML 转换到 JSON ([例子文件](https://missing-semester-cn.github.io/2020/files/example-data.xml))。 尝试着先完全自己做，但是在你卡住的时候可以查看上面 [宏](https://missing-semester-cn.github.io/2020/editors/#macros) 章节。  
 
-   可以先查看[转化后的JSON文件]({{site.url}}/2020/solutions/demoCode/3/example-data.json)，了解最终的转换效果。
+   可以先查看[转化后的JSON文件](demoCode/3/example-data.json)，了解最终的转换效果。
    ```bash
    vim example-data.xml
    ```
