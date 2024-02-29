@@ -3,6 +3,7 @@ repo_url: https://github.com/hantang/wayback-missing-semester
 
 theme:
   name: material
+  favicon: assets/favicon.ico
   icon:
       logo: fontawesome/solid/terminal
   font:
