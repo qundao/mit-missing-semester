@@ -23,15 +23,15 @@ Sign up for the IAP 2020 class by filling out this [registration form](https://f
 
 - **1/13**: [课程概览与 shell](2020/course-shell.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
 - **1/14**: [Shell 工具和脚本](2020/shell-tools.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
-- **1/15**: [编辑器 (2020/Vim)](editors.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
+- **1/15**: [编辑器 (Vim)](2020/editors.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
 - **1/16**: [数据整理](2020/data-wrangling.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
 - **1/21**: [命令行环境](2020/command-line.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
-- **1/22**: [版本控制(2020/Git)](version-control.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
+- **1/22**: [版本控制(Git)](2020/version-control.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
 - **1/23**: [调试及性能分析](2020/debugging-profiling.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
 - **1/27**: [元编程](2020/metaprogramming.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
 - **1/28**: [安全和密码学](2020/security.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✔-green)
 - **1/29**: [大杂烩](2020/potpourri.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✘-orange)
-- **1/30**: [提问&amp;回答](2020/qa.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✘-orange)
+- **1/30**: [提问&回答](2020/qa.md) ![badge](https://img.shields.io/badge/Chinese-✔-green)![badge](https://img.shields.io/badge/Update-✔-green)![badge](https://img.shields.io/badge/Solution-✘-orange)
 
 讲座视频可以在 [
 YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J) 上找到。

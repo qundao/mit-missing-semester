@@ -35,10 +35,10 @@ Sign up for the IAP 2020 class by filling out this [registration form](https://f
 
 - **1/13/20**: [Course overview + the shell](2020/course-shell.md)
 - **1/14/20**: [Shell Tools and Scripting](2020/shell-tools.md)
-- **1/15/20**: [Editors (2020/Vim)](editors.md)
+- **1/15/20**: [Editors (Vim)](2020/editors.md)
 - **1/16/20**: [Data Wrangling](2020/data-wrangling.md)
 - **1/21/20**: [Command-line Environment](2020/command-line.md)
-- **1/22/20**: [Version Control (2020/Git)](version-control.md)
+- **1/22/20**: [Version Control (Git)](2020/version-control.md)
 - **1/23/20**: [Debugging and Profiling](2020/debugging-profiling.md)
 - **1/27/20**: [Metaprogramming](2020/metaprogramming.md)
 - **1/28/20**: [Security and Cryptography](2020/security.md)
