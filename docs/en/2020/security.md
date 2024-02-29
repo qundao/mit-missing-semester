@@ -8,7 +8,7 @@ video:
   id: tjwobAmnKTo
 ---
 
-Last year's [security and privacy lecture](/2019/security/) focused on how you
+Last year's [security and privacy lecture](../2019/security.md) focused on how you
 can be more secure as a computer _user_. This year, we will focus on security
 and cryptography concepts that are relevant in understanding tools covered
 earlier in this class, such as the use of hash functions in Git or key
@@ -274,7 +274,7 @@ social proofs (with Keybase).
 ## SSH
 
 We've covered the use of SSH and SSH keys in an [earlier
-lecture](/2020/command-line/#remote-machines). Let's look at the cryptography
+lecture](command-line.md#remote-machines). Let's look at the cryptography
 aspects of this.
 
 When you run `ssh-keygen`, it generates an asymmetric keypair, `public_key,
@@ -307,7 +307,7 @@ security concepts, tips
 
 # Resources
 
-- [Last year's notes](/2019/security/): from when this lecture was more focused on security and privacy as a computer user
+- [Last year's notes](../2019/security.md): from when this lecture was more focused on security and privacy as a computer user
 - [Cryptographic Right Answers](https://latacora.micro.blog/2018/04/03/cryptographic-right-answers.html): answers "what crypto should I use for X?" for many common X.
 
 # Exercises

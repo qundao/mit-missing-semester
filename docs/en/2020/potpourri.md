@@ -10,6 +10,7 @@ video:
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Keyboard remapping](#keyboard-remapping)
 - [Daemons](#daemons)
 - [FUSE](#fuse)
@@ -20,6 +21,7 @@ video:
 - [VPNs](#vpns)
 - [Markdown](#markdown)
 - [Hammerspoon (desktop automation on macOS)](#hammerspoon-desktop-automation-on-macos)
+  - [Resources](#resources)
 - [Booting + Live USBs](#booting--live-usbs)
 - [Docker, Vagrant, VMs, Cloud, OpenStack](#docker-vagrant-vms-cloud-openstack)
 - [Notebook programming](#notebook-programming)
@@ -127,7 +129,7 @@ Given the significant growth of web applications, large amounts of your data are
 For instance, your webmail, social media photos, music playlists in streaming services or online docs are gone if you lose access to the corresponding accounts.
 Having an offline copy of this information is the way to go, and you can find online tools that people have built to fetch the data and save it.
 
-For a more detailed explanation, see 2019's lecture notes on [Backups](/2019/backups).
+For a more detailed explanation, see 2019's lecture notes on [Backups](../2019/backups.md).
 
 
 ## APIs

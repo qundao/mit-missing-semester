@@ -34,7 +34,7 @@ solution:
 - 对于新发现的问题，很可能您的日志中已经包含了可以帮助您定位问题的足够的信息。
 
 
-[这里](/static/files/logger.py) 是一个包含日志的例程序：
+[这里](files/logger.py) 是一个包含日志的例程序：
 
 ```bash
 $ python logger.py
@@ -478,7 +478,7 @@ Summary
 
 ## 性能分析
 
-1. [这里](/static/files/sorts.py) 有一些排序算法的实现。请使用 [`cProfile`](https://docs.python.org/3/library/profile.html) 和 [`line_profiler`](https://github.com/pyutils/line_profiler) 来比较插入排序和快速排序的性能。两种算法的瓶颈分别在哪里？然后使用 `memory_profiler` 来检查内存消耗，为什么插入排序更好一些？然后再看看原地排序版本的快排。附加题：使用 `perf` 来查看不同算法的循环次数及缓存命中及丢失情况。
+1. [这里](../../static/files/sorts.py) 有一些排序算法的实现。请使用 [`cProfile`](https://docs.python.org/3/library/profile.html) 和 [`line_profiler`](https://github.com/pyutils/line_profiler) 来比较插入排序和快速排序的性能。两种算法的瓶颈分别在哪里？然后使用 `memory_profiler` 来检查内存消耗，为什么插入排序更好一些？然后再看看原地排序版本的快排。附加题：使用 `perf` 来查看不同算法的循环次数及缓存命中及丢失情况。
 
 2. 这里有一些用于计算斐波那契数列 Python 代码，它为计算每个数字都定义了一个函数：
    ```python

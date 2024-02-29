@@ -86,7 +86,7 @@ regular expression you want to search for, and `SUBSTITUTION` is the
 text you want to substitute matching text with.
 
 (You may recognize this syntax from the "Search and replace" section of our Vim
-[lecture notes](/2020/editors/#advanced-vim)! Indeed, Vim uses a syntax for
+[lecture notes](editors.md#advanced-vim)! Indeed, Vim uses a syntax for
 searching and replacing that is similar to `sed`'s substitution command.
 Learning one tool often helps you become more proficient with others.)
 
@@ -260,7 +260,7 @@ ssh myserver journalctl
 
 If you're using macOS: note that the command as shown won't work with the BSD
 `paste` shipped with macOS. See [exercise 4 from the shell tools
-lecture](/2020/shell-tools/#exercises) for more on the difference between BSD
+lecture](shell-tools.md#exercises) for more on the difference between BSD
 and GNU coreutils and instructions for how to install GNU coreutils on macOS.
 
 Let's start with `paste`: it lets you combine lines (`-s`) by a given

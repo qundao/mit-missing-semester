@@ -26,7 +26,7 @@ A second approach is to use logging in your program, instead of ad hoc print sta
 - Logging supports severity levels (such as INFO, DEBUG, WARN, ERROR, &c), that allow you to filter the output accordingly.
 - For new issues, there's a fair chance that your logs will contain enough information to detect what is going wrong.
 
-[Here](/static/files/logger.py) is an example code that logs messages:
+[Here](../../static/files/logger.py) is an example code that logs messages:
 
 ```bash
 $ python logger.py
@@ -489,7 +489,7 @@ If there aren't any you can execute some harmless commands such as `sudo ls` and
 1. (Advanced) Read about [reversible debugging](https://undo.io/resources/reverse-debugging-whitepaper/) and get a simple example working using [`rr`](https://rr-project.org/) or [`RevPDB`](https://morepypy.blogspot.com/2016/07/reverse-debugging-for-python.html).
 ## Profiling
 
-1. [Here](/static/files/sorts.py) are some sorting algorithm implementations. Use [`cProfile`](https://docs.python.org/3/library/profile.html) and [`line_profiler`](https://github.com/pyutils/line_profiler) to compare the runtime of insertion sort and quicksort. What is the bottleneck of each algorithm? Use then `memory_profiler` to check the memory consumption, why is insertion sort better? Check now the inplace version of quicksort. Challenge: Use `perf` to look at the cycle counts and cache hits and misses of each algorithm.
+1. [Here](../../static/files/sorts.py) are some sorting algorithm implementations. Use [`cProfile`](https://docs.python.org/3/library/profile.html) and [`line_profiler`](https://github.com/pyutils/line_profiler) to compare the runtime of insertion sort and quicksort. What is the bottleneck of each algorithm? Use then `memory_profiler` to check the memory consumption, why is insertion sort better? Check now the inplace version of quicksort. Challenge: Use `perf` to look at the cycle counts and cache hits and misses of each algorithm.
 
 1. Here's some (arguably convoluted) Python code for computing Fibonacci numbers using a function for each number.
 

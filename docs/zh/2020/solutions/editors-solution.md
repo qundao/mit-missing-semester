@@ -44,7 +44,7 @@ index: 3
     call plug#end()
     ```
    3. 在 vim 命令行中执行 `:PlugInstall`
- ![1.png](/images/3/3.png)
+ ![1.png](images/3/3.png)
 8. (高阶)用 Vim 宏将 XML 转换到 JSON ([例子文件](../files/example-data.xml))。 尝试着先完全自己做，但是在你卡住的时候可以查看上面 [宏](../editors.md#宏) 章节。  
 
    可以先查看[转化后的JSON文件](demoCode/3/example-data.json)，了解最终的转换效果。

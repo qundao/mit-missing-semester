@@ -144,20 +144,19 @@ utilities, examples, and tutorials
 
 # Exercises
 
-1. Create a folder for your dotfiles and set up [version
-   control](/2019/version-control/).
+1. Create a folder for your dotfiles and set up [version control](version-control.md).
 
 1. Add a configuration for at least one program, e.g. your shell, with some
    customization (to start off, it can be something as simple as customizing
    your shell prompt by setting `$PS1`).
 
-1. Set up a method to install your dotfiles quickly (and without manual effort)
+2. Set up a method to install your dotfiles quickly (and without manual effort)
    on a new machine. This can be as simple as a shell script that calls `ln -s`
    for each file, or you could use a [specialized
    utility](http://dotfiles.github.io/utilities/).
 
-1. Test your installation script on a fresh virtual machine.
+3. Test your installation script on a fresh virtual machine.
 
-1. Migrate all of your current tool configurations to your dotfiles repository.
+4. Migrate all of your current tool configurations to your dotfiles repository.
 
-1. Publish your dotfiles on GitHub.
+5. Publish your dotfiles on GitHub.

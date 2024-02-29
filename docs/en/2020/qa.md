@@ -10,7 +10,7 @@ video:
 
 For the last lecture, we answered questions that the students submitted:
 
-- [Any recommendations on learning Operating Systems related topics like processes, virtual memory, interrupts, memory management, etc ](#any-recommendations-on-learning-operating-systems-related-topics-like-processes-virtual-memory-interrupts-memory-management-etc)
+- [Any recommendations on learning Operating Systems related topics like processes, virtual memory, interrupts, memory management, etc](#any-recommendations-on-learning-operating-systems-related-topics-like-processes-virtual-memory-interrupts-memory-management-etc)
 - [What are some of the tools you'd prioritize learning first?](#what-are-some-of-the-tools-youd-prioritize-learning-first)
 - [When do I use Python versus a Bash scripts versus some other language?](#when-do-i-use-python-versus-a-bash-scripts-versus-some-other-language)
 - [What is the difference between `source script.sh` and `./script.sh`](#what-is-the-difference-between-source-scriptsh-and-scriptsh)
@@ -81,7 +81,7 @@ In general, there are some conventions about where specific types of files live.
 - `/home` - Home directories for users in the system
 - `/lib` - Common libraries for system programs
 - `/opt` - Optional application software
-- `/sys` - Contains information and configuration for the system (covered in the [first lecture](/2020/course-shell/))
+- `/sys` - Contains information and configuration for the system (covered in the [first lecture](course-shell.md))
 - `/tmp` - Temporary files (also `/var/tmp`). Usually deleted between reboots.
 - `/usr/` - Read only user data
   + `/usr/bin` - Non-essential command binaries
@@ -102,7 +102,7 @@ You should try to use one solution or the other and not both since that can lead
 
 ## What's the easiest and best profiling tools to use to improve performance of my code?
 
-The easiest tool that is quite useful for profiling purposes is [print timing](/2020/debugging-profiling/#timing).
+The easiest tool that is quite useful for profiling purposes is [print timing](debugging-profiling.md#timing).
 You just manually compute the time taken between different parts of your code. By repeatedly doing this, you can effectively do a binary search over your code and find the segment of code that took the longest. 
 
 For more advanced tools, Valgrind's [Callgrind](http://valgrind.org/docs/manual/cl-manual.html) lets you run your program and measure how long everything takes and all the call stacks, namely which function called which other function. It then produces an annotated version of your program's source code with the time taken per line. However, it slows down your program by an order of magnitude and does not support threads. For other cases, the [`perf`](http://www.brendangregg.com/perf.html) tool and other language specific sampling profilers can output useful data pretty quickly. [Flamegraphs](http://www.brendangregg.com/flamegraphs.html) are a good visualization tool for the output of said sampling profilers. You should also try to use specific tools for the programming language or task you are working with. For example, for web development, the dev tools built into Chrome and Firefox have fantastic profilers.
@@ -125,7 +125,7 @@ Some of our favorites, mostly related to security and usability:
 
 Some of the data wrangling tools we did not have time to cover during the data wrangling lecture include `jq` or `pup` which are specialized parsers for JSON and HTML data respectively. The Perl programming language is another good tool for more advanced data wrangling pipelines. Another trick is the `column -t` command that can be used to convert whitespace text (not necessarily aligned) into properly column aligned text.
 
-More generally a couple of more unconventional data wrangling tools are vim and Python. For some complex and multi-line transformations, vim macros can be a quite invaluable tool to use. You can just record a series of actions and repeat them as many times as you want, for instance in the editors [lecture notes](/2020/editors/#macros) (and last year's [video](/2019/editors/)) there is an example of converting an XML-formatted file into JSON just using vim macros.
+More generally a couple of more unconventional data wrangling tools are vim and Python. For some complex and multi-line transformations, vim macros can be a quite invaluable tool to use. You can just record a series of actions and repeat them as many times as you want, for instance in the editors [lecture notes](editors.md#macros) (and last year's [video](../2019/editors.md)) there is an example of converting an XML-formatted file into JSON just using vim macros.
 
 For tabular data, often presented in CSVs, the [pandas](https://pandas.pydata.org/) Python library is a great tool. Not only because it makes it quite easy to define complex operations like group by, join or filters; but also makes it quite easy to plot different properties of your data. It also supports exporting to many table formats including XLS, HTML or LaTeX. Alternatively the R programming language (an arguably [bad](http://arrgh.tim-smith.us/) programming language) has lots of functionality for computing statistics over data and can be quite useful as the last step of your pipeline. [ggplot2](https://ggplot2.tidyverse.org/) is a great plotting library in R. 
 
