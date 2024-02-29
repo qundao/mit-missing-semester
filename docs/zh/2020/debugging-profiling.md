@@ -34,7 +34,7 @@ solution:
 - 对于新发现的问题，很可能您的日志中已经包含了可以帮助您定位问题的足够的信息。
 
 
-[这里](files/logger.py) 是一个包含日志的例程序：
+[这里](../../static/files/logger.py) 是一个包含日志的例程序：
 
 ```bash
 $ python logger.py

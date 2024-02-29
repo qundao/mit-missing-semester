@@ -13,7 +13,7 @@ solution:
     url: security-solution
 ---
 
-去年的[这节课](../2019/security.md)我们从计算机 _用户_ 的角度探讨了增强隐私保护和安全的方法。
+去年的[这节课](../../en/2019/security.md)我们从计算机 _用户_ 的角度探讨了增强隐私保护和安全的方法。
 今年我们将关注比如散列函数、密钥生成函数、对称/非对称密码体系这些安全和密码学的概念是如何应用于前几节课所学到的工具（Git和SSH）中的。
 
 本课程不能作为计算机系统安全 ([6.858](https://css.csail.mit.edu/6.858/)) 或者
@@ -232,7 +232,7 @@ security concepts, tips
 
 # 资源
 
-- [去年的讲稿](../2019/security.md): 更注重于计算机用户可以如何增强隐私保护和安全
+- [去年的讲稿](../../en/2019/security.md): 更注重于计算机用户可以如何增强隐私保护和安全
 - [Cryptographic Right Answers](https://latacora.micro.blog/2018/04/03/cryptographic-right-answers.html): 
 解答了在一些应用环境下“应该使用什么加密？”的问题
 

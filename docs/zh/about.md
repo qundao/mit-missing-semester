@@ -34,7 +34,7 @@ title: "开设此课程的动机"
 在历史记录中跳转的一些技巧。
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/history.mp4" type="video/mp4">
+  <source src="../static/media/demos/history.mp4" type="video/mp4">
 </video>
 
 ## 版本控制
@@ -47,7 +47,7 @@ title: "开设此课程的动机"
 下面这个示例中，我们使用`git bisect`来定位哪个提交破坏了单元测试，并且通过`git revert`来进行修复。
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/git.mp4" type="video/mp4">
+  <source src="../static/media/demos/git.mp4" type="video/mp4">
 </video>
 
 ## 文本编辑
@@ -58,7 +58,7 @@ title: "开设此课程的动机"
 Vim 的宏是它最好的特性之一，在下面这个示例中，我们使用嵌套的 Vim 宏快速地将 html 表格转换成了 csv 格式。
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/vim.mp4" type="video/mp4">
+  <source src="../static/media/demos/vim.mp4" type="video/mp4">
 </video>
 
 ## 远程服务器
@@ -70,7 +70,7 @@ Vim 的宏是它最好的特性之一，在下面这个示例中，我们使用�
 以下示例，我们使用`tmux`来保持远程服务器的会话存在，并使用`mosh`来支持网络漫游和断开连接。
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/ssh.mp4" type="video/mp4">
+  <source src="../static/media/demos/ssh.mp4" type="video/mp4">
 </video>
 
 ## 查找文件
@@ -80,7 +80,7 @@ Vim 的宏是它最好的特性之一，在下面这个示例中，我们使用�
 以下示例，我们通过`fd`快速查找文件，通过`rg`找代码片段。我们也用到了`fasd`快速`cd`并`vim`最近/常用的文件/文件夹。
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/find.mp4" type="video/mp4">
+  <source src="../static/media/demos/find.mp4" type="video/mp4">
 </video>
 
 ## 数据处理

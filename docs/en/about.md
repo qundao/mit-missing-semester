@@ -49,7 +49,7 @@ argument".
 For example, searching through your history quickly can be a huge time saver. In the example below we show several tricks related to navigating your shell history for `convert` commands.
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/history.mp4" type="video/mp4">
+  <source src="../static/media/demos/history.mp4" type="video/mp4">
 </video>
 
 ## Version control
@@ -65,7 +65,7 @@ requests!
 
 In the example below we use `git bisect` to find which commit broke a unit test and then we fix it with `git revert`.
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/git.mp4" type="video/mp4">
+  <source src="../static/media/demos/git.mp4" type="video/mp4">
 </video>
 
 ## Text editing
@@ -76,7 +76,7 @@ copying files back and forth. No more repetitive file editing.
 
 Vim macros are one of its best features, in the example below we quickly convert an html table to csv format using a nested vim macro.
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/vim.mp4" type="video/mp4">
+  <source src="../static/media/demos/vim.mp4" type="video/mp4">
 </video>
 
 ## Remote machines
@@ -90,7 +90,7 @@ disconnected or you had to reboot your laptop.
 In the example below we use `tmux` to keep sessions alive in remote servers and `mosh` to support network roaming and disconnection.
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/ssh.mp4" type="video/mp4">
+  <source src="../static/media/demos/ssh.mp4" type="video/mp4">
 </video>
 
 ## Finding files
@@ -102,7 +102,7 @@ that has the code you want.
 In the example below we quickly look for files with `fd` and for code snippets with `rg`. We also quickly `cd` and `vim` recent/frequent files/folder using `fasd`.
 
 <video autoplay="autoplay" loop="loop" controls muted playsinline  oncontextmenu="return false;"  preload="auto"  class="demo">
-  <source src="/static/media/demos/find.mp4" type="video/mp4">
+  <source src="../static/media/demos/find.mp4" type="video/mp4">
 </video>
 
 ## Data wrangling
