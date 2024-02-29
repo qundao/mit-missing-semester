@@ -1,0 +1,29 @@
+# python
+__pycache__/
+__pypackages__/
+*.py[cod]
+
+# mkdocs
+site/
+
+# linux
+*~
+
+# macos
+.DS_Store
+
+# ide
+.vscode/
+.idea/
+
+# others
+back/
+backup/
+tmp/
+temp/
+todo/
+
+# more
+.trash/
+.cache/
+
