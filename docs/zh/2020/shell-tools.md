@@ -13,6 +13,8 @@ solution:
     url: shell-tools-solution
 ---
 
+<iframe src="https://www.youtube.com/embed/kgII-YWo3Zw" frameborder="0" allowfullscreen></iframe>
+
 在这节课中，我们将会展示 bash 作为脚本语言的一些基础操作，以及几种最常用的 shell 工具。
 
 ## Shell 脚本

@@ -9,7 +9,6 @@ video:
 
 <iframe src="https://www.youtube.com/embed/dbDRfmH5uSI" frameborder="0" allowfullscreen></iframe>
 
-
 The shell is an efficient, textual interface to your computer.
 
 The shell prompt: what greets you when you open a terminal.
