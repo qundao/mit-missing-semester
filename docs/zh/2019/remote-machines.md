@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Remote Machines"
+title: "远程机器"
 presenter: Jose
 video:
   aspect: 62.5
@@ -148,7 +148,7 @@ Host *.mit.edu
 - [SSH Hacks](http://matt.might.net/articles/ssh-hacks/)
 - [Secure Secure Shell](https://stribika.github.io/2015/01/04/secure-secure-shell.html)
 
-<!-- 
+<!--
 {% comment %}
 讲义将在讲座开始前提供。
 {% endcomment %} -->

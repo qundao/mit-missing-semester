@@ -7,7 +7,7 @@ struct Stru{
 
 void initialize(char *a, int size){
     while (size>0)
-		a[size--] = 0; 
+		a[size--] = 0;
 }
 
 void multiply(char *a, int size, int num)

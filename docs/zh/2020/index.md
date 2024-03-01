@@ -11,11 +11,9 @@
 - **1/28**: [安全和密码学](security.md)
 - **1/29**: [大杂烩](potpourri.md)
 - **1/30**: [提问&回答](qa.md)
-- 
-讲座视频可以在 <a href="https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J">YouTube</a>上找到。
 
+讲座视频可以在 [YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J)上找到。
 
 ## 往期讲座
 
 您也可以访问[去年的讲座笔记和视频](../../en/2019/index.md)。
-

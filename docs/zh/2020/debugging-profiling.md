@@ -13,15 +13,33 @@ solution:
     url: debugging-profiling-solution
 ---
 
+- [调试代码](#调试代码)
+  - [打印调试法与日志](#打印调试法与日志)
+  - [第三方日志系统](#第三方日志系统)
+  - [调试器](#调试器)
+  - [专门工具](#专门工具)
+  - [静态分析](#静态分析)
+- [性能分析](#性能分析)
+  - [计时](#计时)
+  - [性能分析工具（profilers）](#性能分析工具profilers)
+    - [CPU](#cpu)
+    - [内存](#内存)
+    - [事件分析](#事件分析)
+    - [可视化](#可视化)
+  - [资源监控](#资源监控)
+    - [专用工具](#专用工具)
+- [课后练习](#课后练习)
+  - [调试](#调试)
+  - [性能分析](#性能分析-1)
+
 
 代码不能完全按照您的想法运行，它只能完全按照您的写法运行，这是编程界的一条金科玉律。
 
 让您的写法符合您的想法是非常困难的。在这节课中，我们会传授给您一些非常有用技术，帮您处理代码中的 bug 和程序性能问题。
 
+## 调试代码
 
-# 调试代码
-
-## 打印调试法与日志
+### 打印调试法与日志
 
 "最有效的 debug 工具就是细致的分析，配合恰当位置的打印语句" — Brian Kernighan, _Unix 新手入门_。
 
@@ -32,7 +50,6 @@ solution:
 - 您可以将日志写入文件、socket 或者甚至是发送到远端服务器而不仅仅是标准输出；
 - 日志可以支持严重等级（例如 INFO, DEBUG, WARN, ERROR等)，这使您可以根据需要过滤日志；
 - 对于新发现的问题，很可能您的日志中已经包含了可以帮助您定位问题的足够的信息。
-
 
 [这里](../../static/files/logger.py) 是一个包含日志的例程序：
 
@@ -64,7 +81,7 @@ for R in $(seq 0 20 255); do
 done
 ```
 
-## 第三方日志系统
+### 第三方日志系统
 
 如果您正在构建大型软件系统，您很可能会使用到一些依赖，有些依赖会作为程序单独运行。如 Web 服务器、数据库或消息代理都是此类常见的第三方依赖。
 
@@ -94,7 +111,7 @@ journalctl --since "1m ago" | grep Hello
 
 如果您发现您需要对 `journalctl` 和 `log show` 的结果进行大量的过滤，那么此时可以考虑使用它们自带的选项对其结果先过滤一遍再输出。还有一些像 [`lnav`](http://lnav.org/) 这样的工具，它为日志文件提供了更好的展现和浏览方式。
 
-## 调试器
+### 调试器
 
 当通过打印已经不能满足您的调试需求时，您应该使用调试器。
 
@@ -133,7 +150,6 @@ def bubble_sort(arr):
 print(bubble_sort([4, 2, 1, 8, 7, 6]))
 ```
 
-
 注意，因为 Python 是一种解释型语言，所以我们可以通过 `pdb` shell 执行命令。
 [`ipdb`](https://pypi.org/project/ipdb/) 是一种增强型的 `pdb` ，它使用[`IPython`](https://ipython.org) 作为 REPL并开启了 tab 补全、语法高亮、更好的回溯和更好的内省，同时还保留了`pdb` 模块相同的接口。
 
@@ -141,7 +157,7 @@ print(bubble_sort([4, 2, 1, 8, 7, 6]))
 
 它们都对类 C 语言的调试进行了优化，它允许您探索任意进程及其机器状态：寄存器、堆栈、程序计数器等。
 
-## 专门工具
+### 专门工具
 
 即使您需要调试的程序是一个二进制的黑盒程序，仍然有一些工具可以帮助到您。当您的程序需要执行一些只有操作系统内核才能完成的操作时，它需要使用 [系统调用](https://en.wikipedia.org/wiki/System_call)。有一些命令可以帮助您追踪您的程序执行的系统调用。在 Linux 中可以使用[`strace`](http://man7.org/linux/man-pages/man1/strace.1.html) ，在 macOS 和 BSD 中可以使用 [`dtrace`](http://dtrace.org/blogs/about/)。`dtrace` 用起来可能有些别扭，因为它使用的是它自有的 `D` 语言，但是我们可以使用一个叫做 [`dtruss`](https://www.manpagez.com/man/1/dtruss/) 的封装使其具有和 `strace` (更多信息参考 [这里](https://8thlight.com/blog/colin-jones/2015/11/06/dtrace-even-better-than-strace-for-osx.html))类似的接口
 
@@ -155,7 +171,7 @@ sudo strace -e lstat ls -l > /dev/null
 sudo dtruss -t lstat64_extended ls -l > /dev/null
 ```
 
-有些情况下，我们需要查看网络数据包才能定位问题。像 [`tcpdump`](http://man7.org/linux/man-pages/man1/tcpdump.1.html) 和 [Wireshark](https://www.wireshark.org/) 这样的网络数据包分析工具可以帮助您获取网络数据包的内容并基于不同的条件进行过滤。 
+有些情况下，我们需要查看网络数据包才能定位问题。像 [`tcpdump`](http://man7.org/linux/man-pages/man1/tcpdump.1.html) 和 [Wireshark](https://www.wireshark.org/) 这样的网络数据包分析工具可以帮助您获取网络数据包的内容并基于不同的条件进行过滤。
 
 对于 web 开发， Chrome/Firefox 的开发者工具非常方便，功能也很强大：
 - 源码 -查看任意站点的 HTML/CSS/JS 源码；
@@ -164,7 +180,7 @@ sudo dtruss -t lstat64_extended ls -l > /dev/null
 - 网络 - 分析请求的时间线；
 - 存储 - 查看 Cookies 和本地应用存储。
 
-## 静态分析
+### 静态分析
 
 有些问题是您不需要执行代码就能发现的。例如，仔细观察一段代码，您就能发现某个循环变量覆盖了某个已经存在的变量或函数名；或是有个变量在被读取之前并没有被定义。
 这种情况下 [静态分析](https://en.wikipedia.org/wiki/Static_program_analysis) 工具就可以帮我们找到问题。静态分析会将程序的源码作为输入然后基于编码规则对其进行分析并对代码的正确性进行推理。
@@ -184,6 +200,7 @@ bar *= 0.2
 time.sleep(60)
 print(baz)
 ```
+
 静态分析工具可以发现此类的问题。当我们使用[`pyflakes`](https://pypi.org/project/pyflakes) 分析代码的时候，我们会得到与这两处 bug 相关的错误信息。[`mypy`](http://mypy-lang.org/) 则是另外一个工具，它可以对代码进行类型检查。这里，`mypy` 会经过我们`bar` 起初是一个 `int` ，然后变成了 `float`。这些问题都可以在不运行代码的情况下被发现。
 
 ```bash
@@ -211,12 +228,12 @@ Found 3 errors in 1 file (checked 1 source file)
 对于风格检查和代码格式化，还有以下一些工具可以作为补充：用于 Python 的 [`black`](https://github.com/psf/black)、用于 Go 语言的 `gofmt`、用于 Rust 的 `rustfmt` 或是用于 JavaScript, HTML 和 CSS 的 [`prettier`](https://prettier.io/) 。这些工具可以自动格式化您的代码，这样代码风格就可以与常见的风格保持一致。
 尽管您可能并不想对代码进行风格控制，标准的代码风格有助于方便别人阅读您的代码，也可以方便您阅读它的代码。
 
-# 性能分析
+## 性能分析
 
 即使您的代码能够像您期望的一样运行，但是如果它消耗了您全部的 CPU 和内存，那么它显然也不是个好程序。算法课上我们通常会介绍大O标记法，但却没教给我们如何找到程序中的热点。
 鉴于 [过早的优化是万恶之源](http://wiki.c2.com/?PrematureOptimization)，您需要学习性能分析和监控工具，它们会帮助您找到程序中最耗时、最耗资源的部分，这样您就可以有针对性的进行性能优化。
 
-## 计时
+### 计时
 
 和调试代码类似，大多数情况下我们只需要打印两处代码之间的时间即可发现问题。下面这个例子中，我们使用了 Python 的 [`time`](https://docs.python.org/3/library/time.html)模块。
 
@@ -224,7 +241,7 @@ Found 3 errors in 1 file (checked 1 source file)
 import time, random
 n = random.randint(1, 10) * 100
 
-# 获取当前时间 
+# 获取当前时间
 start = time.time()
 
 # 执行一些操作
@@ -254,14 +271,13 @@ user    0m0.015s
 sys     0m0.012s
 ```
 
-## 性能分析工具（profilers）
+### 性能分析工具（profilers）
 
-### CPU
+#### CPU
 
 大多数情况下，当人们提及性能分析工具的时候，通常指的是 CPU 性能分析工具。
 CPU 性能分析工具有两种： 追踪分析器（_tracing_）及采样分析器（_sampling_）。
 追踪分析器 会记录程序的每一次函数调用，而采样分析器则只会周期性的监测（通常为每毫秒）您的程序并记录程序堆栈。它们使用这些记录来生成统计信息，显示程序在哪些事情上花费了最多的时间。如果您希望了解更多相关信息，可以参考[这篇](https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-) 介绍性的文章。
-
 
 大多数的编程语言都有一些基于命令行的分析器，我们可以使用它们来分析代码。它们通常可以集成在 IDE 中，但是本节课我们会专注于这些命令行工具本身。
 
@@ -291,7 +307,7 @@ if __name__ == '__main__':
 
 我们可以使用下面的命令来对这段代码进行分析。通过它的输出我们可以知道，IO 消耗了大量的时间，编译正则表达式也比较耗费时间。因为正则表达式只需要编译一次，我们可以将其移动到 for 循环外面来改进性能。
 
-```
+```bash
 $ python -m cProfile -s tottime grep.py 1000 '^(import|\s*def)[^,]*$' *.py
 
 [omitted program output]
@@ -310,18 +326,16 @@ $ python -m cProfile -s tottime grep.py 1000 '^(import|\s*def)[^,]*$' *.py
 [omitted lines]
 ```
 
-
 关于 Python 的 `cProfile` 分析器（以及其他一些类似的分析器），需要注意的是它显示的是每次函数调用的时间。看上去可能快到反直觉，尤其是如果您在代码里面使用了第三方的函数库，因为内部函数调用也会被看作函数调用。
 
 更加符合直觉的显示分析信息的方式是包括每行代码的执行时间，这也是*行分析器*的工作。例如，下面这段 Python 代码会向本课程的网站发起一个请求，然后解析响应返回的页面中的全部 URL：
-
 
 ```python
 #!/usr/bin/env python
 import requests
 from bs4 import BeautifulSoup
 
-# 这个装饰器会告诉行分析器 
+# 这个装饰器会告诉行分析器
 # 我们想要分析这个函数
 @profile
 def get_urls():
@@ -357,7 +371,7 @@ Line #  Hits         Time  Per Hit   % Time  Line Contents
 11        24         33.0      1.4      0.0          urls.append(url['href'])
 ```
 
-### 内存
+#### 内存
 
 像 C 或者 C++ 这样的语言，内存泄漏会导致您的程序在使用完内存后不去释放它。为了应对内存类的 Bug，我们可以使用类似 [Valgrind](https://valgrind.org/) 这样的工具来检查内存泄漏问题。
 
@@ -389,7 +403,7 @@ Line #    Mem usage  Increment   Line Contents
      8     13.61 MB    0.00 MB       return a
 ```
 
-### 事件分析
+#### 事件分析
 
 在我们使用`strace`调试代码的时候，您可能会希望忽略一些特殊的代码并希望在分析时将其当作黑盒处理。[`perf`](http://man7.org/linux/man-pages/man1/perf.1.html) 命令将 CPU 的区别进行了抽象，它不会报告时间和内存的消耗，而是报告与您的程序相关的系统事件。
 
@@ -400,8 +414,7 @@ Line #    Mem usage  Increment   Line Contents
 - `perf record COMMAND ARG1 ARG2` - 记录命令执行的采样信息并将统计数据储存在`perf.data`中；
 - `perf report` - 格式化并打印 `perf.data` 中的数据。
 
-
-### 可视化
+#### 可视化
 
 使用分析器来分析真实的程序时，由于软件的复杂性，其输出结果中将包含大量的信息。人类是一种视觉动物，非常不善于阅读大量的文字。因此很多工具都提供了可视化分析器输出结果的功能。
 
@@ -414,8 +427,7 @@ Line #    Mem usage  Increment   Line Contents
 
 ![Call Graph](https://upload.wikimedia.org/wikipedia/commons/2/2f/A_Call_Graph_generated_by_pycallgraph.png)
 
-
-## 资源监控
+### 资源监控
 
 有时候，分析程序性能的第一步是搞清楚它所消耗的资源。程序变慢通常是因为它所需要的资源不够了。例如，没有足够的内存或者网络连接变慢的时候。
 
@@ -431,8 +443,7 @@ Line #    Mem usage  Increment   Line Contents
 
 如果您希望测试一下这些工具，您可以使用 [`stress`](https://linux.die.net/man/1/stress) 命令来为系统人为地增加负载。
 
-
-### 专用工具
+#### 专用工具
 
 有时候，您只需要对黑盒程序进行基准测试，并依此对软件选择进行评估。
 类似 [`hyperfine`](https://github.com/sharkdp/hyperfine) 这样的命令行可以帮您快速进行基准测试。例如，我们在 shell 工具和脚本那一节课中我们推荐使用 `fd` 来代替 `find`。我们这里可以用`hyperfine`来比较一下它们。
@@ -456,14 +467,14 @@ Summary
 
 和 debug 一样，浏览器也包含了很多不错的性能分析工具，可以用来分析页面加载，让我们可以搞清楚时间都消耗在什么地方（加载、渲染、脚本等等）。 更多关于 [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Profiling_with_the_Built-in_Profiler) 和 [Chrome](https://developers.google.com/web/tools/chrome-devtools/rendering-tools)的信息可以点击链接。
 
-# 课后练习
+## 课后练习
+
 [习题解答](solutions/debugging-profiling-solution.md)
 
-## 调试
+### 调试
+
 1. 使用 Linux 上的 `journalctl` 或 macOS 上的 `log show` 命令来获取最近一天中超级用户的登录信息及其所执行的指令。如果找不到相关信息，您可以执行一些无害的命令，例如`sudo ls` 然后再次查看。
-
 2. 学习 [这份](https://github.com/spiside/pdb-tutorial) `pdb` 实践教程并熟悉相关的命令。更深入的信息您可以参考[这份](https://realpython.com/python-debugging-pdb)教程。
-
 3. 安装 [`shellcheck`](https://www.shellcheck.net/) 并尝试对下面的脚本进行检查。这段代码有什么问题吗？请修复相关问题。在您的编辑器中安装一个linter插件，这样它就可以自动地显示相关警告信息。
    ```bash
    #!/bin/sh
@@ -474,13 +485,11 @@ Summary
        && echo -e 'Playlist $f contains a HQ file in mp3 format'
    done
    ```
-
 4. (进阶题) 请阅读 [可逆调试](https://undo.io/resources/reverse-debugging-whitepaper/) 并尝试创建一个可以工作的例子（使用 [`rr`](https://rr-project.org/) 或 [`RevPDB`](https://morepypy.blogspot.com/2016/07/reverse-debugging-for-python.html)）。
 
-## 性能分析
+### 性能分析
 
 1. [这里](../../static/files/sorts.py) 有一些排序算法的实现。请使用 [`cProfile`](https://docs.python.org/3/library/profile.html) 和 [`line_profiler`](https://github.com/pyutils/line_profiler) 来比较插入排序和快速排序的性能。两种算法的瓶颈分别在哪里？然后使用 `memory_profiler` 来检查内存消耗，为什么插入排序更好一些？然后再看看原地排序版本的快排。附加题：使用 `perf` 来查看不同算法的循环次数及缓存命中及丢失情况。
-
 2. 这里有一些用于计算斐波那契数列 Python 代码，它为计算每个数字都定义了一个函数：
    ```python
    #!/usr/bin/env python
@@ -501,8 +510,5 @@ Summary
    ```
    将代码拷贝到文件中使其变为一个可执行的程序。首先安装 [`pycallgraph`](http://pycallgraph.slowchop.com/en/master/)和[`graphviz`](http://graphviz.org/)(如果您能够执行`dot`, 则说明已经安装了 GraphViz.)。并使用 `pycallgraph graphviz -- ./fib.py` 来执行代码并查看`pycallgraph.png` 这个文件。`fib0` 被调用了多少次？我们可以通过记忆法来对其进行优化。将注释掉的部分放开，然后重新生成图片。这回每个`fibN` 函数被调用了多少次？
 3. 我们经常会遇到的情况是某个我们希望去监听的端口已经被其他进程占用了。让我们通过进程的PID查找相应的进程。首先执行 `python -m http.server 4444` 启动一个最简单的 web 服务器来监听 `4444` 端口。在另外一个终端中，执行 `lsof | grep LISTEN` 打印出所有监听端口的进程及相应的端口。找到对应的 PID 然后使用 `kill <PID>` 停止该进程。
-
 4. 限制进程资源也是一个非常有用的技术。执行 `stress -c 3` 并使用`htop` 对 CPU 消耗进行可视化。现在，执行`taskset --cpu-list 0,2 stress -c 3` 并可视化。`stress` 占用了3个 CPU 吗？为什么没有？阅读[`man taskset`](http://man7.org/linux/man-pages/man1/taskset.1.html)来寻找答案。附加题：使用 [`cgroups`](http://man7.org/linux/man-pages/man7/cgroups.7.html)来实现相同的操作，限制`stress -m`的内存使用。
-
 5. (进阶题) `curl ipinfo.io` 命令或执行 HTTP 请求并获取关于您 IP 的信息。打开 [Wireshark](https://www.wireshark.org/) 并抓取 `curl` 发起的请求和收到的回复报文。（提示：可以使用`http`进行过滤，只显示 HTTP 报文）
-

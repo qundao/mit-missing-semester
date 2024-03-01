@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Version Control"
+title: "版本控制"
 presenter: Jon
 video:
   aspect: 56.25

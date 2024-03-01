@@ -31,15 +31,15 @@ solution:
 
 尽管 Git 的接口有些丑陋，但是它的底层设计和思想却是非常优雅的。丑陋的接口只能靠死记硬背，而优雅的底层设计则非常容易被人理解。因此，我们将通过一种自底向上的方式向您介绍 Git。我们会从数据模型开始，最后再学习它的接口。一旦您搞懂了 Git 的数据模型，再学习其接口并理解这些接口是如何操作数据模型的就非常容易了。
 
-# Git 的数据模型
+## Git 的数据模型
 
 进行版本控制的方法很多。Git 拥有一个经过精心设计的模型，这使其能够支持版本控制所需的所有特性，例如维护历史记录、支持分支和促进协作。
 
-## 快照
+### 快照
 
 Git 将顶级目录中的文件和文件夹作为集合，并通过一系列快照来管理其历史记录。在Git的术语里，文件被称作Blob对象（数据对象），也就是一组数据。目录则被称之为“树”，它将名字与 Blob 对象或树对象进行映射（使得目录中可以包含其他目录）。快照则是被追踪的最顶层的树。例如，一个树看起来可能是这样的：
 
-```
+```bash
 <root> (tree)
 |
 +- foo (tree)
@@ -51,7 +51,7 @@ Git 将顶级目录中的文件和文件夹作为集合，并通过一系列快�
 
 这个顶层的树包含了两个元素，一个名为 "foo" 的树（它本身包含了一个blob对象 "bar.txt"），以及一个 blob 对象 "baz.txt"。
 
-## 历史记录建模：关联快照
+### 历史记录建模：关联快照
 
 版本控制系统和快照有什么关系呢？线性历史记录是一种最简单的模型，它包含了一组按照时间顺序线性排列的快照。不过出于种种原因，Git 并没有采用这样的模型。
 
@@ -59,9 +59,9 @@ Git 将顶级目录中的文件和文件夹作为集合，并通过一系列快�
 
 在 Git 中，这些快照被称为“提交”。通过可视化的方式来表示这些历史提交记录时，看起来差不多是这样的：
 
-```
+```plaintext
 o <-- o <-- o <-- o
-            ^  
+            ^
              \
               --- o <-- o
 ```
@@ -81,11 +81,11 @@ o <-- o <-- o <-- o <---- <strong>o</strong>
 
 Git 中的提交是不可改变的。但这并不代表错误不能被修改，只不过这种“修改”实际上是创建了一个全新的提交记录。而引用（参见下文）则被更新为指向这些新的提交。
 
-## 数据模型及其伪代码表示
+### 数据模型及其伪代码表示
 
 以伪代码的形式来学习 Git 的数据模型，可能更加清晰：
 
-```
+```c
 // 文件就是一组数据
 type blob = array<byte>
 
@@ -103,18 +103,17 @@ type commit = struct {
 
 这是一种简洁的历史模型。
 
-
-## 对象和内存寻址
+### 对象和内存寻址
 
 Git 中的对象可以是 blob、树或提交：
 
-```
+```c
 type object = blob | tree | commit
 ```
 
 Git 在储存数据时，所有的对象都会基于它们的 [SHA-1 哈希](https://en.wikipedia.org/wiki/SHA-1) 进行寻址。
 
-```
+```c
 objects = map<string, object>
 
 def store(object):
@@ -127,9 +126,9 @@ def load(id):
 
 Blobs、树和提交都一样，它们都是对象。当它们引用其他对象时，它们并没有真正的在硬盘上保存这些对象，而是仅仅保存了它们的哈希值作为引用。
 
-例如，[上面](#snapshots)例子中的树（可以通过 `git cat-file -p 698281bc680d1995c5f4caaf3359721a5a58d48d` 来进行可视化），看上去是这样的：
+例如，[上面](#快照)例子中的树（可以通过 `git cat-file -p 698281bc680d1995c5f4caaf3359721a5a58d48d` 来进行可视化），看上去是这样的：
 
-```
+```bash
 100644 blob 4448adbf7ecd394f42ae135bbeed9676e894af85    baz.txt
 040000 tree c68d233a33c5c06e0340e4c224f0afca87c8ce87    foo
 ```
@@ -137,17 +136,17 @@ Blobs、树和提交都一样，它们都是对象。当它们引用其他对象
 树本身会包含一些指向其他内容的指针，例如 `baz.txt` (blob) 和 `foo`
 (树)。如果我们用 `git cat-file -p 4448adbf7ecd394f42ae135bbeed9676e894af85`，即通过哈希值查看 baz.txt 的内容，会得到以下信息：
 
-```
+```bash
 git is wonderful
 ```
 
-## 引用
+### 引用
 
 现在，所有的快照都可以通过它们的 SHA-1 哈希值来标记了。但这也太不方便了，谁也记不住一串 40 位的十六进制字符。
 
 针对这一问题，Git 的解决方法是给这些哈希值赋予人类可读的名字，也就是引用（references）。引用是指向提交的指针。与对象不同的是，它是可变的（引用可以被更新，指向新的提交）。例如，`master` 引用通常会指向主分支的最新一次提交。
 
-```
+```c
 references = map<string, string>
 
 def update_reference(name, id):
@@ -167,7 +166,7 @@ def load_reference(name_or_id):
 
 有一个细节需要我们注意， 通常情况下，我们会想要知道“我们当前所在位置”，并将其标记下来。这样当我们创建新的快照的时候，我们就可以知道它的相对位置（如何设置它的“父辈”）。在 Git 中，我们当前的位置有一个特殊的索引，它就是 "HEAD"。
 
-## 仓库
+### 仓库
 
 最后，我们可以粗略地给出 Git 仓库的定义了：`对象` 和 `引用`。
 
@@ -175,7 +174,7 @@ def load_reference(name_or_id):
 
 当您输入某个指令时，请思考一下这条命令是如何对底层的图数据结构进行操作的。另一方面，如果您希望修改提交树，例如“丢弃未提交的修改和将 ‘master’ 引用指向提交 `5d83f9e` 时，有什么命令可以完成该操作（针对这个具体问题，您可以使用 `git checkout master; git reset --hard 5d83f9e`）
 
-# 暂存区
+## 暂存区
 
 Git 中还包括一个和数据模型完全不相关的概念，但它确是创建提交的接口的一部分。
 
@@ -183,17 +182,14 @@ Git 中还包括一个和数据模型完全不相关的概念，但它确是创�
 
 Git 处理这些场景的方法是使用一种叫做 “暂存区（staging area）”的机制，它允许您指定下次快照中要包括那些改动。
 
-# Git 的命令行接口
+## Git 的命令行接口
 
 为了避免重复信息，我们将不会详细解释以下命令行。强烈推荐您阅读 [Pro Git 中文版](https://git-scm.com/book/zh/v2)或可以观看本讲座的视频来学习。
 
-
-## 基础
-
+### 基础
+<!-- 
 {% comment %}
-
-The `git init` command initializes a new Git repository, with repository
-metadata being stored in the `.git` directory:
+`git init`命令初始化一个新的Git仓库，将仓库元数据存储在`.git`目录中：
 
 ```console
 $ mkdir myproject
@@ -208,8 +204,7 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-How do we interpret this output? "No commits yet" basically means our version
-history is empty. Let's fix that.
+我们如何解释这个输出？"No commits yet"基本上意味着我们的版本历史是空的。让我们解决这个问题。
 
 ```console
 $ echo "hello, git" > hello.txt
@@ -230,20 +225,11 @@ $ git commit -m 'Initial commit'
  create mode 100644 hello.txt
 ```
 
-With this, we've `git add`ed a file to the staging area, and then `git
-commit`ed that change, adding a simple commit message "Initial commit". If we
-didn't specify a `-m` option, Git would open our text editor to allow us type a
-commit message.
+通过这个示例，我们使用`git add`将文件添加到暂存区，然后使用`git commit`提交了这个更改，添加了一个简单的提交消息"Initial commit"。如果我们没有指定`-m`选项，Git会打开我们的文本编辑器，让我们输入提交消息。
 
-Now that we have a non-empty version history, we can visualize the history.
-Visualizing the history as a DAG can be especially helpful in understanding the
-current status of the repo and connecting it with your understanding of the Git
-data model.
+现在我们有了一个非空的版本历史，我们可以将历史可视化。将历史可视化为有向无环图（DAG）在理解仓库的当前状态并将其与您对Git数据模型的理解相连接方面特别有帮助。
 
-The `git log` command visualizes history. By default, it shows a flattened
-version, which hides the graph structure. If you use a command like `git log
---all --graph --decorate`, it will show you the full version history of the
-repository, visualized in graph form.
+`git log`命令用于可视化历史。默认情况下，它显示一个扁平化版本，隐藏了图形结构。如果您使用像`git log --all --graph --decorate`这样的命令，它将以图形形式显示仓库的完整版本历史。
 
 ```console
 $ git log --all --graph --decorate
@@ -254,9 +240,7 @@ $ git log --all --graph --decorate
       Initial commit
 ```
 
-This doesn't look all that graph-like, because it only contains a single node.
-Let's make some more changes, author a new commit, and visualize the history
-once more.
+这看起来不太像图形，因为它只包含一个节点。让我们进行更多更改，创建一个新的提交，并再次可视化历史。
 
 ```console
 $ echo "another line" >> hello.txt
@@ -282,9 +266,9 @@ $ git commit -m 'Add a line'
  1 file changed, 1 insertion(+)
 ```
 
-Now, if we visualize the history again, we'll see some of the graph structure:
+现在，如果我们再次可视化历史，我们将看到一些图形结构：
 
-```
+```console
 * commit 35f60a825be0106036dd2fbc7657598eb7b04c67 (HEAD -> master)
 | Author: Missing Semester <missing-semester@mit.edu>
 | Date:   Tue Jan 21 22:26:20 2020 -0500
@@ -298,13 +282,12 @@ Now, if we visualize the history again, we'll see some of the graph structure:
       Initial commit
 ```
 
-Also, note that it shows the current HEAD, along with the current branch
-(master).
+还要注意，它显示了当前HEAD以及当前分支（master）。
 
-We can look at old versions using the `git checkout` command.
+我们可以使用`git checkout`命令查看旧版本。
 
 ```console
-$ git checkout 4515d17  # previous commit hash; yours will be different
+$ git checkout 4515d17  # 先前的提交哈希；您的哈希将不同
 Note: checking out '4515d17'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -327,8 +310,7 @@ hello, git
 another line
 ```
 
-Git can show you how files have evolved (differences, or diffs) using the `git
-diff` command:
+Git可以使用`git diff`命令显示文件如何演变（差异）：
 
 ```console
 $ git diff 4515d17 hello.txt
@@ -341,7 +323,7 @@ index 94bab17..f0013b2 100644
  +another line
 ```
 
-{% endcomment %}
+{% endcomment %} -->
 
 - `git help <command>`: 获取 git 命令的帮助信息
 - `git init`: 创建一个新的 git 仓库，其数据会存放在一个名为 `.git` 的目录下
@@ -356,20 +338,15 @@ index 94bab17..f0013b2 100644
 - `git diff <revision> <filename>`: 显示某个文件两个版本之间的差异
 - `git checkout <revision>`: 更新 HEAD 和目前的分支
 
-## 分支和合并
+### 分支和合并
 
-{% comment %}
+<!-- {% comment %}
 
-Branching allows you to "fork" version history. It can be helpful for working
-on independent features or bug fixes in parallel. The `git branch` command can
-be used to create new branches; `git checkout -b <branch name>` creates and
-branch and checks it out.
+分支允许您“复刻”（fork）版本历史。这对于同时处理独立的功能或错误修复非常有帮助。`git branch`命令可用于创建新分支；`git checkout -b <branch name>`创建并切换到新分支。
 
-Merging is the opposite of branching: it allows you to combine forked version
-histories, e.g. merging a feature branch back into master. The `git merge`
-command is used for merging.
+合并是分支的相反操作：它允许您合并分叉的版本历史，例如将特性分支合并回主分支。`git merge`命令用于合并。
 
-{% endcomment %}
+{% endcomment %} -->
 
 - `git branch`: 显示分支
 - `git branch <name>`: 创建分支
@@ -379,7 +356,7 @@ command is used for merging.
 - `git mergetool`: 使用工具来处理合并冲突
 - `git rebase`: 将一系列补丁变基（rebase）为新的基线
 
-## 远端操作
+### 远端操作
 
 - `git remote`: 列出远端
 - `git remote add <name> <url>`: 添加一个远端
@@ -389,14 +366,14 @@ command is used for merging.
 - `git pull`: 相当于 `git fetch; git merge`
 - `git clone`: 从远端下载仓库
 
-## 撤销
+### 撤销
 
 - `git commit --amend`: 编辑提交的内容或信息
 - `git reset HEAD <file>`: 恢复暂存的文件
 - `git checkout -- <file>`: 丢弃修改
 - `git restore`: git2.32版本后取代git reset 进行许多撤销操作
 
-# Git 高级操作
+## Git 高级操作
 
 - `git config`: Git 是一个 [高度可定制的](https://git-scm.com/docs/git-config) 工具
 - `git clone --depth=1`: 浅克隆（shallow clone），不包括完整的版本历史信息
@@ -407,7 +384,7 @@ command is used for merging.
 - `git bisect`: 通过二分查找搜索历史记录
 - `.gitignore`: [指定](https://git-scm.com/docs/gitignore) 故意不追踪的文件
 
-# 杂项
+## 杂项
 
 - **图形用户界面**: Git 的 [图形用户界面客户端](https://git-scm.com/downloads/guis) 有很多，但是我们自己并不使用这些图形用户界面的客户端，我们选择使用命令行接口
 - **Shell 集成**: 将 Git 状态集成到您的 shell 中会非常方便。([zsh](https://github.com/olivierverdier/zsh-git-prompt), [bash](https://github.com/magicmonty/bash-git-prompt))。[Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)这样的框架中一般以及集成了这一功能
@@ -419,7 +396,7 @@ command is used for merging.
 - **GitHub**: Git 并不等同于 GitHub。 在 GitHub 中您需要使用一个被称作[拉取请求（pull request）](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)的方法来向其他项目贡献代码
 - **其他 Git 提供商**: GitHub 并不是唯一的。还有像 [GitLab](https://about.gitlab.com/) 和 [BitBucket](https://bitbucket.org/) 这样的平台。
 
-# 资源
+## 资源
 
 - [Pro Git](https://git-scm.com/book/en/v2) ，**强烈推荐**！学习前五章的内容可以教会您流畅使用 Git 的绝大多数技巧，因为您已经理解了 Git 的数据模型。后面的章节提供了很多有趣的高级主题。（[Pro Git 中文版](https://git-scm.com/book/zh/v2)）；
 - [Oh Shit, Git!?!](https://ohshitgit.com/) ，简短的介绍了如何从 Git 错误中恢复；
@@ -428,8 +405,7 @@ command is used for merging.
 - [How to explain git in simple words](https://smusamashah.github.io/blog/2017/10/14/explain-git-in-simple-words)；
 - [Learn Git Branching](https://learngitbranching.js.org/) 通过基于浏览器的游戏来学习 Git ；
 
-
-# 课后练习
+## 课后练习
 
 [习题解答](solutions/version-control-solution.md)
 

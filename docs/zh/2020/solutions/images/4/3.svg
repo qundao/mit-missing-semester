@@ -40,7 +40,7 @@
 </defs>
 
 <rect class="background" width="100%" height="100%" />
-<text x="20" y="50">Startup finished in 1.766s (kernel) + 12.390s (userspace) = 14.157s 
+<text x="20" y="50">Startup finished in 1.766s (kernel) + 12.390s (userspace) = 14.157s
 graphical.target reached after 12.311s in userspace</text><text x="20" y="30">Raspbian GNU/Linux 10 (buster) raspberrypi (Linux 5.4.83-v7l+ #1379 SMP Mon Dec 14 13:11:54 GMT 2020) arm </text><g transform="translate(20.000,100)">
 <rect class="box" x="0" y="0" width="1415.707" height="3700.000" />
   <line class="sec5" x1="0.000" y1="0" x2="0.000" y2="3700.000" />

@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "OS Customization"
+title: "操作系统自定义"
 presenter: Anish
 video:
   aspect: 62.5

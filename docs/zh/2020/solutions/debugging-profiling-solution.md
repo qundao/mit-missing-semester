@@ -7,6 +7,7 @@ index: 7
 
 
 ## 1. 调试
+
 1. 使用 Linux 上的 `journalctl` 或 macOS 上的 `log show` 命令来获取最近一天中超级用户的登录信息及其所执行的指令。如果找不到相关信息，您可以执行一些无害的命令，例如`sudo ls` 然后再次查看。
     这里我在树莓派上查询相关日志
     ```bash
@@ -23,9 +24,10 @@ index: 7
     ```
     log show --last 1h | grep sudo
     ```
+
 1. 学习 [这份](https://github.com/spiside/pdb-tutorial) `pdb` 实践教程并熟悉相关的命令。更深入的信息您可以参考[这份](https://realpython.com/python-debugging-pdb)教程。
 
-2. 安装 [`shellcheck`](https://www.shellcheck.net/) 并尝试对下面的脚本进行检查。这段代码有什么问题吗？请修复相关问题。在您的编辑器中安装一个linter插件，这样它就可以自动地显示相关警告信息。
+1. 安装 [`shellcheck`](https://www.shellcheck.net/) 并尝试对下面的脚本进行检查。这段代码有什么问题吗？请修复相关问题。在您的编辑器中安装一个linter插件，这样它就可以自动地显示相关警告信息。
    ```bash
    #!/bin/sh
    ## Example: a typical script with several problems
@@ -47,7 +49,7 @@ index: 7
     在需要检查的 shell 脚本中，执行`:Neomake` 即可进行 shellcheck 检查。然后光标移动到对应行时可以看到告警或错误。
     ![1.png](images/7/3.png)
 
-3. (进阶题) 请阅读 [可逆调试](https://undo.io/resources/reverse-debugging-whitepaper/) 并尝试创建一个可以工作的例子（使用 [`rr`](https://rr-project.org/) 或 [`RevPDB`](https://morepypy.blogspot.com/2016/07/reverse-debugging-for-python.html)）。
+1. (进阶题) 请阅读 [可逆调试](https://undo.io/resources/reverse-debugging-whitepaper/) 并尝试创建一个可以工作的例子（使用 [`rr`](https://rr-project.org/) 或 [`RevPDB`](https://morepypy.blogspot.com/2016/07/reverse-debugging-for-python.html)）。
 
     此例主要参考了[debug-c-and-c++-programs-with-rr](https://developers.redhat.com/blog/2021/05/03/instant-replay-debugging-c-and-c-programs-with-rr#requirements_and_setup)，使用的代码是[demo.c](demoCode/7/demo.c)
     ```shell
@@ -62,7 +64,7 @@ index: 7
     f(2)=0
     f(3)=0
     # 预期输出结果为[0, 2, 4, 6]
-    ```                                                     
+    ```
     ```shell
     # -n选项：输出./demo的运行结果
     ~/debug $ sudo rr record -n ./demo
@@ -85,8 +87,8 @@ index: 7
 
     Breakpoint 1, multiply (a=0x5568214cb018 <stru> "", size=4, num=0) at demorr.c:16
     16              for (i=0; i<size; i++)
-    ```         
-	- 注意到multiply中传入num的值为 0,正常应该是stru.num的初始值 2，使用watch来查看stru.num的值什么时候被改变的。 
+    ```
+	- 注意到multiply中传入num的值为 0,正常应该是stru.num的初始值 2，使用watch来查看stru.num的值什么时候被改变的。
 
     ```shell
     (rr) watch -l stru.num
@@ -184,7 +186,7 @@ index: 7
         20     25801      45248.0      1.8      3.4          array[j+1] = v
         21      1000       1503.0      1.5      0.1      return array
     ```
-    插入排序的耗时更高一些。快速排序的瓶颈在于 `left`和 `right`的赋值，而插入排序的瓶颈在`while`循环。  
+    插入排序的耗时更高一些。快速排序的瓶颈在于 `left`和 `right`的赋值，而插入排序的瓶颈在`while`循环。
     使用 `memory_profiler`进行分析，需要安装：
 
     ```bash
@@ -261,7 +263,7 @@ index: 7
     - 遗憾的是，按照上面的方法使用`memory_profiler`给出的结果无法作为这三种排序算法内存消耗对比的依据（从我自己运行的结果来看，insertionsort的43.301MiB甚至还大于quicksort的43.195MiB，与预期结果相反!!）
     - 另外，观察三组结果中，函数的每一行的`Increment`（即执行该行所导致的内存占用的增减变化）均为 0！这是由于test_sorted用于测试的list太小了，长度仅为1～50，导致排序算法中每一行创建的变量内存占用也很小。如果直接使用一个长度为2000的list来测试：`l = [random.randint(0,10000) for i in range(0, 2000)]`，会发现quicksort函数的`Left`或`Right`行的`Increment`数据不为 0（创建的list占用内存较大了）。与此同时，用该list测试insertionsort函数时，发现耗用时间较长。
     - 参考[python-profiling-memory-profiling](https://alexisalulema.com/2022/08/07/python-profiling-memory-profiling-part-3-final/)这篇文章，使用一个长度为 10 000的list测试冒泡排序的内存消耗，需要将近30分钟才输出结果。（使用memory_profiler要权衡时间与效率）
-    
+
     使用perf检查每个算法的循环次数、缓存命中和丢失：
     - insertionsort的结果
 
@@ -272,8 +274,8 @@ index: 7
 
     Performance counter stats for 'python3 sorts.py':
 
-        187,253,954      cycles                                                  
-            5,023,695      cache-references                                        
+        187,253,954      cycles
+            5,023,695      cache-references
             891,768      cache-misses              #   17.751 % of all cache refs
 
         0.099464106 seconds time elapsed
@@ -290,8 +292,8 @@ index: 7
 
     Performance counter stats for 'python3 sorts.py':
 
-        192,741,421      cycles                                                  
-            6,843,630      cache-references                                        
+        192,741,421      cycles
+            6,843,630      cache-references
             898,594      cache-misses              #   13.130 % of all cache refs
 
         0.057831555 seconds time elapsed
@@ -308,15 +310,15 @@ index: 7
 
     Performance counter stats for 'python3 sorts.py':
 
-        179,221,185      cycles                                                  
-            5,700,092      cache-references                                        
+        179,221,185      cycles
+            5,700,092      cache-references
             892,157      cache-misses              #   15.652 % of all cache refs
 
         0.097429528 seconds time elapsed
 
         0.089351000 seconds user
         0.008122000 seconds sys
-    ```    
+    ```
 
 1. 这里有一些用于计算斐波那契数列 Python 代码，它为计算每个数字都定义了一个函数：
    ```python
@@ -352,10 +354,10 @@ index: 7
    ```
    不过生成的图片里面会包含很多不相关的内容。
 
-2. 我们经常会遇到的情况是某个我们希望去监听的端口已经被其他进程占用了。让我们通过进程的PID查找相应的进程。首先执行 `python -m http.server 4444` 启动一个最简单的 web 服务器来监听 `4444` 端口。在另外一个终端中，执行 `lsof | grep LISTEN` 打印出所有监听端口的进程及相应的端口。找到对应的 PID 然后使用 `kill <PID>` 停止该进程。  
+2. 我们经常会遇到的情况是某个我们希望去监听的端口已经被其他进程占用了。让我们通过进程的PID查找相应的进程。首先执行 `python -m http.server 4444` 启动一个最简单的 web 服务器来监听 `4444` 端口。在另外一个终端中，执行 `lsof | grep LISTEN` 打印出所有监听端口的进程及相应的端口。找到对应的 PID 然后使用 `kill <PID>` 停止该进程。
       ![1.png](images/7/6.png)
 
-3. 限制进程资源也是一个非常有用的技术。执行 `stress -c 3` 并使用`htop` 对 CPU 消耗进行可视化。现在，执行`taskset --cpu-list 0,2 stress -c 3` 并可视化。`stress` 占用了3个 CPU 吗？为什么没有？阅读[`man taskset`](http://man7.org/linux/man-pages/man1/taskset.1.html)来寻找答案。附加题：使用 [`cgroups`](http://man7.org/linux/man-pages/man7/cgroups.7.html)来实现相同的操作，限制`stress -m`的内存使用。  
+3. 限制进程资源也是一个非常有用的技术。执行 `stress -c 3` 并使用`htop` 对 CPU 消耗进行可视化。现在，执行`taskset --cpu-list 0,2 stress -c 3` 并可视化。`stress` 占用了3个 CPU 吗？为什么没有？阅读[`man taskset`](http://man7.org/linux/man-pages/man1/taskset.1.html)来寻找答案。附加题：使用 [`cgroups`](http://man7.org/linux/man-pages/man7/cgroups.7.html)来实现相同的操作，限制`stress -m`的内存使用。
     首先是设备正常运行状态下的资源占用情况：
     ![1.png](images/7/7.png)
     创建负载：
@@ -368,12 +370,12 @@ index: 7
     taskset --cpu-list 0,2 stress -c 3
     ```
     ![1.png](images/7/9.png)
-    taskset 命令可以将任务绑定到指定CPU核心。  
+    taskset 命令可以将任务绑定到指定CPU核心。
     ![1.png](images/7/10.png)
     接下来看`cgroups`是如何工作的，我参考了两篇文章：
     - [Linux资源管理之cgroups简介](https://tech.meituan.com/2015/03/31/cgroups.html)
     - [Linux-insidesControl Groups](https://0xax.gitbooks.io/linux-insides/content/Cgroups/linux-cgroups-1.html)    ß
-    
+
     首先我们看一下如何创建内存负载，这里创建 3 个 worker 来不停的申请释放 512M 内存：
     ```bash
     stress -m 3 --vm-bytes 512M
@@ -399,7 +401,7 @@ index: 7
     ```
     我在树莓派上出现了不能挂载的情况，此时需要修改 `boot.cmdline.txt`，添加：
     ```
-    cgroup_enable=memory  cgroup_memory=1 
+    cgroup_enable=memory  cgroup_memory=1
     ```
     然后重启，再次查看
     ```bash
@@ -429,16 +431,16 @@ index: 7
     stress: FAIL: [832] (451) failed run completed in 5s
     ```
     执行失败。
-    ![1.png](images/7/12.png)  
+    ![1.png](images/7/12.png)
     如果是申请 1M 内存，则可以成功运行：
     ```bash
     cgexec -g memory:cgroup_test_group stress -m 3 --vm-bytes 1M
     ```
-    ![1.png](images/7/13.png)  
+    ![1.png](images/7/13.png)
     下面是使用cgroupV2限制stress命令内存的示例：
 
     比较新版本的Ubuntu默认安装`cgroup v2`，可以参考[Ubuntu激活cgroupv2](https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/ubuntu_linux/cgroup/enable_cgroup_v2_ubuntu_20.04.html)。下面，将使用cgroupv2实现限制进程内存消耗的操作，更多信息可参考[详解CgroupV2](https://zorrozou.github.io/docs/%E8%AF%A6%E8%A7%A3Cgroup%20V2.html)。
-    
+
     设置，使用cgroup2
     ```shell
     ~ $ grep cgroup /proc/filesystems
@@ -522,5 +524,5 @@ index: 7
     ```
 4. (进阶题) `curl ipinfo.io` 命令或执行 HTTP 请求并获取关于您 IP 的信息。打开 [Wireshark](https://www.wireshark.org/) 并抓取 `curl` 发起的请求和收到的回复报文。（提示：可以使用`http`进行过滤，只显示 HTTP 报文）
     这里我使用的是`curl www.baidu.com`，请求百度的首页并过滤了除 HTTP 之外的其他报文：
-    ![1.png](images/7/14.png)  
-    ![1.png](images/7/15.png)  
+    ![1.png](images/7/14.png)
+    ![1.png](images/7/15.png)

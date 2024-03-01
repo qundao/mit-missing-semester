@@ -41,7 +41,6 @@ ssh myserver 'journalctl | grep sshd | grep "Disconnected from"' | less
 
 多出来的引号是什么作用呢？这么说吧，我们的日志是一个非常大的文件，把这么大的文件流直接传输到我们本地的电脑上再进行过滤是对流量的一种浪费。因此我们采取另外一种方式，我们先在远端机器上过滤文本内容，然后再将结果传输到本机。 `less` 为我们创建来一个文件分页器，使我们可以通过翻页的方式浏览较长的文本。为了进一步节省流量，我们甚至可以将当前过滤出的日志保存到文件中，这样后续就不需要再次通过网络访问该文件了：
 
-
 ```console
 $ ssh myserver 'journalctl | grep sshd | grep "Disconnected from"' > ssh.log
 $ less ssh.log
@@ -102,7 +101,6 @@ perl -pe 's/.*?Disconnected from //'
 ```
 让我们借助正则表达式在线调试工具[regex debugger](https://regex101.com/r/qqbZqh/2) 来理解这段表达式。OK，开始的部分和以前是一样的，随后，我们匹配两种类型的“user”（在日志中基于两种前缀区分）。再然后我们匹配属于用户名的所有字符。接着，再匹配任意一个单词（`[^ ]+` 会匹配任意非空且不包含空格的序列）。紧接着后面匹配单“port”和它后面的一串数字，以及可能存在的后缀`[preauth]`，最后再匹配行尾。
 
-
 注意，这样做的话，即使用户名是“Disconnected from”，对匹配结果也不会有任何影响，您知道这是为什么吗？
 
 问题还没有完全解决，日志的内容全部被替换成了空字符串，整个日志的内容因此都被删除了。我们实际上希望能够将用户名*保留*下来。对此，我们可以使用“捕获组（capture groups）”来完成。被圆括号内的正则表达式匹配到的文本，都会被存入一系列以编号区分的捕获组中。捕获组的内容可以在替换字符串时使用（有些正则表达式的引擎甚至支持替换表达式本身），例如`\1`、 `\2`、`\3`等等，因此可以使用如下命令：
@@ -112,7 +110,6 @@ perl -pe 's/.*?Disconnected from //'
 ```
 
 想必您已经意识到了，为了完成某种匹配，我们最终可能会写出非常复杂的正则表达式。例如，这里有一篇关于如何匹配电子邮箱地址的文章[e-mail address](https://www.regular-expressions.info/email.html)，匹配电子邮箱可一点[也不简单](https://emailregex.com/)。网络上还有很多关于如何匹配电子邮箱地址的[讨论](https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression/1917982)。人们还为其编写了[测试用例](https://fightingforalostcause.net/content/misc/2006/compare-email-regex.php)及 [测试矩阵](https://mathiasbynens.be/demo/url-regex)。您甚至可以编写一个用于判断一个数[是否为质数](https://www.noulakaz.net/2007/03/18/a-regular-expression-to-check-for-prime-numbers/)的正则表达式。
-
 
 正则表达式是出了名的难以写对，但是它仍然会是您强大的常备工具之一。
 
@@ -155,9 +152,7 @@ ssh myserver journalctl
 
 如果我们希望得到登录次数最少的用户，我们可以使用 `head` 来代替`tail`。或者使用`sort -r`来进行倒序排序。
 
-
 相当不错。但我们只想获取用户名，而且不要一行一个地显示。
-
 
 ```bash
 ssh myserver journalctl
@@ -173,7 +168,7 @@ ssh myserver journalctl
 
 我们可以利用 `paste`命令来合并行(`-s`)，并指定一个分隔符进行分割 (`-d`)，那`awk`的作用又是什么呢？
 
-## awk -- 另外一种编辑器
+## awk——另外一种编辑器
 
 `awk` 其实是一种编程语言，只不过它碰巧非常善于处理文本。关于 `awk` 可以介绍的内容太多了，限于篇幅，这里我们仅介绍一些基础知识。
 
@@ -188,7 +183,7 @@ ssh myserver journalctl
 
 让我们好好分析一下。首先，注意这次我们为 `awk`指定了一个匹配模式串（也就是`{...}`前面的那部分内容）。该匹配要求文本的第一部分需要等于1（这部分刚好是`uniq -c`得到的计数值），然后其第二部分必须满足给定的一个正则表达式。代码块中的内容则表示打印用户名。然后我们使用 `wc -l` 统计输出结果的行数。
 
-不过，既然 `awk` 是一种编程语言，那么则可以这样： 
+不过，既然 `awk` 是一种编程语言，那么则可以这样：
 
 ```awk
 BEGIN { rows = 0 }
@@ -196,9 +191,7 @@ $1 == 1 && $2 ~ /^c[^ ]*e$/ { rows += $1 }
 END { print rows }
 ```
 
-
 `BEGIN` 也是一种模式，它会匹配输入的开头（ `END` 则匹配结尾）。然后，对每一行第一个部分进行累加，最后将结果输出。事实上，我们完全可以抛弃 `grep` 和 `sed` ，因为 `awk` 就可以[解决所有问题](https://backreference.org/2010/02/10/idiomatic-awk)。至于怎么做，就留给读者们做课后练习吧。
-
 
 ## 分析数据
 
@@ -215,7 +208,6 @@ echo "2*($(data | paste -sd+))" | bc -l
 ```
 
 您可以通过多种方式获取统计数据。如果已经安装了R语言，[`st`](https://github.com/nferraz/st)是个不错的选择：
-
 
 ```bash
 ssh myserver journalctl
@@ -244,7 +236,6 @@ ssh myserver journalctl
 
 有时候您要利用数据整理技术从一长串列表里找出你所需要安装或移除的东西。我们之前讨论的相关技术配合 `xargs` 即可实现：
 
-
 ```bash
 rustup toolchain list | grep nightly | grep -vE "nightly-x86" | sed 's/-x86.*//' | xargs rustup toolchain uninstall
 ```
@@ -260,15 +251,14 @@ ffmpeg -loglevel panic -i /dev/video0 -frames 1 -f image2 -
  | ssh mymachine 'gzip -d | tee copy.jpg | env DISPLAY=:0 feh -'
 ```
 
-# 课后练习
-[习题解答](solutions/data-wrangling-solution.md)
+## 课后练习
 
+[习题解答](solutions/data-wrangling-solution.md)
 
 1. 学习一下这篇简短的 [交互式正则表达式教程](https://regexone.com/).
 2. 统计words文件 (`/usr/share/dict/words`) 中包含至少三个`a` 且不以`'s` 结尾的单词个数。这些单词中，出现频率前三的末尾两个字母是什么？ `sed`的 `y`命令，或者 `tr` 程序也许可以帮你解决大小写的问题。共存在多少种词尾两字母组合？还有一个很 有挑战性的问题：哪个组合从未出现过？
 3. 进行原地替换听上去很有诱惑力，例如：
    `sed s/REGEX/SUBSTITUTION/ input.txt > input.txt`。但是这并不是一个明智的做法，为什么呢？还是说只有 `sed`是这样的? 查看 `man sed` 来完成这个问题
-
 4. 找出您最近十次开机的开机时间平均数、中位数和最长时间。在Linux上需要用到 `journalctl` ，而在 macOS 上使用 `log show`。找到每次起到开始和结束时的时间戳。在Linux上类似这样操作：
    ```
    Logs begin at ...
@@ -278,7 +268,6 @@ ffmpeg -loglevel panic -i /dev/video0 -frames 1 -f image2 -
    systemd[577]: Startup finished in ...
    ```
    在 macOS 上, [查找](https://eclecticlight.co/2018/03/21/macos-unified-log-3-finding-your-way/):
-
    ```
    === system boot:
    ```

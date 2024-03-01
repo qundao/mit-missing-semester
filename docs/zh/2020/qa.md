@@ -12,7 +12,6 @@ video:
 
 最后一节课，我们回答学生提出的问题:
 
-
 - [学习操作系统相关内容的推荐，比如进程，虚拟内存，中断，内存管理等](#学习操作系统相关内容的推荐比如进程虚拟内存中断内存管理等)
 - [你会优先学习的工具有那些？](#你会优先学习的工具有那些)
 - [使用 Python VS Bash脚本 VS 其他语言?](#使用-python-vs-bash脚本-vs-其他语言)
@@ -30,10 +29,7 @@ video:
 - [2FA是什么，为什么我需要使用它?](#2fa是什么为什么我需要使用它)
 - [对于不同的 Web 浏览器有什么评价?](#对于不同的-web-浏览器有什么评价)
 
-
 ## 学习操作系统相关内容的推荐，比如进程，虚拟内存，中断，内存管理等
-
-
 
 首先，不清楚你是不是真的需要了解这些更底层的话题。
 当你开始编写更加底层的代码，比如实现或修改内核的时候，这些内容是很重要的。除了其他课程中简要介绍过的进程和信号量之外，大部分话题都不相关。
@@ -44,7 +40,6 @@ video:
 - 现代操作系统 第四版（*Modern Operating Systems 4th ed*） - 作者是Andrew S. Tanenbaum 这本书对上述很多概念都有很好的描述。
 - FreeBSD的设计与实现（*The Design and Implementation of the FreeBSD Operating System*） - 关于FreeBSD OS 不错的资源(注意，FreeBSD OS 不是 Linux)。
 - 其他的指南例如 [用 Rust 写操作系统](https://os.phil-opp.com/) 这里用不同的语言逐步实现了内核，主要用于教学的目的。
-
 
 ## 你会优先学习的工具有那些？
 
@@ -113,13 +108,13 @@ video:
 
 有时，代码中最慢的部分是系统等待磁盘读取或网络数据包之类的事件。在这些情况下，需要检查根据硬件性能估算的理论速度是否不偏离实际数值，也有专门的工具来分析系统调用中的等待时间，包括用于用户程序内核跟踪的[eBPF](http://www.brendangregg.com/blog/2019-01-01/learn-ebpf-tracing.html) 。如果需要低级的性能分析，[ `bpftrace` ](https://github.com/iovisor/bpftrace) 值得一试。
 
-
 ## 你使用那些浏览器插件?
 
 我们钟爱的插件主要与安全性与可用性有关：
-- [uBlock Origin](https://github.com/gorhill/uBlock) - 是一个[用途广泛（wide-spectrum）](https://github.com/gorhill/uBlock/wiki/Blocking-mode)的拦截器，它不仅可以拦截广告，还可以拦截第三方的页面，也可以拦截内部脚本和其他种类资源的加载。如果你打算花更多的时间去配置，前往[中等模式（medium mode）](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-medium-mode)或者 [强力模式（hard mode）](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-hard-mode)。在你调整好设置之前一些网站会停止工作，但是这些配置会显著提高你的网络安全水平。另外， [简易模式（easy mode）](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-easy-mode)作为默认模式已经相当不错了，可以拦截大部分的广告和跟踪，你也可以自定义规则来拦截网站对象。
-- [Stylus](https://github.com/openstyles/stylus/) - 是Stylish的分支（不要使用Stylish，它会[窃取浏览记录](https://www.theregister.co.uk/2018/07/05/browsers_pull_stylish_but_invasive_browser_extension/))），这个插件可让你将自定义CSS样式加载到网站。使用Stylus，你可以轻松地自定义和修改网站的外观。可以删除侧边框，更改背景颜色，更改文字大小或字体样式。这可以使你经常访问的网站更具可读性。此外，Stylus可以找到其他用户编写并发布在[userstyles.org](https://userstyles.org/)中的样式。大多数常用的网站都有一个或几个深色主题样式。
-- 全页屏幕捕获 - 内置于 [Firefox](https://screenshots.firefox.com/) 和 [ Chrome 扩展程序](https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl?hl=en)中。这些插件提供完整的网站截图，通常比打印要好用。
+
+- [uBlock Origin](https://github.com/gorhill/uBlock)——这是一个[用途广泛（wide-spectrum）](https://github.com/gorhill/uBlock/wiki/Blocking-mode)的拦截器，它不仅可以拦截广告，还可以拦截第三方的页面，也可以拦截内部脚本和其他种类资源的加载。如果你打算花更多的时间去配置，前往[中等模式（medium mode）](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-medium-mode)或者 [强力模式（hard mode）](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-hard-mode)。在你调整好设置之前一些网站会停止工作，但是这些配置会显著提高你的网络安全水平。另外， [简易模式（easy mode）](https://github.com/gorhill/uBlock/wiki/Blocking-mode:-easy-mode)作为默认模式已经相当不错了，可以拦截大部分的广告和跟踪，你也可以自定义规则来拦截网站对象。
+- [Stylus](https://github.com/openstyles/stylus/) - 是Stylish的分支（不要使用Stylish，它会[窃取浏览记录](https://www.theregister.co.uk/2018/07/05/browsers_pull_stylish_but_invasive_browser_extension/)），这个插件可让你将自定义CSS样式加载到网站。使用Stylus，你可以轻松地自定义和修改网站的外观。可以删除侧边框，更改背景颜色，更改文字大小或字体样式。这可以使你经常访问的网站更具可读性。此外，Stylus可以找到其他用户编写并发布在[userstyles.org](https://userstyles.org/)中的样式。大多数常用的网站都有一个或几个深色主题样式。
+- 全页屏幕捕获 - 内置于 [Firefox](https://screenshots.firefox.com/) 和 [Chrome 扩展程序](https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl?hl=en)中。这些插件提供完整的网站截图，通常比打印要好用。
 - [多账户容器](https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/) - 该插件使你可以将Cookie分为“容器”，从而允许你以不同的身份浏览web网页并且/或确保网站无法在它们之间共享信息。
 - 密码集成管理器 - 大多数密码管理器都有浏览器插件，这些插件帮你将登录凭据输入网站的过程不仅方便，而且更加安全。与简单复制粘贴用户名和密码相比，这些插件将首先检查网站域是否与列出的条目相匹配，以防止冒充网站的网络钓鱼窃取登录凭据。
 

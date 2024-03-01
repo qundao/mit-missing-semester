@@ -12,41 +12,47 @@ video:
 
 ## 目录
 
-- [修改键位映射](#%E4%BF%AE%E6%94%B9%E9%94%AE%E4%BD%8D%E6%98%A0%E5%B0%84)
-- [守护进程](#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B)
+- [目录](#目录)
+- [修改键位映射](#修改键位映射)
+- [守护进程](#守护进程)
 - [FUSE](#fuse)
-- [备份](#%E5%A4%87%E4%BB%BD)
-- [API（应用程序接口）](#API%EF%BC%88%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3%EF%BC%89)
-- [常见命令行标志参数及模式](#%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A0%87%E5%BF%97%E5%8F%82%E6%95%B0%E5%8F%8A%E6%A8%A1%E5%BC%8F)
-- [窗口管理器](#%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8)
+- [备份](#备份)
+- [API（应用程序接口）](#api应用程序接口)
+- [常见命令行标志参数及模式](#常见命令行标志参数及模式)
+- [窗口管理器](#窗口管理器)
 - [VPN](#vpn)
 - [Markdown](#markdown)
-- [Hammerspoon (macOS桌面自动化)](#Hammerspoon%20(macOS%E6%A1%8C%E9%9D%A2%E8%87%AA%E5%8A%A8%E5%8C%96))
-  - [资源](#%E8%B5%84%E6%BA%90)
-- [开机引导以及 Live USB](#%E5%BC%80%E6%9C%BA%E5%BC%95%E5%AF%BC%E4%BB%A5%E5%8F%8A%20Live%20USB)
+- [Hammerspoon (macOS 桌面自动化)](#hammerspoon-macos-桌面自动化)
+  - [资源](#资源)
+- [开机引导以及 Live USB](#开机引导以及-live-usb)
 - [Docker, Vagrant, VMs, Cloud, OpenStack](#docker-vagrant-vms-cloud-openstack)
-- [交互式记事本编程](#%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%AE%B0%E4%BA%8B%E6%9C%AC%E7%BC%96%E7%A8%8B)
+- [交互式记事本编程](#交互式记事本编程)
 - [GitHub](#github)
+
 
 ## 修改键位映射
 作为一名程序员，键盘是你的主要输入工具。它像计算机里的其他部件一样是可配置的，而且值得你在这上面花时间。
 
 一个很常见的配置是修改键位映射。通常这个功能由在计算机上运行的软件实现。当某一个按键被按下，软件截获键盘发出的按键事件（keypress event）并使用另外一个事件取代。比如：
+
 - 将 Caps Lock 映射为 Ctrl 或者 Escape：Caps Lock 使用了键盘上一个非常方便的位置而它的功能却很少被用到，所以我们（讲师）非常推荐这个修改；
 - 将 PrtSc 映射为播放/暂停：大部分操作系统支持播放/暂停键；
 - 交换 Ctrl 和 Meta 键（Windows 的徽标键或者 Mac 的 Command 键）。
 
 你也可以将键位映射为任意常用的指令。软件监听到特定的按键组合后会运行设定的脚本。
+
 - 打开一个新的终端或者浏览器窗口；
 - 输出特定的字符串，比如：一个超长邮件地址或者 MIT ID；
 - 使计算机或者显示器进入睡眠模式。
 
 甚至更复杂的修改也可以通过软件实现：
+
 - 映射按键顺序，比如：按 Shift 键五下切换大小写锁定；
 - 区别映射单点和长按，比如：单点 Caps Lock 映射为 Escape，而长按 Caps Lock 映射为 Ctrl；
 - 对不同的键盘或软件保存专用的映射配置。
 
 下面是一些修改键位映射的软件：
+
 - macOS - [karabiner-elements](https://pqrs.org/osx/karabiner/), [skhd](https://github.com/koekeishiya/skhd) 或者 [BetterTouchTool](https://folivora.ai/)
 - Linux - [xmodmap](https://wiki.archlinux.org/index.php/Xmodmap) 或者 [Autokey](https://github.com/autokey/autokey)
 - Windows - 控制面板，[AutoHotkey](https://www.autohotkey.com/) 或者 [SharpKeys](https://www.randyrants.com/category/sharpkeys/)
@@ -90,7 +96,6 @@ WantedBy=multi-user.target
 
 如果你只是想定期运行一些程序，可以直接使用 [`cron`](https://www.man7.org/linux/man-pages/man8/cron.8.html)。它是一个系统内置的，用来执行定期任务的守护进程。
 
-
 ## FUSE
 
 现在的软件系统一般由很多模块化的组件构建而成。你使用的操作系统可以通过一系列共同的方式使用不同的文件系统上的相似功能。比如当你使用 `touch` 命令创建文件的时候，`touch` 使用系统调用（system call）向内核发出请求。内核再根据文件系统，调用特有的方法来创建文件。这里的问题是，UNIX 文件系统在传统上是以内核模块的形式实现，导致只有内核可以进行文件系统相关的调用。
@@ -100,6 +105,7 @@ WantedBy=multi-user.target
 FUSE 可以用于实现如：一个将所有文件系统操作都使用 SSH 转发到远程主机，由远程主机处理后返回结果到本地计算机的虚拟文件系统。这个文件系统里的文件虽然存储在远程主机，对于本地计算机上的软件而言和存储在本地别无二致。`sshfs`就是一个实现了这种功能的 FUSE 文件系统。
 
 一些有趣的 FUSE 文件系统包括：
+
 - [sshfs](https://github.com/libfuse/sshfs)：使用 SSH 连接在本地打开远程主机上的文件
 - [rclone](https://rclone.org/commands/rclone_mount/)：将 Dropbox、Google Drive、Amazon S3、或者 Google Cloud Storage 一类的云存储服务挂载为本地文件系统
 - [gocryptfs](https://nuetzlich.net/gocryptfs/)：覆盖在加密文件上的文件系统。文件以加密形式保存在磁盘里，但该文件系统挂载后用户可以直接从挂载点访问文件的明文
@@ -119,7 +125,6 @@ FUSE 可以用于实现如：一个将所有文件系统操作都使用 SSH 转�
 备份不限制于备份在本地计算机上的文件。云端应用的重大发展使得我们很多的数据只存储在云端。当我们无法登录这些应用，在云端存储的网络邮件，社交网络上的照片，流媒体音乐播放列表，以及在线文档等等都会随之丢失。用户应该有这些数据的离线备份，而且已经有项目可以帮助下载并存储它们。
 
 如果想要了解更多具体内容，请参考本课程2019年关于备份的[课堂笔记](../../en/2019/backups.md)。
-
 
 ## API（应用程序接口）
 
@@ -146,7 +151,7 @@ FUSE 可以用于实现如：一个将所有文件系统操作都使用 SSH 转�
  - 有的时候你可能需要向工具传入一个 _看上去_ 像标志参数的普通参数，比如：
    - 使用 `rm` 删除一个叫 `-r` 的文件；
    - 在通过一个程序运行另一个程序的时候（`ssh machine foo`），向内层的程序（`foo`）传递一个标志参数。
-   
+
    这时候你可以使用特殊参数 `--` 让某个程序 _停止处理_ `--` 后面出现的标志参数以及选项（以 `-` 开头的内容）：
     - `rm -- -r` 会让 `rm` 将 `-r` 当作文件名；
     - `ssh machine --for-ssh -- foo --for-foo` 的 `--` 会让 `ssh` 知道 `--for-foo` 不是 `ssh` 的标志参数。
@@ -178,19 +183,17 @@ MIT 向有访问校内资源需求的成员开放自己运营的 [VPN](https://i
 在不使用 Word 或者 LaTeX 等复杂工具的情况下，你可以考虑使用 [Markdown](https://commonmark.org/help/) 这个轻量化的标记语言（markup language）。你可能已经见过 Markdown 或者它的一个变种。很多环境都支持并使用 Markdown 的一些子功能。
 
 Markdown 致力于将人们编写纯文本时的一些习惯标准化。比如：
+
 - 用`*`包围的文字表示强调（*斜体*），或者用`**`表示特别强调（**粗体**）；
 - 以`#`开头的行是标题，`#`的数量表示标题的级别，比如：`##二级标题`；
 - 以`-`开头代表一个无序列表的元素。一个数字加`.`（比如`1.`）代表一个有序列表元素；
 - 反引号 `` ` ``（backtick）包围的文字会以`代码字体`显示。如果要显示一段代码，可以在每一行前加四个空格缩进，或者使用三个反引号包围整个代码片段：
-
     ```
     就像这样
     ```
 - 如果要添加超链接，将 _需要显示_ 的文字用方括号包围，并在后面紧接着用圆括号包围链接：`[显示文字](指向的链接)`。
 
 Markdown 不仅容易上手，而且应用非常广泛。实际上本课程的课堂笔记和其他资料都是使用 Markdown 编写的。点击[这个链接](https://github.com/missing-semester-cn/missing-semester-cn.github.io/blob/master/_2020/potpourri.md)可以看到本页面的原始 Markdown 内容。
-
-
 
 ## Hammerspoon (macOS 桌面自动化)
 
@@ -216,10 +219,11 @@ Markdown 不仅容易上手，而且应用非常广泛。实际上本课程的�
 在你的计算机启动时，[BIOS](https://en.wikipedia.org/wiki/BIOS) 或者 [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface) 会在加载操作系统之前对硬件系统进行初始化，这被称为引导（booting）。你可以通过按下计算机提示的键位组合来配置引导，比如 `Press F9 to configure BIOS. Press F12 to enter boot menu`。在 BIOS 菜单中你可以对硬件相关的设置进行更改，也可以在引导菜单中选择从硬盘以外的其他设备加载操作系统——比如 Live USB。
 
 [Live USB](https://en.wikipedia.org/wiki/Live_USB) 是包含了完整操作系统的闪存盘。Live USB 的用途非常广泛，包括：
- - 作为安装操作系统的启动盘；
- - 在不将操作系统安装到硬盘的情况下，直接运行 Live USB 上的操作系统；
- - 对硬盘上的相同操作系统进行修复；
- - 恢复硬盘上的数据。
+
+- 作为安装操作系统的启动盘；
+- 在不将操作系统安装到硬盘的情况下，直接运行 Live USB 上的操作系统；
+- 对硬盘上的相同操作系统进行修复；
+- 恢复硬盘上的数据。
 
 Live USB 通过在闪存盘上 _写入_ 操作系统的镜像制作，而写入不是单纯的往闪存盘上复制 `.iso` 文件。你可以使用 [UNetbootin](https://unetbootin.github.io/) 、[Rufus](https://github.com/pbatard/rufus) 等 Live USB 写入工具制作。
 

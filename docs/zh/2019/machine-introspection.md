@@ -47,7 +47,7 @@ video:
 
 如果您想配置网络，`ip` 命令可以让您做到这一点。它的参数采用稍微奇怪的形式，但 `ip help command` 可以帮助您走得很远。`ip addr` 显示有关您的网络接口及其配置（IP 地址等）的信息，而 `ip route` 显示网络流量如何路由到不同的网络主机。网络问题通常可以纯粹通过 `ip` 工具解决。还有 `iw` 用于管理无线网络接口。`ping` 是一个方便的工具，用于检查问题的严重程度。尝试对主机名（google.com）、外部 IP 地址（1.1.1.1）和内部 IP 地址（192.168.1.1 或默认网关）进行 ping。您还可能需要调整 `/etc/resolv.conf` 来检查您的 DNS 设置（主机名如何解析为 IP 地址）。
 
-要配置服务，您现在基本上必须与 `systemd` 交互，无论好坏。您系统上的大多数服务都会有一个定义 systemd _单元_ 的 systemd 服务文件。这些文件定义了服务启动时要运行的命令、如何停止它、日志记录位置等。它们通常阅读起来不会太糟糕，您可以在 `/usr/lib/systemd/system/` 中找到大多数文件。您还可以在 `/etc/systemd/system` 中自定义自己的文件。
+要配置服务，您现在基本上必须与 `systemd` 交互，无论好坏。您系统上的大多数服务都会有一个定义 systemd **单元** 的 systemd 服务文件。这些文件定义了服务启动时要运行的命令、如何停止它、日志记录位置等。它们通常阅读起来不会太糟糕，您可以在 `/usr/lib/systemd/system/` 中找到大多数文件。您还可以在 `/etc/systemd/system` 中自定义自己的文件。
 
 一旦您有了一个 systemd 服务的想法，就可以使用 `systemctl` 命令与之交互。`systemctl enable UNIT` 将设置服务在启动时启动（`disable` 将其移除），`start`、`stop` 和 `restart` 将执行您预期的操作。如果出现问题，systemd 会让您知道，您可以使用 `journalctl -u UNIT` 来查看应用程序的日志。您还可以使用 `systemctl status` 查看所有系统服务的状态。如果您的启动感觉很慢，很可能是由于一些慢速服务，您可以使用 `systemd-analyze`（尝试使用 `blame`）来找出是哪些服务。
 
