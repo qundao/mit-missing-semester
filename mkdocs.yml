@@ -61,6 +61,16 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - static/js/katex.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 
 plugins:
   - search
@@ -93,7 +103,7 @@ plugins:
           nav_translations:
             Home: 课程首页
             Lectures: 讲座列表
-            Archive: 归档课程
+            Archive: 往年课程
             About: 关于本课程
             Solution: 习题解答
             Introduction: 课程简介
@@ -124,6 +134,24 @@ nav:
     - 2020/solutions/metaprogramming-solution.md
     - 2020/solutions/security-solution.md
   - Archive:
-    - 2019 Lectures: 2019/index.md
+    - 2019 Lectures: 
+      - 2019/index.md
+      - 2019/course-overview.md
+      - 2019/virtual-machines.md
+      - 2019/shell.md
+      - 2019/command-line.md
+      - 2019/data-wrangling.md
+      - 2019/editors.md
+      - 2019/version-control.md
+      - 2019/dotfiles.md
+      - 2019/backups.md
+      - 2019/automation.md
+      - 2019/machine-introspection.md
+      - 2019/program-introspection.md
+      - 2019/package-management.md
+      - 2019/os-customization.md
+      - 2019/remote-machines.md
+      - 2019/web.md
+      - 2019/security.md
   - About: about.md
   - License: license.md
