@@ -280,7 +280,6 @@ emulation.
 
 There are even vim keybinding extensions for web [browsers](http://vim.wikia.com/wiki/Vim_key_bindings_for_web_browsers), some popular ones are [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en) for Google Chrome and [Tridactyl](https://github.com/tridactyl/tridactyl) for Firefox.
 
-
 ### Resources
 
 - [Vim Tips Wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
@@ -288,11 +287,11 @@ There are even vim keybinding extensions for web [browsers](http://vim.wikia.com
 - [Neovim](https://neovim.io/) is a modern vim reimplementation with more active development.
 - [Vim Golf](http://www.vimgolf.com/): Various Vim challenges
 
-{% comment %}
-# Resources
+<!-- {% comment %}
+## Resources
 
 TODO resources for other editors?
-{% endcomment %}
+{% endcomment %} -->
 
 ## Exercises
 

@@ -189,8 +189,7 @@ Git 处理这些场景的方法是使用一种叫做 “暂存区（staging area
 为了避免重复信息，我们将不会详细解释以下命令行。强烈推荐您阅读 [Pro Git 中文版](https://git-scm.com/book/zh/v2)或可以观看本讲座的视频来学习。
 
 ### 基础
-<!-- 
-{% comment %}
+<!-- {% comment %}
 `git init`命令初始化一个新的Git仓库，将仓库元数据存储在`.git`目录中：
 
 ```console

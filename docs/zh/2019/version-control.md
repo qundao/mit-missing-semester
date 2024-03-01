@@ -269,8 +269,7 @@ git 是一个**分布式**版本控制系统：每个人都有整个存储库的
 
 1. 一旦你习惯了命令行应用程序，GUI 工具可能会感觉笨重/臃肿。在两者之间有一个很好的折衷是 ncurses 基于工具，可以从命令行进行导航，并且仍然提供交互式界面。Git 有 [tig](https://github.com/jonas/tig)，尝试安装它并在一个仓库中运行它。你可以在[这里](https://www.atlassian.com/blog/git/git-tig)找到一些用法示例。
 
-<!--
-{% comment %}
+<!-- {% comment %}
 
  - 强制推送 + `--force-with-lease`
  - git merge/rebase --abort

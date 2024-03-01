@@ -318,7 +318,7 @@ Also, a double dash `--` is used in built-in commands and many other commands to
     - Run `printf "\e[38;5;81mfoo\e[0m\n"`. How was the output different? If you want to know more, search for ANSI color escape sequences.
     - Run `touch a.txt` then run `^txt^log` what did bash do for you? In the same vein, run `fc`. What does it do?
 
-{% comment %}
+<!-- {% comment %}
 
 TODO
 
@@ -326,7 +326,7 @@ TODO
 - set -e, set -x
 - traps
 
-{% endcomment %}
+{% endcomment %} -->
 
 1. **Keyboard shortcuts**
 

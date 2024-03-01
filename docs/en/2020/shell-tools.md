@@ -317,16 +317,15 @@ More complex tools exist to quickly get an overview of a directory structure: [`
     -rw-r--r--   1 user group 106M Jan 13 12:12 foo
     drwx------+ 47 user group 1.5K Jan 12 18:08 ..
     ```
-
-{% comment %}
+<!-- {% comment %}
 ls -lath --color=auto
-{% endcomment %}
+{% endcomment %} -->
 
 1. Write bash functions  `marco` and `polo` that do the following.
 Whenever you execute `marco` the current working directory should be saved in some manner, then when you execute `polo`, no matter what directory you are in, `polo` should `cd` you back to the directory where you executed `marco`.
 For ease of debugging you can write the code in a file `marco.sh` and (re)load the definitions to your shell by executing `source marco.sh`.
 
-{% comment %}
+<!-- {% comment %}
 marco() {
     export MARCO=$(pwd)
 }
@@ -334,7 +333,7 @@ marco() {
 polo() {
     cd "$MARCO"
 }
-{% endcomment %}
+{% endcomment %} -->
 
 1. Say you have a command that fails rarely. In order to debug it you need to capture its output but it can be time consuming to get a failure run.
 Write a bash script that runs the following script until it fails and captures its standard output and error streams to files and prints everything at the end.
@@ -354,7 +353,7 @@ Bonus points if you can also report how many runs it took for the script to fail
     echo "Everything went according to plan"
     ```
 
-{% comment %}
+<!-- {% comment %}
 #!/usr/bin/env bash
 
 count=0
@@ -366,7 +365,7 @@ done
 
 echo "found error after $count runs"
 cat out.txt
-{% endcomment %}
+{% endcomment %} -->
 
 1. As we covered in the lecture `find`'s `-exec` can be very powerful for performing operations over the files we are searching for.
 However, what if we want to do something with **all** the files, like creating a zip file?

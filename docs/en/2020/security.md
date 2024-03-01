@@ -299,13 +299,13 @@ proves that the client is in possession of the private key corresponding to the
 public key that's in the server's `.ssh/authorized_keys` file, so the server
 can allow the client to log in.
 
-{% comment %}
+<!-- {% comment %}
 extra topics, if there's time
 
 security concepts, tips
 - biometrics
 - HTTPS
-{% endcomment %}
+{% endcomment %} -->
 
 # Resources
 

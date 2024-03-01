@@ -85,11 +85,11 @@ documentation of people's fancy configurations
 1. Make a custom global keyboard shortcut to open a new terminal window or a
    new browser window.
 
-{% comment %}
+<!-- {% comment %}
 
 TODO
 
 - Bitbar / Polybar
 - Clipboard Manager (stack/searchable history)
 
-{% endcomment %}
+{% endcomment %} -->

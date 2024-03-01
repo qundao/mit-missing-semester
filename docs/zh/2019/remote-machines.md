@@ -150,7 +150,6 @@ Host *.mit.edu
 - [SSH Hacks](http://matt.might.net/articles/ssh-hacks/)
 - [Secure Secure Shell](https://stribika.github.io/2015/01/04/secure-secure-shell.html)
 
-<!--
-{% comment %}
+<!-- {% comment %}
 讲义将在讲座开始前提供。
 {% endcomment %} -->

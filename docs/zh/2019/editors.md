@@ -254,8 +254,7 @@ Vim 通过纯文本配置文件 `~/.vimrc` 进行自定义（包含 Vimscript �
 - [Neovim](https://neovim.io/) 是一个现代化的 Vim 重新实现，具有更积极的开发。
 - [Vim Golf](http://www.vimgolf.com/)：各种 Vim 挑战
 
-<!--
-{% comment %}
+<!-- {% comment %}
 ## 资源
 
 其他编辑器的资源？

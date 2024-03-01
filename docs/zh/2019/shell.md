@@ -290,8 +290,8 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
     - 运行`echo HELLO > hello.txt`，然后运行`echo WORLD >> hello.txt`。`hello.txt`的内容是什么？`>`和`>>`有什么不同？
     - 运行`printf "\e[38;5;81mfoo\e[0m\n"`。输出有何不同？如果想了解更多，请搜索 ANSI 颜色转义序列。
     - 运行`touch a.txt`，然后运行`^txt^log`。bash 为您做了什么？同样，运行`fc`。它是做什么的？
-<!--
-{% comment %}
+
+<!-- {% comment %}
 
 TODO
 

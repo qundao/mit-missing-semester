@@ -270,7 +270,7 @@ for more information, or watch the lecture video.
 
 ### Basics
 
-{% comment %}
+<!-- {% comment %}
 
 The `git init` command initializes a new Git repository, with repository
 metadata being stored in the `.git` directory:
@@ -421,7 +421,7 @@ index 94bab17..f0013b2 100644
  +another line
 ```
 
-{% endcomment %}
+{% endcomment %} -->
 
 - `git help <command>`: get help for a git command
 - `git init`: creates a new git repo, with data stored in the `.git` directory
@@ -438,7 +438,7 @@ index 94bab17..f0013b2 100644
 
 ### Branching and merging
 
-{% comment %}
+<!-- {% comment %}
 
 Branching allows you to "fork" version history. It can be helpful for working
 on independent features or bug fixes in parallel. The `git branch` command can
@@ -449,7 +449,7 @@ Merging is the opposite of branching: it allows you to combine forked version
 histories, e.g. merging a feature branch back into master. The `git merge`
 command is used for merging.
 
-{% endcomment %}
+{% endcomment %} -->
 
 - `git branch`: shows branches
 - `git branch <name>`: creates a branch

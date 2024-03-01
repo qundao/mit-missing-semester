@@ -251,7 +251,7 @@ We will fix the following issues:
 - Prints "fizz" for multiples of 5
 - Uses a hard-coded argument of 10 instead of taking a command-line argument
 
-{% comment %}
+<!--  {% comment %}
 - main is never called
   - `G` end of file
   - `o` open new line below
@@ -274,7 +274,7 @@ We will fix the following issues:
   - "import sys"
   - `/10`
   - `ci(` to "int(sys.argv[1])"
-{% endcomment %}
+{% endcomment %} -->
 
 See the lecture video for the demonstration. Compare how the above changes are
 made using Vim to how you might make the same edits using another program.

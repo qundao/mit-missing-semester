@@ -61,8 +61,7 @@ cron 的配置文件可以通过运行 `crontab -l` 进行显示，通过运行 
 
 1. 编写一个 cron 脚本，每周检查您系统中过时的软件包，并提示您更新它们或自动更新它们。
 
-<!--
-{% comment %}
+<!-- {% comment %}
 
 - [fswatch](https://github.com/emcrisostomo/fswatch)
 - 图形化界面自动化 (pyautogui) [Automating the boring stuff Chapter 18](https://automatetheboringstuff.com/chapter18/)
