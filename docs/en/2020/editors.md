@@ -34,7 +34,7 @@ memory that using the new editor saves you time. Modern text editors are fancy
 and powerful tools, so the learning never stops: you'll get even faster as you
 learn more.
 
-# Which editor to learn?
+## Which editor to learn?
 
 Programmers have [strong opinions](https://en.wikipedia.org/wiki/Editor_war)
 about their text editors.
@@ -46,7 +46,7 @@ of programmers as a whole). [Visual Studio
 Code](https://code.visualstudio.com/) is the most popular editor.
 [Vim](https://www.vim.org/) is the most popular command-line-based editor.
 
-## Vim
+### Vim
 
 All the instructors of this class use Vim as their editor. Vim has a rich
 history; it originated from the Vi editor (1976), and it's still being
@@ -61,7 +61,7 @@ going to focus on explaining the philosophy of Vim, teaching you the basics,
 showing you some of the more advanced functionality, and giving you the
 resources to master the tool.
 
-# Philosophy of Vim
+## Philosophy of Vim
 
 When programming, you spend most of your time reading/editing, not writing. For
 this reason, Vim is a _modal_ editor: it has different modes for inserting text
@@ -73,7 +73,7 @@ avoids using the arrow keys because it requires too much movement.
 
 The end result is an editor that can match the speed at which you think.
 
-# Modal editing
+## Modal editing
 
 Vim's design is based on the idea that a lot of programmer time is spent
 reading, navigating, and making small edits, as opposed to writing long streams
@@ -104,9 +104,9 @@ You use the `<ESC>` key a lot when using Vim: consider remapping Caps Lock to
 Escape ([macOS
 instructions](https://vim.fandom.com/wiki/Map_caps_lock_to_escape_in_macOS)).
 
-# Basics
+## Basics
 
-## Inserting text
+### Inserting text
 
 From Normal mode, press `i` to enter Insert mode. Now, Vim behaves like any
 other text editor, until you press `<ESC>` to return to Normal mode. This,
@@ -114,7 +114,7 @@ along with the basics explained above, are all you need to start editing files
 using Vim (though not particularly efficiently, if you're spending all your
 time editing from Insert mode).
 
-## Buffers, tabs, and windows
+### Buffers, tabs, and windows
 
 Vim maintains a set of open files, called "buffers". A Vim session has a number
 of tabs, each of which has a number of windows (split panes). Each window shows
@@ -126,7 +126,7 @@ different parts of a file at the same time.
 
 By default, Vim opens with a single tab, which contains a single window.
 
-## Command-line
+### Command-line
 
 Command mode can be entered by typing `:` in Normal mode. Your cursor will jump
 to the command line at the bottom of the screen upon pressing `:`. This mode
@@ -142,14 +142,14 @@ has many functionalities, including opening, saving, and closing files, and
     - `:help :w` opens help for the `:w` command
     - `:help w` opens help for the `w` movement
 
-# Vim's interface is a programming language
+## Vim's interface is a programming language
 
 The most important idea in Vim is that Vim's interface itself is a programming
 language. Keystrokes (with mnemonic names) are commands, and these commands
 _compose_. This enables efficient movement and edits, especially once the
 commands become muscle memory.
 
-## Movement
+### Movement
 
 You should spend most of your time in Normal mode, using movement commands to
 navigate the buffer. Movements in Vim are also called "nouns", because they
@@ -168,7 +168,7 @@ refer to chunks of text.
     - `,` / `;` for navigating matches
 - Search: `/{regex}`, `n` / `N` for navigating matches
 
-## Selection
+### Selection
 
 Visual modes:
 
@@ -178,7 +178,7 @@ Visual modes:
 
 Can use movement keys to make selection.
 
-## Edits
+### Edits
 
 Everything that you used to do with the mouse, you now do with the keyboard
 using editing commands that compose with movement commands. Here's where Vim's
@@ -204,7 +204,7 @@ are also called "verbs", because verbs act on nouns.
 - `p` to paste
 - Lots more to learn: e.g. `~` flips the case of a character
 
-## Counts
+### Counts
 
 You can combine nouns and verbs with a count, which will perform a given action
 a number of times.
@@ -213,7 +213,7 @@ a number of times.
 - `5j` move 5 lines down
 - `7dw` delete 7 words
 
-## Modifiers
+### Modifiers
 
 You can use modifiers to change the meaning of a noun. Some modifiers are `i`,
 which means "inner" or "inside", and `a`, which means "around".
@@ -222,7 +222,7 @@ which means "inner" or "inside", and `a`, which means "around".
 - `ci[` change the contents inside the current pair of square brackets
 - `da'` delete a single-quoted string, including the surrounding single quotes
 
-# Demo
+## Demo
 
 Here is a broken [fizz buzz](https://en.wikipedia.org/wiki/Fizz_buzz)
 implementation:
@@ -279,7 +279,7 @@ made using Vim to how you might make the same edits using another program.
 Notice how very few keystrokes are required in Vim, allowing you to edit at the
 speed you think.
 
-# Customizing Vim
+## Customizing Vim
 
 Vim is customized through a plain-text configuration file in `~/.vimrc`
 (containing Vimscript commands). There are probably lots of basic settings that
@@ -299,7 +299,7 @@ inspiration, for example, your instructors' Vim configs
 lots of good blog posts on this topic too. Try not to copy-and-paste people's
 full configuration, but read it, understand it, and take what you need.
 
-# Extending Vim
+## Extending Vim
 
 There are tons of plugins for extending Vim. Contrary to outdated advice that
 you might find on the internet, you do _not_ need to use a plugin manager for
@@ -323,13 +323,13 @@ Check out [Vim Awesome](https://vimawesome.com/) for more awesome Vim plugins.
 There are also tons of blog posts on this topic: just search for "best Vim
 plugins".
 
-# Vim-mode in other programs
+## Vim-mode in other programs
 
 Many tools support Vim emulation. The quality varies from good to great;
 depending on the tool, it may not support the fancier Vim features, but most
 cover the basics pretty well.
 
-## Shell
+### Shell
 
 If you're a Bash user, use `set -o vi`. If you use Zsh, `bindkey -v`. For Fish,
 `fish_vi_key_bindings`. Additionally, no matter what shell you use, you can
@@ -337,7 +337,7 @@ If you're a Bash user, use `set -o vi`. If you use Zsh, `bindkey -v`. For Fish,
 editor is launched when a program wants to start an editor. For example, `git`
 will use this editor for commit messages.
 
-## Readline
+### Readline
 
 Many programs use the [GNU
 Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) library for
@@ -350,7 +350,7 @@ set editing-mode vi
 
 With this setting, for example, the Python REPL will support Vim bindings.
 
-## Others
+### Others
 
 There are even vim keybinding extensions for web
 [browsers](http://vim.wikia.com/wiki/Vim_key_bindings_for_web_browsers) - some
@@ -361,14 +361,14 @@ Firefox. You can even get Vim bindings in [Jupyter
 notebooks](https://github.com/jupyterlab-contrib/jupyterlab-vim).
 Here is a [long list](https://reversed.top/2016-08-13/big-list-of-vim-like-software) of software with vim-like keybindings.
 
-# Advanced Vim
+## Advanced Vim
 
 Here are a few examples to show you the power of the editor. We can't teach you
 all of these kinds of things, but you'll learn them as you go. A good
 heuristic: whenever you're using your editor and you think "there must be a
 better way of doing this", there probably is: look it up online.
 
-## Search and replace
+### Search and replace
 
 `:s` (substitute) command ([documentation](http://vim.wikia.com/wiki/Search_and_replace)).
 
@@ -377,12 +377,12 @@ better way of doing this", there probably is: look it up online.
 - `%s/\[.*\](\(.*\))/\1/g`
     - replace named Markdown links with plain URLs
 
-## Multiple windows
+### Multiple windows
 
 - `:sp` / `:vsp` to split windows
 - Can have multiple views of the same buffer.
 
-## Macros
+### Macros
 
 - `q{character}` to start recording a macro in register `{character}`
 - `q` to stop recording
@@ -416,7 +416,7 @@ better way of doing this", there probably is: look it up online.
             - `999@q`
         - Manually remove last `,` and add `[` and `]` delimiters
 
-# Resources
+## Resources
 
 - `vimtutor` is a tutorial that comes installed with Vim - if Vim is installed, you should be able to run `vimtutor` from your shell
 - [Vim Adventures](https://vim-adventures.com/) is a game to learn Vim
@@ -427,7 +427,7 @@ better way of doing this", there probably is: look it up online.
 - [Vim Screencasts](http://vimcasts.org/)
 - [Practical Vim](https://pragprog.com/titles/dnvim2/) (book)
 
-# Exercises
+## Exercises
 
 1. Complete `vimtutor`. Note: it looks best in a
    [80x24](https://en.wikipedia.org/wiki/VT100) (80 columns by 24 lines)

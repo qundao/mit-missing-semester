@@ -389,7 +389,7 @@ ffmpeg -loglevel panic -i /dev/video0 -frames 1 -f image2 -
  | ssh mymachine 'gzip -d | tee copy.jpg | env DISPLAY=:0 feh -'
 ```
 
-# Exercises
+## Exercises
 
 1. Take this [short interactive regex tutorial](https://regexone.com/).
 2. Find the number of words (in `/usr/share/dict/words`) that contain at

@@ -8,7 +8,7 @@ video:
   id: Z56Jmr9Z34Q
 ---
 
-# Motivation
+## Motivation
 
 As computer scientists, we know that computers are great at aiding in
 repetitive tasks. However, far too often, we forget that this applies
@@ -28,7 +28,7 @@ excitement for exploring (and perhaps building) more tools on your own.
 This is what we believe to be the missing semester from most Computer
 Science curricula.
 
-# Class structure
+## Class structure
 
 The class consists of 11 1-hour lectures, each one centering on a
 [particular topic](index.md). The lectures are largely independent,
@@ -53,9 +53,9 @@ will try to point you towards resources for digging further into a tool
 or topic, but if something particularly strikes your fancy, don't
 hesitate to reach out to us and ask for pointers!
 
-# Topic 1: The Shell
+## Topic 1: The Shell
 
-## What is the shell?
+### What is the shell?
 
 Computers these days have a variety of interfaces for giving them
 commands; fanciful graphical user interfaces, voice interfaces, and
@@ -79,7 +79,7 @@ _prompt_ (where you can type commands), you first need a _terminal_.
 Your device probably shipped with one installed, or you can install one
 fairly easily.
 
-## Using the shell
+### Using the shell
 
 When you launch your terminal, you will see a _prompt_ that often looks
 a little like this:
@@ -148,7 +148,7 @@ find out which file is executed for a given program name using the
 `which` program. We can also bypass `$PATH` entirely by giving the
 _path_ to the file we want to execute.
 
-## Navigating in the shell
+### Navigating in the shell
 
 A path on the shell is a delimited list of directories; separated by `/`
 on Linux and macOS and `\` on Windows. On Linux and macOS, the path `/`
@@ -249,7 +249,7 @@ page_. Press `q` to exit.
 missing:~$ man ls
 ```
 
-## Connecting programs
+### Connecting programs
 
 In the shell, programs have two primary "streams" associated with them:
 their input stream and their output stream. When the program tries to
@@ -293,7 +293,7 @@ missing:~$ curl --head --silent google.com | grep --ignore-case content-length |
 We will go into a lot more detail about how to take advantage of pipes
 in the lecture on data wrangling.
 
-## A versatile and powerful tool
+### A versatile and powerful tool
 
 On most Unix-like systems, one user is special: the "root" user. You may
 have seen it in the file listings above. The root user is above (almost)
@@ -353,7 +353,7 @@ state of various system LEDs (your path might be different):
 $ echo 1 | sudo tee /sys/class/leds/input6::scrolllock/brightness
 ```
 
-# Next steps
+## Next steps
 
 At this point you know your way around a shell enough to accomplish
 basic tasks. You should be able to navigate around to find files of
@@ -362,7 +362,7 @@ lecture, we will talk about how to perform and automate more complex
 tasks using the shell and the many handy command-line programs out
 there.
 
-# Exercises
+## Exercises
 
 All classes in this course are accompanied by a series of exercises. Some give
 you a specific task to do, while others are open-ended, like "try using X and Y

@@ -49,13 +49,13 @@ starting with its data model and later covering the command-line interface.
 Once the data model is understood, the commands can be better understood in
 terms of how they manipulate the underlying data model.
 
-# Git's data model
+## Git's data model
 
 There are many ad-hoc approaches you could take to version control. Git has a
 well-thought-out model that enables all the nice features of version control,
 like maintaining history, supporting branches, and enabling collaboration.
 
-## Snapshots
+### Snapshots
 
 Git models the history of a collection of files and folders within some
 top-level directory as a series of snapshots. In Git terminology, a file is
@@ -77,7 +77,7 @@ example, we might have a tree as follows:
 The top-level tree contains two elements, a tree "foo" (that itself contains
 one element, a blob "bar.txt"), and a blob "baz.txt".
 
-## Modeling history: relating snapshots
+### Modeling history: relating snapshots
 
 How should a version control system relate snapshots? One simple model would be
 to have a linear history. A history would be a list of snapshots in time-order.
@@ -123,7 +123,7 @@ corrected, however; it's just that "edits" to the commit history are actually
 creating entirely new commits, and references (see below) are updated to point
 to the new ones.
 
-## Data model, as pseudocode
+### Data model, as pseudocode
 
 It may be instructive to see Git's data model written down in pseudocode:
 
@@ -145,7 +145,7 @@ type commit = struct {
 
 It's a clean, simple model of history.
 
-## Objects and content-addressing
+### Objects and content-addressing
 
 An "object" is a blob, tree, or commit:
 
@@ -189,7 +189,7 @@ the following:
 git is wonderful
 ```
 
-## References
+### References
 
 Now, all snapshots can be identified by their SHA-1 hashes. That's inconvenient,
 because humans aren't good at remembering strings of 40 hexadecimal characters.
@@ -224,7 +224,7 @@ history, so that when we take a new snapshot, we know what it is relative to
 (how we set the `parents` field of the commit). In Git, that "where we
 currently are" is a special reference called "HEAD".
 
-## Repositories
+### Repositories
 
 Finally, we can define what (roughly) is a Git _repository_: it is the data
 `objects` and `references`.
@@ -240,7 +240,7 @@ uncommitted changes and make the 'master' ref point to commit `5d83f9e`", there'
 probably a command to do it (e.g. in this case, `git checkout master; git reset
 --hard 5d83f9e`).
 
-# Staging area
+## Staging area
 
 This is another concept that's orthogonal to the data model, but it's a part of
 the interface to create commits.
@@ -260,13 +260,13 @@ Git accommodates such scenarios by allowing you to specify which modifications
 should be included in the next snapshot through a mechanism called the "staging
 area".
 
-# Git command-line interface
+## Git command-line interface
 
 To avoid duplicating information, we're not going to explain the commands below
 in detail. See the highly recommended [Pro Git](https://git-scm.com/book/en/v2)
 for more information, or watch the lecture video.
 
-## Basics
+### Basics
 
 {% comment %}
 
@@ -434,7 +434,7 @@ index 94bab17..f0013b2 100644
 - `git diff <revision> <filename>`: shows differences in a file between snapshots
 - `git checkout <revision>`: updates HEAD and current branch
 
-## Branching and merging
+### Branching and merging
 
 {% comment %}
 
@@ -457,7 +457,7 @@ command is used for merging.
 - `git mergetool`: use a fancy tool to help resolve merge conflicts
 - `git rebase`: rebase set of patches onto a new base
 
-## Remotes
+### Remotes
 
 - `git remote`: list remotes
 - `git remote add <name> <url>`: add a remote
@@ -467,13 +467,13 @@ command is used for merging.
 - `git pull`: same as `git fetch; git merge`
 - `git clone`: download repository from remote
 
-## Undo
+### Undo
 
 - `git commit --amend`: edit a commit's contents/message
 - `git reset HEAD <file>`: unstage a file
 - `git checkout -- <file>`: discard changes
 
-# Advanced Git
+## Advanced Git
 
 - `git config`: Git is [highly customizable](https://git-scm.com/docs/git-config)
 - `git clone --depth=1`: shallow clone, without entire version history
@@ -484,7 +484,7 @@ command is used for merging.
 - `git bisect`: binary search history (e.g. for regressions)
 - `.gitignore`: [specify](https://git-scm.com/docs/gitignore) intentionally untracked files to ignore
 
-# Miscellaneous
+## Miscellaneous
 
 - **GUIs**: there are many [GUI clients](https://git-scm.com/downloads/guis)
 out there for Git. We personally don't use them and use the command-line
@@ -508,7 +508,7 @@ requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-r
 hosts, like [GitLab](https://about.gitlab.com/) and
 [BitBucket](https://bitbucket.org/).
 
-# Resources
+## Resources
 
 - [Pro Git](https://git-scm.com/book/en/v2) is **highly recommended reading**.
 Going through Chapters 1--5 should teach you most of what you need to use Git
@@ -528,7 +528,7 @@ words](https://smusamashah.github.io/blog/2017/10/14/explain-git-in-simple-words
 - [Learn Git Branching](https://learngitbranching.js.org/) is a browser-based
 game that teaches you Git.
 
-# Exercises
+## Exercises
 
 1. If you don't have any past experience with Git, either try reading the first
    couple chapters of [Pro Git](https://git-scm.com/book/en/v2) or go through a

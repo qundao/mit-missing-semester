@@ -12,9 +12,9 @@ A golden rule in programming is that code does not do what you expect it to do, 
 Bridging that gap can sometimes be a quite difficult feat.
 In this lecture we are going to cover useful techniques for dealing with buggy and resource hungry code: debugging and profiling.
 
-# Debugging
+## Debugging
 
-## Printf debugging and Logging
+### Printf debugging and Logging
 
 "The most effective debugging tool is still careful thought, coupled with judiciously placed print statements" — Brian Kernighan, _Unix for Beginners_.
 
@@ -56,7 +56,7 @@ for R in $(seq 0 20 255); do
 done
 ```
 
-## Third party logs
+### Third party logs
 
 As you start building larger software systems you will most probably run into dependencies that run as separate programs.
 Web servers, databases or message brokers are common examples of this kind of dependencies.
@@ -87,7 +87,7 @@ As we saw in the data wrangling lecture, logs can be quite verbose and they requ
 If you find yourself heavily filtering through `journalctl` and `log show` you can consider using their flags, which can perform a first pass of filtering of their output.
 There are also some tools like  [`lnav`](http://lnav.org/), that provide an improved presentation and navigation for log files.
 
-## Debuggers
+### Debuggers
 
 When printf debugging is not enough you should use a debugger.
 Debuggers are programs that let you interact with the execution of a program, allowing the following:
@@ -134,7 +134,7 @@ For more low level programming you will probably want to look into [`gdb`](https
 They are optimized for C-like language debugging but will let you probe pretty much any process and get its current machine state: registers, stack, program counter, &c.
 
 
-## Specialized Tools
+### Specialized Tools
 
 Even if what you are trying to debug is a black box binary there are tools that can help you with that.
 Whenever programs need to perform actions that only the kernel can, they use [System Calls](https://en.wikipedia.org/wiki/System_call).
@@ -159,7 +159,7 @@ For web development, the Chrome/Firefox developer tools are quite handy. They fe
 - Network - Analyze the requests timeline.
 - Storage - Look into the Cookies and local application storage.
 
-## Static Analysis
+### Static Analysis
 
 For some issues you do not need to run any code.
 For example, just by carefully looking at a piece of code you could realize that your loop variable is shadowing an already existing variable or function name; or that a program reads a variable before defining it.
@@ -211,13 +211,13 @@ A complementary tool to stylistic linting are code formatters such as [`black`](
 These tools autoformat your code so that it's consistent with common stylistic patterns for the given programming language.
 Although you might be unwilling to give stylistic control about your code, standardizing code format will help other people read your code and will make you better at reading other people's (stylistically standardized) code.
 
-# Profiling
+## Profiling
 
 Even if your code functionally behaves as you would expect, that might not be good enough if it takes all your CPU or memory in the process.
 Algorithms classes often teach big _O_ notation but not how to find hot spots in your programs.
 Since [premature optimization is the root of all evil](http://wiki.c2.com/?PrematureOptimization), you should learn about profilers and monitoring tools. They will help you understand which parts of your program are taking most of the time and/or resources so you can focus on optimizing those parts.
 
-## Timing
+### Timing
 
 Similarly to the debugging case, in many scenarios it can be enough to just print the time it took your code between two points.
 Here is an example in Python using the [`time`](https://docs.python.org/3/library/time.html) module.
@@ -256,9 +256,9 @@ user    0m0.015s
 sys     0m0.012s
 ```
 
-## Profilers
+### Profilers
 
-### CPU
+#### CPU
 
 Most of the time when people refer to _profilers_ they actually mean _CPU profilers_,  which are the most common.
 There are two main types of CPU profilers: _tracing_ and _sampling_ profilers.
@@ -361,7 +361,7 @@ Line #  Hits         Time  Per Hit   % Time  Line Contents
 11        24         33.0      1.4      0.0          urls.append(url['href'])
 ```
 
-### Memory
+#### Memory
 
 In languages like C or C++ memory leaks can cause your program to never release memory that it doesn't need anymore.
 To help in the process of memory debugging you can use tools like [Valgrind](https://valgrind.org/) that will help you identify memory leaks.
@@ -393,7 +393,7 @@ Line #    Mem usage  Increment   Line Contents
      8     13.61 MB    0.00 MB       return a
 ```
 
-### Event Profiling
+#### Event Profiling
 
 As it was the case for `strace` for debugging, you might want to ignore the specifics of the code that you are running and treat it like a black box when profiling.
 The [`perf`](https://www.man7.org/linux/man-pages/man1/perf.1.html) command abstracts CPU differences away and does not report time or memory, but instead it reports system events related to your programs.
@@ -405,7 +405,7 @@ For example, `perf` can easily report poor cache locality, high amounts of page 
 - `perf report` - Formats and prints the data collected in `perf.data`
 
 
-### Visualization
+#### Visualization
 
 Profiler output for real world programs will contain large amounts of information because of the inherent complexity of software projects.
 Humans are visual creatures and are quite terrible at reading large amounts of numbers and making sense of them.
@@ -421,7 +421,7 @@ In Python you can use the [`pycallgraph`](https://pycallgraph.readthedocs.io/) l
 ![Call Graph](https://upload.wikimedia.org/wikipedia/commons/2/2f/A_Call_Graph_generated_by_pycallgraph.png)
 
 
-## Resource Monitoring
+### Resource Monitoring
 
 Sometimes, the first step towards analyzing the performance of your program is to understand what its actual resource consumption is.
 Programs often run slowly when they are resource constrained, e.g. without enough memory or on a slow network connection.
@@ -441,7 +441,7 @@ A more interactive version of `du` is [`ncdu`](https://dev.yorhel.nl/ncdu) which
 If you want to test these tools you can also artificially impose loads on the machine using the [`stress`](https://linux.die.net/man/1/stress) command.
 
 
-### Specialized tools
+#### Specialized tools
 
 Sometimes, black box benchmarking is all you need to determine what software to use.
 Tools like [`hyperfine`](https://github.com/sharkdp/hyperfine) let you quickly benchmark command line programs.
@@ -466,9 +466,9 @@ Summary
 As it was the case for debugging, browsers also come with a fantastic set of tools for profiling webpage loading, letting you figure out where time is being spent (loading, rendering, scripting, &c).
 More info for [Firefox](https://profiler.firefox.com/docs/) and [Chrome](https://developers.google.com/web/tools/chrome-devtools/rendering-tools).
 
-# Exercises
+## Exercises
 
-## Debugging
+### Debugging
 1. Use `journalctl` on Linux or `log show` on macOS to get the super user accesses and commands in the last day.
 If there aren't any you can execute some harmless commands such as `sudo ls` and check again.
 
@@ -520,4 +520,3 @@ Try running `stress -c 3` and visualize the CPU consumption with `htop`. Now, ex
 Challenge: achieve the same using [`cgroups`](https://www.man7.org/linux/man-pages/man7/cgroups.7.html). Try limiting the memory consumption of `stress -m`.
 
 1. (Advanced) The command `curl ipinfo.io` performs a HTTP request and fetches information about your public IP. Open [Wireshark](https://www.wireshark.org/) and try to sniff the request and reply packets that `curl` sent and received. (Hint: Use the `http` filter to just watch HTTP packets).
-
