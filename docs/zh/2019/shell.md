@@ -236,66 +236,58 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 
 1. 如果您完全是 Shell 的新手，您可能希望阅读更全面的指南，例如[BashGuide](http://mywiki.wooledge.org/BashGuide)。如果您想要更深入的介绍，[Linux 命令行](http://linuxcommand.org/tlcl.php)是一个很好的资源。
 
-2. **PATH、which、type**命令
+1. **PATH、which、type**命令
+    我们简要讨论了`PATH`环境变量用于定位通过命令行运行的程序。让我们更深入地探讨一下：
 
-   我们简要讨论了`PATH`环境变量用于定位通过命令行运行的程序。让我们更深入地探讨一下：
+    - 运行`echo $PATH`（或`echo $PATH | tr -s ':' '\n'`进行漂亮打印），并检查其内容，列出了哪些位置？
+    - 命令`which`用于在用户 PATH 中定位程序。尝试运行`which`，用于常见命令如`echo`、`ls`或`mv`。注意`which`有些局限，因为它不理解 Shell 别名。尝试对同样的命令运行`type`和`command -v`。输出有什么不同？
+    - 运行`PATH=`，然后尝试重新运行之前的命令，有些可以工作，有些不行，您能找出原因吗？
 
-   - 运行`echo $PATH`（或`echo $PATH | tr -s ':' '\n'`进行漂亮打印），并检查其内容，列出了哪些位置？
-   - 命令`which`用于在用户 PATH 中定位程序。尝试运行`which`，用于常见命令如`echo`、`ls`或`mv`。注意`which`有些局限，因为它不理解 Shell 别名。尝试对同样的命令运行`type`和`command -v`。输出有什么不同？
-   - 运行`PATH=`，然后尝试重新运行之前的命令，有些可以工作，有些不行，您能找出原因吗？
+1. **特殊变量**
 
-3. **特殊变量**
+    - 变量`~`展开为什么？`.`呢？`..`呢？
+    - 变量`$?`是做什么的？
+    - 变量`$_`的作用是什么？
+    - 变量`!!`展开为什么？`!!*`呢？`!l`呢？
+    - 查找这些选项的文档并熟悉它们。
 
-   - 变量`~`展开为什么？`.`呢？`..`呢？
-   - 变量`$?`是做什么的？
-   - 变量`$_`的作用是什么？
-   - 变量`!!`展开为什么？`!!*`呢？`!l`呢？
-   - 查找这些选项的文档并熟悉它们。
+1. **xargs**
+    有时候，使用管道无法正常工作，因为要输入的命令不是期望的以换行符分隔的格式。例如`file`命令告诉您文件的属性。
+    尝试运行`ls | file`和`ls | xargs file`。`xargs`在做什么？
 
-4. **xargs**
+1. **Shebang**注释
+    当您编写脚本时，可以使用[shebang](<https://en.wikipedia.org/wiki/Shebang_(Unix)>)行指定您的 Shell 应该使用什么解释器来解释脚本。编写一个名为`hello`的脚本，内容如下，并使用`chmod +x hello`使其可执行。然后用`./hello`执行它。然后删除第一行并再次执行它？Shell 如何使用第一行？
+    ```bash
+    #! /usr/bin/python
 
-   有时候，使用管道无法正常工作，因为要输入的命令不是期望的以换行符分隔的格式。例如`file`命令告诉您文件的属性。
-   尝试运行`ls | file`和`ls | xargs file`。`xargs`在做什么？
+    print("Hello World!")
+    ```
+    您经常会看到具有类似`#! usr/bin/env bash`的 shebang 的程序。这是一种更便携的解决方案，具有自己的一套[优点和缺点](https://unix.stackexchange.com/questions/29608/why-is-it-better-to-use-usr-bin-env-name-instead-of-path-to-name-as-my)。`env`与`which`有什么不同？`env`使用哪个环境变量来决定要运行哪个程序？
 
-5. **Shebang**注释
+1. **管道、进程替换、子 shell**
+    创建一个名为`slow_seq.sh`的脚本，内容如下，并执行`chmod +x slow_seq.sh`使其可执行。
+    ```bash
+    #! /usr/bin/env bash
 
-   当您编写脚本时，可以使用[shebang](<https://en.wikipedia.org/wiki/Shebang_(Unix)>)行指定您的 Shell 应该使用什么解释器来解释脚本。编写一个名为`hello`的脚本，内容如下，并使用`chmod +x hello`使其可执行。然后用`./hello`执行它。然后删除第一行并再次执行它？Shell 如何使用第一行？
-
-   ```bash
-     #! /usr/bin/python
-
-     print("Hello World!")
-   ```
-
-   您经常会看到具有类似`#! usr/bin/env bash`的 shebang 的程序。这是一种更便携的解决方案，具有自己的一套[优点和缺点](https://unix.stackexchange.com/questions/29608/why-is-it-better-to-use-usr-bin-env-name-instead-of-path-to-name-as-my)。`env`与`which`有什么不同？`env`使用哪个环境变量来决定要运行哪个程序？
-
-6. **管道、进程替换、子 shell**
-
-   创建一个名为`slow_seq.sh`的脚本，内容如下，并执行`chmod +x slow_seq.sh`使其可执行。
-
-   ```bash
-     #! /usr/bin/env bash
-
-     for i in $(seq 1 10); do
+    for i in $(seq 1 10); do
              echo $i;
              sleep 1;
-     done
-   ```
+    done
+    ```
+    管道（和进程替换）与使用子 shell 执行（即`$()`）有一种不同的方式。运行以下命令并观察差异：
 
-   管道（和进程替换）与使用子 shell 执行（即`$()`）有一种不同的方式。运行以下命令并观察差异：
+    - `./slow_seq.sh | grep -P "[3-6]"`
+    - `grep -P "[3-6]" <(./slow_seq.sh)`
+    - `echo $(./slow_seq.sh) | grep -P "[3-6]"`
 
-   - `./slow_seq.sh | grep -P "[3-6]"`
-   - `grep -P "[3-6]" <(./slow_seq.sh)`
-   - `echo $(./slow_seq.sh) | grep -P "[3-6]"`
+1. **其他**
 
-7. **其他**
-   - 尝试运行`touch {a,b}{a,b}`然后`ls`，看到了什么？
-   - 有时您希望保留 STDIN 并将其仍然输入到文件中。尝试运行`echo HELLO | tee hello.txt`
-   - 尝试运行`cat hello.txt > hello.txt `您期望会发生什么？实际发生了什么？
-   - 运行`echo HELLO > hello.txt`，然后运行`echo WORLD >> hello.txt`。`hello.txt`的内容是什么？`>`和`>>`有什么不同？
-   - 运行`printf "\e[38;5;81mfoo\e[0m\n"`。输出有何不同？如果想了解更多，请搜索 ANSI 颜色转义序列。
-   - 运行`touch a.txt`，然后运行`^txt^log`。bash 为您做了什么？同样，运行`fc`。它是做什么的？
-
+    - 尝试运行`touch {a,b}{a,b}`然后`ls`，看到了什么？
+    - 有时您希望保留 STDIN 并将其仍然输入到文件中。尝试运行`echo HELLO | tee hello.txt`
+    - 尝试运行`cat hello.txt > hello.txt `您期望会发生什么？实际发生了什么？
+    - 运行`echo HELLO > hello.txt`，然后运行`echo WORLD >> hello.txt`。`hello.txt`的内容是什么？`>`和`>>`有什么不同？
+    - 运行`printf "\e[38;5;81mfoo\e[0m\n"`。输出有何不同？如果想了解更多，请搜索 ANSI 颜色转义序列。
+    - 运行`touch a.txt`，然后运行`^txt^log`。bash 为您做了什么？同样，运行`fc`。它是做什么的？
 <!--
 {% comment %}
 
@@ -305,15 +297,11 @@ TODO
 - set -e, set -x
 - traps
 
-{% endcomment %}
--->
-
-8. **键盘快捷键**
-
-   与您经常使用的任何应用程序一样，熟悉其键盘快捷键是值得的。键入以下快捷键，并尝试弄清楚它们的作用以及在何种情况下掌握它们可能会很方便。对于其中一些，通过在线搜索它们的作用可能会更容易。（记住`^X`表示按`Ctrl+X`）
-
-   - `^A`、`^E`
-   - `^R`
-   - `^L`
-   - `^C`、`^\`和`^D`
-   - `^U`和`^Y`
+{% endcomment %}-->
+1. **键盘快捷键**
+    与您经常使用的任何应用程序一样，熟悉其键盘快捷键是值得的。键入以下快捷键，并尝试弄清楚它们的作用以及在何种情况下掌握它们可能会很方便。对于其中一些，通过在线搜索它们的作用可能会更容易。（记住`^X`表示按`Ctrl+X`）
+    - `^A`、`^E`
+    - `^R`
+    - `^L`
+    - `^C`、`^\`和`^D`
+    - `^U`和`^Y`
