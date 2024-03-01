@@ -8,7 +8,25 @@ This site is powered by mkdocs(material theme).
 
 English original is from [this](https://github.com/missing-semester/missing-semester).
 
-Chinese (simplified) translation (only 2020 version) is from [this](https://github.com/missing-semester-cn/missing-semester-cn.github.io), as well as [solutions](https://github.com/missing-semester-cn/missing-notes-and-solutions).
+Chinese (simplified) translation (2020 version) is from [this](https://github.com/missing-semester-cn/missing-semester-cn.github.io), as well as [solutions](https://github.com/missing-semester-cn/missing-notes-and-solutions). Chinese 2019 version translation is newly added, mainly powered by `ChatGPT`.
+
+Some modifications (head titles mainly) are applied.
+
+## Lectures
+
+| Index | Lecture 2020                  | Lecture 2019                                                                                                                      |
+| ----- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | &bull; Course overview + the shell | &bull; Course overview <br>&bull; Virtual machines and containers <br>&bull; Shell and scripting <br>                             |
+| 2     | &bull; Shell Tools and Scripting   | &bull; Command-line environment <br>&bull; Data wrangling <br>                                                                    |
+| 3     | &bull; Editors (Vim)               | &bull; Editors <br>&bull; Version control <br>                                                                                    |
+| 4     | &bull; Data Wrangling              | &bull; Dotfiles <br>&bull; Backups <br>&bull; Automation <br>&bull; Machine introspection <br>                                    |
+| 5     | &bull; Command-line Environment    | &bull; Program introspection <br>&bull; Package/dependency management <br>&bull; OS customization <br>&bull; Remote machines <br> |
+| 6     | &bull; Version Control (Git)       | &bull; Web and browsers <br>&bull; Security and privacy <br> <br>                                                                 |
+| 7     | &bull; Debugging and Profiling     | |
+| 8     | &bull; Metaprogramming             | |
+| 9     | &bull; Security and Cryptography   | |
+| 10    | &bull; Potpourri                   | |
+| 11    | &bull; Q&A                         | |
 
 ## More Translations
 
