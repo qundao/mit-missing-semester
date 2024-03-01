@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Course Overview"
+title: "课程概览"
 presenter: Anish
 video:
   aspect: 56.25
