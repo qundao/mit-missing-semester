@@ -289,6 +289,7 @@ Fasd 基于 [_frecency_ ](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/
 # 课后练习
 [习题解答](solutions/shell-tools-solution.md)
 
+
 1. 阅读 [`man ls`](https://man7.org/linux/man-pages/man1/ls.1.html) ，然后使用`ls` 命令进行如下操作：
 
     - 所有文件（包括隐藏文件）

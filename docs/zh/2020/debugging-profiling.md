@@ -458,6 +458,7 @@ Summary
 
 # 课后练习
 [习题解答](solutions/debugging-profiling-solution.md)
+
 ## 调试
 1. 使用 Linux 上的 `journalctl` 或 macOS 上的 `log show` 命令来获取最近一天中超级用户的登录信息及其所执行的指令。如果找不到相关信息，您可以执行一些无害的命令，例如`sudo ls` 然后再次查看。
 

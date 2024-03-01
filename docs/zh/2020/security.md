@@ -238,6 +238,7 @@ security concepts, tips
 
 # 课后练习
 [习题解答](solutions/security-solution.md)
+
 1. **熵**
     1. 假设一个密码是由四个小写的单词拼接组成，每个单词都是从一个含有10万单词的字典中随机选择，且每个单词选中的概率相同。
        一个符合这样构造的例子是`correcthorsebatterystaple`。这个密码有多少比特的熵？
