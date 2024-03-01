@@ -19,19 +19,18 @@ impossibly complex.
 
 Read about the [motivation behind this class](2020/about.md).
 
-<!-- {% comment %} -->
-# Registration
+<!-- {% comment %}
+## Registration
 
 Sign up for the IAP 2020 class by filling out this [registration form](https://forms.gle/TD1KnwCSV52qexVt9).
-<!-- {% endcomment %} -->
+{% endcomment %} -->
 
-# Schedule
+## Schedule
 
-<!-- {% comment %} -->
+<!-- {% comment %}
 **Lecture**: 35-225, 2pm--3pm<br>
 **Office hours**: 32-G9 lounge, 3pm--4pm (every day, right after lecture)
-<!-- {% endcomment %} -->
-
+{% endcomment %} -->
 
 - **1/13/20**: [Course overview + the shell](2020/course-shell.md)
 - **1/14/20**: [Shell Tools and Scripting](2020/shell-tools.md)
@@ -47,12 +46,12 @@ Sign up for the IAP 2020 class by filling out this [registration form](https://f
 
 Video recordings of the lectures are available [on YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J).
 
-# About the class
+## About the class
 
 **Staff**: This class is co-taught by [Anish](https://www.anishathalye.com/), [Jon](https://thesquareplanet.com/), and [Jose](http://josejg.com/).<br>
 **Questions**: Email us at [missing-semester@mit.edu](mailto:missing-semester@mit.edu).
 
-# Beyond MIT
+## Beyond MIT
 
 We've also shared this class beyond MIT in the hopes that others may
 benefit from these resources. You can find posts and discussion on
@@ -64,7 +63,7 @@ benefit from these resources. You can find posts and discussion on
  - [Twitter](https://twitter.com/jonhoo/status/1224383452591509507)
  - [YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J)
 
-<!-- {% comment %} -->
+<!-- {% comment %}
 Some more URLs:
 
 - https://news.ycombinator.com/item?id=27154577
@@ -75,9 +74,9 @@ Some more URLs:
 - https://twitter.com/MIT_CSAIL/status/1349766980413263873
 - https://twitter.com/MIT_CSAIL/status/1481676163491659780
 - https://twitter.com/MIT_CSAIL/status/1581313961093484545
-<!-- {% endcomment %} -->
+{% endcomment %} -->
 
-# Translations
+## Translations
 
 - [Chinese (Simplified)](https://missing-semester-cn.github.io/)
 - [Chinese (Traditional)](https://missing-semester-zh-hant.github.io/)
@@ -112,5 +111,5 @@ record lecture videos; Anthony Zolnik and [MIT AeroAstro](https://aeroastro.mit.
 <div style="font-size:small;text-align:center">
 <p><a href="https://github.com/missing-semester/missing-semester">Source code</a>.</p>
 <p>Licensed under CC BY-NC-SA.</p>
-<p>See <a href="/license/">here</a> for contribution &amp; translation guidelines.</p>
+<p>See <a href="license/">here</a> for contribution &amp; translation guidelines.</p>
 </div>

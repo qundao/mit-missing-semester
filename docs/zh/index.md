@@ -3,7 +3,7 @@ layout: page
 title: 计算机教育中缺失的一课
 ---
 
-# The Missing Semester of Your CS Education 中文版
+## The Missing Semester of Your CS Education 中文版
 
 大学里的计算机课程通常专注于讲授从操作系统到机器学习这些学院派的课程或主题，而对于如何精通工具这一主题则往往会留给学生自行探索。在这个系列课程中，我们讲授命令行、强大的文本编辑器的使用、使用版本控制系统提供的多种特性等等。学生在他们受教育阶段就会和这些工具朝夕相处（在他们的职业生涯中更是这样）。
 
@@ -13,11 +13,10 @@ title: 计算机教育中缺失的一课
 
 关于 [开设此课程的动机](about.md)。
 
-<!-- {% comment %} -->
-# Registration
-
-Sign up for the IAP 2020 class by filling out this [registration form](https://forms.gle/TD1KnwCSV52qexVt9).
-<!-- {% endcomment %} -->
+<!-- {% comment %}
+## Registration
+请通过填写[注册表格](https://forms.gle/TD1KnwCSV52qexVt9)来报名参加2020年IAP课程。
+{% endcomment %} -->
 
 ## 日程 ![badge](https://img.shields.io/badge/文档同步时间-2021--04--24-blue)
 
@@ -36,13 +35,13 @@ Sign up for the IAP 2020 class by filling out this [registration form](https://f
 讲座视频可以在 [
 YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J) 上找到。
 
-# 关于本课程
+## 关于本课程
 
 **教员**：本课程由 [Anish](https://www.anishathalye.com/)、[Jon](https://thesquareplanet.com/) 和 [Jose](http://josejg.com/) 讲授。
 
 **问题**：请通过 [missing-semester@mit.edu](mailto:missing-semester@mit.edu) 联系我们。
 
-# 在 MIT 之外
+## 在 MIT 之外
 
 我们也将本课程分享到了 MIT 之外，希望其他人也能受益于这些资源。您可以在下面这些地方找到相关文章和讨论。
 
@@ -53,7 +52,7 @@ YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57
  - [Twitter](https://twitter.com/jonhoo/status/1224383452591509507)
  - [YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J)
 
-# 译文
+## 译文
 
 - [繁体中文](https://missing-semester-zh-hant.github.io/)
 - [Japanese](https://missing-semester-jp.github.io/)
