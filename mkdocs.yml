@@ -16,11 +16,13 @@ theme:
         icon: material/brightness-auto
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
+      primary: blue
       scheme: default
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
+      primary: blue grey
       scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
@@ -107,6 +109,14 @@ plugins:
             About: 关于本课程
             Solution: 习题解答
             Introduction: 课程简介
+          theme:
+            palette:
+              - media: "(prefers-color-scheme: light)"
+                primary: red
+                scheme: default
+              - media: "(prefers-color-scheme: dark)"
+                primary: pink
+                scheme: slate
 
 nav:
   - Home: index.md
