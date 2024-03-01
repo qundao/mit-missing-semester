@@ -7,6 +7,8 @@ video:
   id: OBx_c-i-M8s
 ---
 
+<iframe src="https://www.youtube.com/embed/OBx_c-i-M8s" frameborder="0" allowfullscreen></iframe>
+
 The world is a scary place, and everyone's out to get you.
 
 Okay, maybe not, but that doesn't mean you want to flaunt all your

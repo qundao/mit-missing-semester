@@ -7,6 +7,8 @@ video:
   id: i0rf1gpKL1E
 ---
 
+<iframe src="https://www.youtube.com/embed/i0rf1gpKL1E" frameborder="0" allowfullscreen></iframe>
+
 ## 别名与函数
 
 正如您所想象的那样，输入涉及许多标志或冗长选项的长命令可能会变得乏味。然而，大多数 Shell 支持**别名**。例如，在 bash 中，别名的结构如下（请注意`=`周围没有空格）：

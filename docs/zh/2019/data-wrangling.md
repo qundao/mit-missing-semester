@@ -7,6 +7,8 @@ video:
   id: VW2jn9Okjhw
 ---
 
+<iframe src="https://www.youtube.com/embed/VW2jn9Okjhw" frameborder="0" allowfullscreen></iframe>
+
 你是否曾经有一大堆文本并希望对其进行处理？很好，这就是数据整理的全部意义！具体来说，就是将数据从一种格式调整到另一种，直到你得到了想要的结果。
 
 我们已经看到了基本的数据整理：`journalctl | grep -i intel`。

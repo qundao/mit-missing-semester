@@ -7,6 +7,8 @@ video:
   id: tgvt473T8xA
 ---
 
+<iframe src="https://www.youtube.com/embed/tgvt473T8xA" frameborder="0" allowfullscreen></iframe>
+
 Software usually builds on (a collection of) other software, which necessitates
 dependency management.
 

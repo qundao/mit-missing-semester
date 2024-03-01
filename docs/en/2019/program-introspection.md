@@ -7,6 +7,8 @@ video:
   id: 74MhV-7hYzg
 ---
 
+<iframe src="https://www.youtube.com/embed/74MhV-7hYzg" frameborder="0" allowfullscreen></iframe>
+
 ## Debugging
 
 When printf-debugging isn't good enough: use a debugger.

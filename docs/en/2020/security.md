@@ -8,6 +8,8 @@ video:
   id: tjwobAmnKTo
 ---
 
+<iframe src="https://www.youtube.com/embed/tjwobAmnKTo" frameborder="0" allowfullscreen></iframe>
+
 Last year's [security and privacy lecture](../2019/security.md) focused on how you
 can be more secure as a computer _user_. This year, we will focus on security
 and cryptography concepts that are relevant in understanding tools covered

@@ -7,6 +7,8 @@ video:
   id: 1vLcusYSrI4
 ---
 
+<iframe src="https://www.youtube.com/embed/1vLcusYSrI4" frameborder="0" allowfullscreen></iframe>
+
 ## 编辑器的重要性
 
 作为程序员，我们大部分时间都在编辑纯文本文件。值得投入时间学习一个适合您需求的编辑器。

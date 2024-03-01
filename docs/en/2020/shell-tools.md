@@ -143,6 +143,8 @@ diff <(ls foo) <(ls bar)
 # Outputs
 # < x
 # ---
+
+<iframe src="https://www.youtube.com/embed/kgII-YWo3Zw" frameborder="0" allowfullscreen></iframe>
 # > y
 ```
 

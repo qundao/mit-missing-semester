@@ -7,6 +7,8 @@ video:
   id: lrpqYF8tcYQ
 ---
 
+<iframe src="https://www.youtube.com/embed/lrpqYF8tcYQ" frameborder="0" allowfullscreen></iframe>
+
 There are two types of people:
 
 - Those who do backups

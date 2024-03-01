@@ -7,6 +7,8 @@ video:
   id: eNYT2Oq3PF8
 ---
 
+<iframe src="https://www.youtube.com/embed/eNYT2Oq3PF8" frameborder="0" allowfullscreen></iframe>
+
 有时，计算机会表现不良。而且很多时候，您会想知道为什么。
 让我们看看一些可以帮助您做到这一点的工具！
 

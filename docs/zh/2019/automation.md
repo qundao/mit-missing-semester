@@ -7,6 +7,8 @@ video:
   id: BaLlAaHz-1k
 ---
 
+<iframe src="https://www.youtube.com/embed/BaLlAaHz-1k" frameborder="0" allowfullscreen></iframe>
+
 有时您会编写一个执行某些操作的脚本，但希望它定期运行，比如备份任务。您可以编写一个临时的解决方案，让其在后台运行，并定期上线。然而，大多数 UNIX 系统都配备了 cron 守护进程，它可以根据简单的规则每分钟运行一次任务。
 
 在大多数 UNIX 系统上，cron 守护进程 `crond` 默认情况下都会运行，但您可以随时使用 `ps aux | grep crond` 命令进行检查。

@@ -13,6 +13,8 @@ solution:
     url: debugging-profiling-solution
 ---
 
+<iframe src="https://www.youtube.com/embed/l812pUnKxME" frameborder="0" allowfullscreen></iframe>
+
 代码不能完全按照您的想法运行，它只能完全按照您的写法运行，这是编程界的一条金科玉律。
 
 让您的写法符合您的想法是非常困难的。在这节课中，我们会传授给您一些非常有用技术，帮您处理代码中的 bug 和程序性能问题。

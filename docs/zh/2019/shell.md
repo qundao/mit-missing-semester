@@ -7,6 +7,8 @@ video:
   id: dbDRfmH5uSI
 ---
 
+<iframe src="https://www.youtube.com/embed/dbDRfmH5uSI" frameborder="0" allowfullscreen></iframe>
+
 Shell 是一种高效的计算机文本界面。
 
 Shell 提示符：当你打开终端时会见到的界面，它允许你运行程序和命令；一些常见的包括：

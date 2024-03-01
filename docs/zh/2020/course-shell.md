@@ -13,6 +13,8 @@ solution:
     url: course-shell-solution
 ---
 
+<iframe src="https://www.youtube.com/embed/Z56Jmr9Z34Q" frameborder="0" allowfullscreen></iframe>
+
 ## 动机
 
 作为计算机科学家，我们都知道计算机最擅长帮助我们完成重复性的工作。

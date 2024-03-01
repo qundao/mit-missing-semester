@@ -8,6 +8,8 @@ video:
   id: Z56Jmr9Z34Q
 ---
 
+<iframe src="https://www.youtube.com/embed/Z56Jmr9Z34Q" frameborder="0" allowfullscreen></iframe>
+
 ## Motivation
 
 As computer scientists, we know that computers are great at aiding in

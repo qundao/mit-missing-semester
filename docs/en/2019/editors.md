@@ -7,6 +7,8 @@ video:
   id: 1vLcusYSrI4
 ---
 
+<iframe src="https://www.youtube.com/embed/1vLcusYSrI4" frameborder="0" allowfullscreen></iframe>
+
 ## Importance of Editors
 
 As programmers, we spend most of our time editing plain-text files. It's worth

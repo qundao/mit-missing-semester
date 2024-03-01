@@ -7,6 +7,8 @@ video:
   id: qw2c6ffSVOM
 ---
 
+<iframe src="https://www.youtube.com/embed/qw2c6ffSVOM" frameborder="0" allowfullscreen></iframe>
+
 ## Motivation
 
 This class is about [hacker](https://en.wikipedia.org/wiki/Hacker_culture)

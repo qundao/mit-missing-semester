@@ -7,6 +7,8 @@ video:
   id: YSZBWWJw3mI
 ---
 
+<iframe src="https://www.youtube.com/embed/YSZBWWJw3mI" frameborder="0" allowfullscreen></iframe>
+
 许多程序都是使用称为“点文件”（因为文件名以 `.` 开头，例如 `~/.gitconfig`，因此它们默认在目录列表 `ls` 中被隐藏）的纯文本文件进行配置。
 
 您使用的许多工具可能有许多可以精细调整的设置。通常情况下，工具是使用专门的语言进行定制，例如 Vim 的 Vimscript 或 shell 的自己语言。

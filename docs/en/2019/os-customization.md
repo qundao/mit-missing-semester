@@ -7,6 +7,8 @@ video:
   id: epSRVqQzeDo
 ---
 
+<iframe src="https://www.youtube.com/embed/epSRVqQzeDo" frameborder="0" allowfullscreen></iframe>
+
 There is a lot you can do to customize your operating system beyond what is
 available in the settings menus.
 

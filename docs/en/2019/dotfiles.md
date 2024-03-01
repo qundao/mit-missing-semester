@@ -7,6 +7,8 @@ video:
   id: YSZBWWJw3mI
 ---
 
+<iframe src="https://www.youtube.com/embed/YSZBWWJw3mI" frameborder="0" allowfullscreen></iframe>
+
 Many programs are configured using plain-text files known as "dotfiles"
 (because the file names begin with a `.`, e.g. `~/.gitconfig`, so that they are
 hidden in the directory listing `ls` by default).

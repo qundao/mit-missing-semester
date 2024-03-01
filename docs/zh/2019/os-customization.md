@@ -7,6 +7,8 @@ video:
   id: epSRVqQzeDo
 ---
 
+<iframe src="https://www.youtube.com/embed/epSRVqQzeDo" frameborder="0" allowfullscreen></iframe>
+
 在设置菜单之外，您可以对操作系统进行大量定制。
 
 ## 键盘重映射

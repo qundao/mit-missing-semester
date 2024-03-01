@@ -7,6 +7,8 @@ video:
   id: OBx_c-i-M8s
 ---
 
+<iframe src="https://www.youtube.com/embed/OBx_c-i-M8s" frameborder="0" allowfullscreen></iframe>
+
 世界是一个可怕的地方，每个人都在想方设法攻击你。
 
 好吧，也许不是，但这并不意味着你想炫耀你所有的秘密。安全（和隐私）通常都是提高攻击者的门槛。找出你的威胁模型是什么，然后设计你的安全机制围绕着那个模型！如果威胁模型是 NSA 或 Mossad，你可能会有个**糟糕的**时刻。

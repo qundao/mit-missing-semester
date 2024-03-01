@@ -7,6 +7,8 @@ video:
   id: eNYT2Oq3PF8
 ---
 
+<iframe src="https://www.youtube.com/embed/eNYT2Oq3PF8" frameborder="0" allowfullscreen></iframe>
+
 Sometimes, computers misbehave. And very often, you want to know why.
 Let's look at some tools that help you do that!
 

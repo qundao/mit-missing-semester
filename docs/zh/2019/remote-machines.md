@@ -7,6 +7,8 @@ video:
   id: X5c2Y8BCowM
 ---
 
+<iframe src="https://www.youtube.com/embed/X5c2Y8BCowM" frameborder="0" allowfullscreen></iframe>
+
 现在，程序员在日常工作中越来越常使用远程服务器。如果您需要使用远程服务器来部署后端软件，或者需要具有更高计算能力的服务器，您将不得不使用安全外壳协议（SSH）。与大多数涉及的工具一样，SSH 是高度可配置的，因此值得学习。
 
 ## 执行命令

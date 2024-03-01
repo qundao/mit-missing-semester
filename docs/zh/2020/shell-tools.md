@@ -136,6 +136,8 @@ diff <(ls foo) <(ls bar)
 # 输出
 # < x
 # ---
+
+<iframe src="https://www.youtube.com/embed/kgII-YWo3Zw" frameborder="0" allowfullscreen></iframe>
 # > y
 ```
 

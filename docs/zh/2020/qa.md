@@ -10,6 +10,8 @@ video:
   id: Wz50FvGG6xU
 ---
 
+<iframe src="https://www.youtube.com/embed/Wz50FvGG6xU" frameborder="0" allowfullscreen></iframe>
+
 最后一节课，我们回答学生提出的问题:
 
 - [学习操作系统相关内容的推荐，比如进程，虚拟内存，中断，内存管理等](#学习操作系统相关内容的推荐比如进程虚拟内存中断内存管理等)

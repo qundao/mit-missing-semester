@@ -7,6 +7,8 @@ video:
   id: qw2c6ffSVOM
 ---
 
+<iframe src="https://www.youtube.com/embed/qw2c6ffSVOM" frameborder="0" allowfullscreen></iframe>
+
 ## 动机
 
 这门课程关注的是[黑客文化](https://en.wikipedia.org/wiki/Hacker_culture)中的工具，而不是[安全黑客](https://en.wikipedia.org/wiki/Security_hacker)所使用的工具。

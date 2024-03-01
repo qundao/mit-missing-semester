@@ -13,6 +13,8 @@ solution:
     url: command-line-solution
 ---
 
+<iframe src="https://www.youtube.com/embed/e8BO_dYxk5c" frameborder="0" allowfullscreen></iframe>
+
 当您使用 shell 进行工作时，可以使用一些方法改善您的工作流，本节课我们就来讨论这些方法。
 
 我们已经使用 shell 一段时间了，但是到目前为止我们的关注点主要集中在使用不同的命令上面。现在，我们将会学习如何同时执行多个不同的进程并追踪它们的状态、如何停止或暂停某个进程以及如何使进程在后台运行。

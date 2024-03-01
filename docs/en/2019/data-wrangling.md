@@ -7,6 +7,8 @@ video:
   id: VW2jn9Okjhw
 ---
 
+<iframe src="https://www.youtube.com/embed/VW2jn9Okjhw" frameborder="0" allowfullscreen></iframe>
+
 Have you ever had a bunch of text and wanted to do something with it?
 Good. That's what data wrangling is all about!
 Specifically, adapting data from one format to another, until you end up

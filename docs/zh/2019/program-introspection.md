@@ -7,6 +7,8 @@ video:
   id: 74MhV-7hYzg
 ---
 
+<iframe src="https://www.youtube.com/embed/74MhV-7hYzg" frameborder="0" allowfullscreen></iframe>
+
 ## 调试
 
 当打印输出调试不够用时：使用调试器。

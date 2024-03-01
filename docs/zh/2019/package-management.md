@@ -7,6 +7,8 @@ video:
   id: tgvt473T8xA
 ---
 
+<iframe src="https://www.youtube.com/embed/tgvt473T8xA" frameborder="0" allowfullscreen></iframe>
+
 软件通常是建立在其他软件（集合）的基础上构建的，这就需要进行依赖管理。
 
 包/依赖管理程序是针对特定语言的，但许多共享通用的思想。

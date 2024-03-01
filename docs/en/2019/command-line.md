@@ -7,6 +7,8 @@ video:
   id: i0rf1gpKL1E
 ---
 
+<iframe src="https://www.youtube.com/embed/i0rf1gpKL1E" frameborder="0" allowfullscreen></iframe>
+
 ## Aliases & Functions
 
 As you can imagine it can become tiresome typing long commands that involve many flags or verbose options. Nevertheless, most shells support **aliasing**. For instance, an alias in bash has the following structure (note there is no space around the `=` sign):

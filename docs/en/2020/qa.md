@@ -8,6 +8,8 @@ video:
   id: Wz50FvGG6xU
 ---
 
+<iframe src="https://www.youtube.com/embed/Wz50FvGG6xU" frameborder="0" allowfullscreen></iframe>
+
 For the last lecture, we answered questions that the students submitted:
 
 - [Any recommendations on learning Operating Systems related topics like processes, virtual memory, interrupts, memory management, etc](#any-recommendations-on-learning-operating-systems-related-topics-like-processes-virtual-memory-interrupts-memory-management-etc)

@@ -7,6 +7,8 @@ video:
   id: LJ9ki5zq6Ik
 ---
 
+<iframe src="https://www.youtube.com/embed/LJ9ki5zq6Ik" frameborder="0" allowfullscreen></iframe>
+
 ## Virtual Machines
 
 Virtual machines are simulated computers. You can configure a guest virtual

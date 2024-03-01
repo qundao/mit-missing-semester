@@ -56,6 +56,8 @@ video:
 
 ---
 
+<iframe src="https://www.youtube.com/embed/LJ9ki5zq6Ik" frameborder="0" allowfullscreen></iframe>
+
 ## 容器
 
 相对于虚拟机来说，虚拟机是相对重量级的；如果你想以自动化的方式快速启动机器怎么办？这就是容器的用武之地！

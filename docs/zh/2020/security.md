@@ -13,6 +13,8 @@ solution:
     url: security-solution
 ---
 
+<iframe src="https://www.youtube.com/embed/tjwobAmnKTo" frameborder="0" allowfullscreen></iframe>
+
 去年的[这节课](../../en/2019/security.md)我们从计算机 _用户_ 的角度探讨了增强隐私保护和安全的方法。
 今年我们将关注比如散列函数、密钥生成函数、对称/非对称密码体系这些安全和密码学的概念是如何应用于前几节课所学到的工具（Git和SSH）中的。
 

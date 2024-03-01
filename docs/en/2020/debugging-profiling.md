@@ -8,6 +8,8 @@ video:
   id: l812pUnKxME
 ---
 
+<iframe src="https://www.youtube.com/embed/l812pUnKxME" frameborder="0" allowfullscreen></iframe>
+
 A golden rule in programming is that code does not do what you expect it to do, but what you tell it to do.
 Bridging that gap can sometimes be a quite difficult feat.
 In this lecture we are going to cover useful techniques for dealing with buggy and resource hungry code: debugging and profiling.

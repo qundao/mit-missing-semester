@@ -7,6 +7,8 @@ video:
   id: 3fig2Vz8QXs
 ---
 
+<iframe src="https://www.youtube.com/embed/3fig2Vz8QXs" frameborder="0" allowfullscreen></iframe>
+
 Whenever you are working on something that changes over time, it's
 useful to be able to _track_ those changes. This can be for a number of
 reasons: it gives you a record of what changed, how to undo it, who

@@ -8,6 +8,8 @@ video:
   id: a6Q8Na575qc
 ---
 
+<iframe src="https://www.youtube.com/embed/a6Q8Na575qc" frameborder="0" allowfullscreen></iframe>
+
 Writing English words and writing code are very different activities. When
 programming, you spend more time switching files, reading, navigating, and
 editing code compared to writing a long stream. It makes sense that there are

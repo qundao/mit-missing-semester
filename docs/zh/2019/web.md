@@ -7,6 +7,8 @@ video:
   id: XpZO3S8odec
 ---
 
+<iframe src="https://www.youtube.com/embed/XpZO3S8odec" frameborder="0" allowfullscreen></iframe>
+
 除了终端之外，网络浏览器是一个你会发现自己花费大量时间的工具。因此，值得学习如何高效地使用它。
 
 ## 快捷键

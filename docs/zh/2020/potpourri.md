@@ -10,6 +10,8 @@ video:
   id: JZDt-PRq0uo
 ---
 
+<iframe src="https://www.youtube.com/embed/JZDt-PRq0uo" frameborder="0" allowfullscreen></iframe>
+
 ## 目录
 
 - [目录](#目录)

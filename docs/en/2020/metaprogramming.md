@@ -9,6 +9,8 @@ video:
   id: _Ms1Z4xfqv4
 ---
 
+<iframe src="https://www.youtube.com/embed/_Ms1Z4xfqv4" frameborder="0" allowfullscreen></iframe>
+
 What do we mean by "metaprogramming"? Well, it was the best collective
 term we could come up with for the set of things that are more about
 _process_ than they are about writing code or working more efficiently.
