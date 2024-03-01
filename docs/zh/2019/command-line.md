@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Command-line environment"
+title: "命令行环境"
 presenter: Jose
 video:
   aspect: 62.5

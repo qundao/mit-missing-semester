@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Shell变成和脚本"
+title: "Shell编程和脚本"
 presenter: Jon
 video:
   aspect: 56.25
@@ -55,6 +55,7 @@ for i in $(seq 1 5); do echo hello; done
   - 所有命令都在 `$PATH` 中搜索（冒号分隔）
 
 我们有变量：
+
 ```bash
 for f in $(ls); do echo $f; done
 ```
@@ -82,10 +83,10 @@ for f in $(ls); do if test -d $f; then echo dir $f; fi; done
 更多的解释在这里：
 
 - `if CONDITION; then BODY; fi`
-  - `CONDITION`是一个命令；如果它返回退出状态0（成功），则执行`BODY`。
+  - `CONDITION`是一个命令；如果它返回退出状态 0（成功），则执行`BODY`。
   - 也可以加入`else`或`elif`
   - 同样，没有大括号，因此使用`then` + `fi`
-- `test`是另一个程序，提供各种检查和比较，并且如果它们为真（`$?`），则退出状态为0
+- `test`是另一个程序，提供各种检查和比较，并且如果它们为真（`$?`），则退出状态为 0
   - `man COMMAND`是你的好朋友：`man test`
   - 也可以使用`[` + `]`来调用：`[ -d $f ]`
     - 看看`man test`和`which "["`
@@ -95,11 +96,11 @@ for f in $(ls); do if test -d $f; then echo dir $f; fi; done
 - `for f in $(ls)`展开为`for f in My Documents`
 - 首先对`My`进行测试，然后对`Documents`
 - 这不是我们想要的！
-- 是shell脚本中最大的bug来源
+- 是 shell 脚本中最大的 bug 来源
 
 ## 参数分割
 
-Bash按空白符分割参数；这并不总是你想要的！
+Bash 按空白符分割参数；这并不总是你想要的！
 
 - 需要使用引号来处理参数中的空格
   `for f in "My Documents"` 将会正确工作
@@ -113,7 +114,7 @@ Bash按空白符分割参数；这并不总是你想要的！
 
 通配符是答案！
 
-- bash知道如何使用模式查找文件：
+- bash 知道如何使用模式查找文件：
   - `*` 任意字符串字符
   - `?` 任何单个字符
   - `{a,b,c}` 这些字符中的任何一个
@@ -124,21 +125,21 @@ Bash按空白符分割参数；这并不总是你想要的！
   - `for f in a*`：当前目录中以`a`开头的所有文件
   - `for f in foo/*.txt`：`foo`中的所有`.txt`文件
   - `for f in foo/*/p??.txt`
-    `foo`的子目录中以p开头的所有三个字母的文本文件
+    `foo`的子目录中以 p 开头的所有三个字母的文本文件
 
 空白字符问题不止这些：
 
 - `if [ $foo = "bar" ]; then` —— 看到问题了吗？
 - 如果`$foo`为空呢？传递给`[`的参数是`=`和`bar`...
 - **可以**通过使用`[ x$foo = "xbar" ]`来解决这个问题，但呃
-- 相反，使用`[[`：bash内置的比较器，具有特殊解析
+- 相反，使用`[[`：bash 内置的比较器，具有特殊解析
   - 也允许使用`&&`代替`-a`，`||`代替`-o`等。
 
 <!-- TODO: 数组？ $@. ${array[@]} vs "${array[@]}". -->
 
 ## 可组合性
 
-Shell之所以强大部分原因是因为其可组合性。可以将多个程序链接在一起，而不是让一个程序做所有事情。
+Shell 之所以强大部分原因是因为其可组合性。可以将多个程序链接在一起，而不是让一个程序做所有事情。
 
 关键字符是`|`（管道）。
 
@@ -162,23 +163,23 @@ Shell之所以强大部分原因是因为其可组合性。可以将多个程序
   - `ls | grep foo`：包含单词`foo`的所有文件
   - `ps | grep foo`：包含单词`foo`的所有进程
   - `journalctl | grep -i intel | tail -n5`：
-    最后5条包含单词intel（不区分大小写）的系统日志消息
+    最后 5 条包含单词 intel（不区分大小写）的系统日志消息
   - `who | sendmail -t me@example.com`
     将登录用户列表发送至`me@example.com`
   - 形成了数据处理的基础，我们稍后会介绍
 
-Bash还提供了许多其他方式来组合程序。
+Bash 还提供了许多其他方式来组合程序。
 
 你可以用`(a; b) | tac`组合命令：运行`a`，然后是`b`，并将它们的所有输出发送给`tac`，它会以相反的顺序打印其输入。
 
-一个较不为人知，但非常有用的是_进程替代_。
+一个较不为人知，但非常有用的是*进程替代*。
 `b <(a)`将运行`a`，为其输出流生成一个临时文件名，并将该文件名传递给`b`。例如：
 
 ```bash
 diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 ```
 
-将显示上一次启动日志的前20行与之前那次的差异。
+将显示上一次启动日志的前 20 行与之前那次的差异。
 
 <!-- TODO: 退出代码? -->
 
@@ -199,7 +200,7 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
   - `^Z`停止当前进程并将其变为一个“作业”
   - `bg`在后台运行最后一个作业（就像你做的`&`）
 - 后台作业仍然绑定到你当前的会话，如果你登出它们会退出。`disown`允许你切断这个连接。或者使用`nohup`。
-- `$!`是最后一个后台进程的进程ID
+- `$!`是最后一个后台进程的进程 ID
 
 <!-- TODO: 进程输出控制（^S 和 ^Q）？ -->
 
@@ -210,7 +211,7 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
   - `ps`有*很多*参数：见`man ps`
 - `pgrep`：通过搜索找到进程（类似于`ps -A | grep`）
   - `pgrep -af`：搜索并显示参数
-- `kill`：通过ID向进程发送一个_信号_（通过搜索`pkill` + `-f`）
+- `kill`：通过 ID 向进程发送一个*信号*（通过搜索`pkill` + `-f`）
   - 信号告诉进程“做某事”
   - 最常见的是：`SIGKILL`（`-9`或`-KILL`）：告诉它*现在*退出
     等同于`^\`
@@ -223,76 +224,79 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 短标志通常可以组合，运行`rm -r -f`等同于运行`rm -rf`或`rm -fr`。
 一些常见的标志是事实上的标准，在许多应用程序中你会看到它们：
 
-* `-a`通常指所有文件（即包括那些以点开头的）
-* `-f`通常指强制做某事，比如`rm -f`
-* `-h`显示大多数命令的帮助
-* `-v`通常启用详细输出
-* `-V`通常打印命令的版本
+- `-a`通常指所有文件（即包括那些以点开头的）
+- `-f`通常指强制做某事，比如`rm -f`
+- `-h`显示大多数命令的帮助
+- `-v`通常启用详细输出
+- `-V`通常打印命令的版本
 
-此外，双破折号`--`在内置命令和许多其他命令中用于表示命令选项的结束，之后只接受位置参数。所以如果你有一个名为`-v`的文件（这是可能的）并想用grep查找它`grep pattern -- -v`会起作用而`grep pattern -v`不会。实际上，创建这样的文件的一种方式是执行`touch -- -v`。
+此外，双破折号`--`在内置命令和许多其他命令中用于表示命令选项的结束，之后只接受位置参数。所以如果你有一个名为`-v`的文件（这是可能的）并想用 grep 查找它`grep pattern -- -v`会起作用而`grep pattern -v`不会。实际上，创建这样的文件的一种方式是执行`touch -- -v`。
 
 ## 练习
 
-1. 如果您完全是Shell的新手，您可能希望阅读更全面的指南，例如[BashGuide](http://mywiki.wooledge.org/BashGuide)。如果您想要更深入的介绍，[Linux命令行](http://linuxcommand.org/tlcl.php)是一个很好的资源。
+1. 如果您完全是 Shell 的新手，您可能希望阅读更全面的指南，例如[BashGuide](http://mywiki.wooledge.org/BashGuide)。如果您想要更深入的介绍，[Linux 命令行](http://linuxcommand.org/tlcl.php)是一个很好的资源。
 
 2. **PATH、which、type**命令
 
-    我们简要讨论了`PATH`环境变量用于定位通过命令行运行的程序。让我们更深入地探讨一下：
-    - 运行`echo $PATH`（或`echo $PATH | tr -s ':' '\n'`进行漂亮打印），并检查其内容，列出了哪些位置？
-    - 命令`which`用于在用户PATH中定位程序。尝试运行`which`，用于常见命令如`echo`、`ls`或`mv`。注意`which`有些局限，因为它不理解Shell别名。尝试对同样的命令运行`type`和`command -v`。输出有什么不同？
-    - 运行`PATH=`，然后尝试重新运行之前的命令，有些可以工作，有些不行，您能找出原因吗？
+   我们简要讨论了`PATH`环境变量用于定位通过命令行运行的程序。让我们更深入地探讨一下：
+
+   - 运行`echo $PATH`（或`echo $PATH | tr -s ':' '\n'`进行漂亮打印），并检查其内容，列出了哪些位置？
+   - 命令`which`用于在用户 PATH 中定位程序。尝试运行`which`，用于常见命令如`echo`、`ls`或`mv`。注意`which`有些局限，因为它不理解 Shell 别名。尝试对同样的命令运行`type`和`command -v`。输出有什么不同？
+   - 运行`PATH=`，然后尝试重新运行之前的命令，有些可以工作，有些不行，您能找出原因吗？
 
 3. **特殊变量**
-    - 变量`~`展开为什么？`.`呢？`..`呢？
-    - 变量`$?`是做什么的？
-    - 变量`$_`的作用是什么？
-    - 变量`!!`展开为什么？`!!*`呢？`!l`呢？
-    - 查找这些选项的文档并熟悉它们。
+
+   - 变量`~`展开为什么？`.`呢？`..`呢？
+   - 变量`$?`是做什么的？
+   - 变量`$_`的作用是什么？
+   - 变量`!!`展开为什么？`!!*`呢？`!l`呢？
+   - 查找这些选项的文档并熟悉它们。
 
 4. **xargs**
 
-    有时候，使用管道无法正常工作，因为要输入的命令不是期望的以换行符分隔的格式。例如`file`命令告诉您文件的属性。
-    尝试运行`ls | file`和`ls | xargs file`。`xargs`在做什么？
+   有时候，使用管道无法正常工作，因为要输入的命令不是期望的以换行符分隔的格式。例如`file`命令告诉您文件的属性。
+   尝试运行`ls | file`和`ls | xargs file`。`xargs`在做什么？
 
 5. **Shebang**注释
 
-    当您编写脚本时，可以使用[shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))行指定您的Shell应该使用什么解释器来解释脚本。编写一个名为`hello`的脚本，内容如下，并使用`chmod +x hello`使其可执行。然后用`./hello`执行它。然后删除第一行并再次执行它？Shell如何使用第一行？
+   当您编写脚本时，可以使用[shebang](<https://en.wikipedia.org/wiki/Shebang_(Unix)>)行指定您的 Shell 应该使用什么解释器来解释脚本。编写一个名为`hello`的脚本，内容如下，并使用`chmod +x hello`使其可执行。然后用`./hello`执行它。然后删除第一行并再次执行它？Shell 如何使用第一行？
 
-    ```bash
-      #! /usr/bin/python
+   ```bash
+     #! /usr/bin/python
 
-      print("Hello World!")
-    ```
+     print("Hello World!")
+   ```
 
-    您经常会看到具有类似`#! usr/bin/env bash`的shebang的程序。这是一种更便携的解决方案，具有自己的一套[优点和缺点](https://unix.stackexchange.com/questions/29608/why-is-it-better-to-use-usr-bin-env-name-instead-of-path-to-name-as-my)。`env`与`which`有什么不同？`env`使用哪个环境变量来决定要运行哪个程序？
+   您经常会看到具有类似`#! usr/bin/env bash`的 shebang 的程序。这是一种更便携的解决方案，具有自己的一套[优点和缺点](https://unix.stackexchange.com/questions/29608/why-is-it-better-to-use-usr-bin-env-name-instead-of-path-to-name-as-my)。`env`与`which`有什么不同？`env`使用哪个环境变量来决定要运行哪个程序？
 
-6. **管道、进程替换、子shell**
+6. **管道、进程替换、子 shell**
 
-    创建一个名为`slow_seq.sh`的脚本，内容如下，并执行`chmod +x slow_seq.sh`使其可执行。
+   创建一个名为`slow_seq.sh`的脚本，内容如下，并执行`chmod +x slow_seq.sh`使其可执行。
 
-    ```bash
-      #! /usr/bin/env bash
+   ```bash
+     #! /usr/bin/env bash
 
-      for i in $(seq 1 10); do
-              echo $i;
-              sleep 1;
-      done
-    ```
+     for i in $(seq 1 10); do
+             echo $i;
+             sleep 1;
+     done
+   ```
 
-    管道（和进程替换）与使用子shell执行（即`$()`）有一种不同的方式。运行以下命令并观察差异：
-    - `./slow_seq.sh | grep -P "[3-6]"`
-    - `grep -P "[3-6]" <(./slow_seq.sh)`
-    - `echo $(./slow_seq.sh) | grep -P "[3-6]"`
+   管道（和进程替换）与使用子 shell 执行（即`$()`）有一种不同的方式。运行以下命令并观察差异：
+
+   - `./slow_seq.sh | grep -P "[3-6]"`
+   - `grep -P "[3-6]" <(./slow_seq.sh)`
+   - `echo $(./slow_seq.sh) | grep -P "[3-6]"`
 
 7. **其他**
-    - 尝试运行`touch {a,b}{a,b}`然后`ls`，看到了什么？
-    - 有时您希望保留STDIN并将其仍然输入到文件中。尝试运行`echo HELLO | tee hello.txt`
-    - 尝试运行`cat hello.txt > hello.txt `您期望会发生什么？实际发生了什么？
-    - 运行`echo HELLO > hello.txt`，然后运行`echo WORLD >> hello.txt`。`hello.txt`的内容是什么？`>`和`>>`有什么不同？
-    - 运行`printf "\e[38;5;81mfoo\e[0m\n"`。输出有何不同？如果想了解更多，请搜索ANSI颜色转义序列。
-    - 运行`touch a.txt`，然后运行`^txt^log`。bash为您做了什么？同样，运行`fc`。它是做什么的？
+   - 尝试运行`touch {a,b}{a,b}`然后`ls`，看到了什么？
+   - 有时您希望保留 STDIN 并将其仍然输入到文件中。尝试运行`echo HELLO | tee hello.txt`
+   - 尝试运行`cat hello.txt > hello.txt `您期望会发生什么？实际发生了什么？
+   - 运行`echo HELLO > hello.txt`，然后运行`echo WORLD >> hello.txt`。`hello.txt`的内容是什么？`>`和`>>`有什么不同？
+   - 运行`printf "\e[38;5;81mfoo\e[0m\n"`。输出有何不同？如果想了解更多，请搜索 ANSI 颜色转义序列。
+   - 运行`touch a.txt`，然后运行`^txt^log`。bash 为您做了什么？同样，运行`fc`。它是做什么的？
 
-<!-- 
+<!--
 {% comment %}
 
 TODO
@@ -306,10 +310,10 @@ TODO
 
 8. **键盘快捷键**
 
-    与您经常使用的任何应用程序一样，熟悉其键盘快捷键是值得的。键入以下快捷键，并尝试弄清楚它们的作用以及在何种情况下掌握它们可能会很方便。对于其中一些，通过在线搜索它们的作用可能会更容易。（记住`^X`表示按`Ctrl+X`）
+   与您经常使用的任何应用程序一样，熟悉其键盘快捷键是值得的。键入以下快捷键，并尝试弄清楚它们的作用以及在何种情况下掌握它们可能会很方便。对于其中一些，通过在线搜索它们的作用可能会更容易。（记住`^X`表示按`Ctrl+X`）
 
-    - `^A`、`^E`
-    - `^R`
-    - `^L`
-    - `^C`、`^\`和`^D`
-    - `^U`和`^Y`
+   - `^A`、`^E`
+   - `^R`
+   - `^L`
+   - `^C`、`^\`和`^D`
+   - `^U`和`^Y`
