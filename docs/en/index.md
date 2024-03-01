@@ -45,8 +45,7 @@ Sign up for the IAP 2020 class by filling out this [registration form](https://f
 - **1/29/20**: [Potpourri](2020/potpourri.md)
 - **1/30/20**: [Q&A](2020/qa.md)
 
-Video recordings of the lectures are available [on
-YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J).
+Video recordings of the lectures are available [on YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J).
 
 # About the class
 
@@ -104,10 +103,8 @@ we can add it to the list!
 
 ## Acknowledgements
 
-We thank Elaine Mello, Jim Cain, and [MIT Open
-Learning](https://openlearning.mit.edu/) for making it possible for us to
-record lecture videos; Anthony Zolnik and [MIT
-AeroAstro](https://aeroastro.mit.edu/) for A/V equipment; and Brandi Adams and
+We thank Elaine Mello, Jim Cain, and [MIT Open Learning](https://openlearning.mit.edu/) for making it possible for us to
+record lecture videos; Anthony Zolnik and [MIT AeroAstro](https://aeroastro.mit.edu/) for A/V equipment; and Brandi Adams and
 [MIT EECS](https://www.eecs.mit.edu/) for supporting this class.
 
 ---
