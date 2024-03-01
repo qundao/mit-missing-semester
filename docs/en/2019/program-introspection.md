@@ -7,7 +7,7 @@ video:
   id: 74MhV-7hYzg
 ---
 
-# Debugging
+## Debugging
 
 When printf-debugging isn't good enough: use a debugger.
 
@@ -19,7 +19,7 @@ things like:
 - inspect values of variables
 - many more advanced features
 
-## GDB/LLDB
+### GDB/LLDB
 
 [GDB](https://www.gnu.org/software/gdb/) and [LLDB](https://lldb.llvm.org/).
 Supports many C-like languages.
@@ -43,28 +43,28 @@ Some commands:
 - `rwatch {expression}` - set a watchpoint that triggers when the value is read
 - `layout`
 
-## PDB
+### PDB
 
 [PDB](https://docs.python.org/3/library/pdb.html) is the Python debugger.
 
 Insert `import pdb; pdb.set_trace()` where you want to drop into PDB, basically
 a hybrid of a debugger (like GDB) and a Python shell.
 
-## Web browser Developer Tools
+### Web browser Developer Tools
 
 Another example of a debugger, this time with a graphical interface.
 
-# strace
+## strace
 
 Observe system calls a program makes: `strace {program}`.
 
-# Profiling
+## Profiling
 
 Types of profiling: CPU, memory, etc.
 
 Simplest profiler: `time`.
 
-## Go
+### Go
 
 Run test code with CPU profiler: `go test -cpuprofile=cpu.out`
 
@@ -74,7 +74,7 @@ Run test code with Memory profiler: `go test -memprofile=mem.out`
 
 Analyze profile: `go tool pprof -web mem.out`
 
-## Perf
+### Perf
 
 Basic performance stats: `perf stat {command}`
 

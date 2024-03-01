@@ -30,7 +30,7 @@ Some programs don't put the files under your home folder directly and instead th
 
 Dotfiles are not exclusive to command line applications, for instance the [MPV](https://mpv.io/) video player can be configured editing files under `~/.config/mpv`
 
-# Learning to customize tools
+## Learning to customize tools
 
 You can learn about your tool's settings by reading online documentation or
 [man pages](https://en.wikipedia.org/wiki/Man_page). Another great way is to
@@ -43,7 +43,7 @@ on GitHub --- see the most popular one
 [here](https://github.com/mathiasbynens/dotfiles) (we advise you not to blindly
 copy configurations though).
 
-# Organization
+## Organization
 
 How should you organize your dotfiles? They should be in their own folder,
 under version control, and **symlinked** into place using a script. This has
@@ -78,20 +78,20 @@ git add bashrc install
 git commit -m 'Initial commit'
 ```
 
-# Advanced topics
+## Advanced topics
 
-## Machine-specific customizations
+### Machine-specific customizations
 
 Most of the time, you'll want the same configuration across machines, but
 sometimes, you'll want a small delta on a particular machine. Here are a couple
 ways you can handle this situation:
 
-### Branch per machine
+#### Branch per machine
 
 Use version control to maintain a branch per machine. This approach is
 logically straightforward but can be pretty heavyweight.
 
-### If statements
+#### If statements
 
 If the configuration file supports it, use the equivalent of if-statements to
 apply machine specific customizations. For example, your shell could have something
@@ -107,7 +107,7 @@ if [[ "$(uname)" == "Darwin" ]]; then {do_something}; fi
 if [[ "$(hostname)" == "myServer" ]]; then {do_something}; fi
 ```
 
-### Includes
+#### Includes
 
 If the configuration file supports it, make use of includes. For example,
 a `~/.gitconfig` can have a setting:
@@ -130,7 +130,7 @@ if [ -f ~/.aliases ]; then
 fi
 ```
 
-# Resources
+## Resources
 
 - Your instructors' dotfiles:
   [Anish](https://github.com/anishathalye/dotfiles),
@@ -142,7 +142,7 @@ utilities, examples, and tutorials
   scripts](https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html): an
   explanation of the different configuration files used for your shell
 
-# Exercises
+## Exercises
 
 1. Create a folder for your dotfiles and set up [version control](version-control.md).
 

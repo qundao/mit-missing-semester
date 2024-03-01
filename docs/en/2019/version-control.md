@@ -21,8 +21,7 @@ and I can see the changes you've made. And since the VCS tracks
 _changes_, it can often (though not always) figure out how to combine
 our changes as long as they touch relatively disjoint things.
 
-There [_a
-lot_](https://en.wikipedia.org/wiki/Comparison_of_version-control_software)
+There [_a lot_](https://en.wikipedia.org/wiki/Comparison_of_version-control_software)
 of VCSes out there that differ a lot in what they support, how they
 function, and how you interact with them. Here, we'll focus on
 [git](https://git-scm.com/), one of the more commonly used ones, but I
@@ -318,7 +317,7 @@ if your push is rejected, what do you do?
      - [this](http://web.archive.org/web/20210106220723/https://derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/)
      - [this](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge)
 
-# Further reading
+## Further reading
 
 [![XKCD on git](https://imgs.xkcd.com/comics/git.png)](https://xkcd.com/1597/)
 
@@ -329,7 +328,7 @@ if your push is rejected, what do you do?
  - [Oh shit, git!](https://ohshitgit.com/)
  - [The Pro Git book](https://git-scm.com/book/en/v2)
 
-# Exercises
+## Exercises
 
 1. On a repo try modifying an existing file. What happens when you do `git stash`? What do you see when running `git log --all --oneline`? Run `git stash pop` to undo what you did with `git stash`. In what scenario might this be useful?
 
@@ -353,11 +352,11 @@ if your push is rejected, what do you do?
 1. Once you get used to command line applications GUI tools can feel cumbersome/bloated. A nice compromise between the two are ncurses based tools which can be navigated from the command line and still provide an interactive interface. Git has [tig](https://github.com/jonas/tig), try installing it and running it in a repo. You can find some usage examples [here](https://www.atlassian.com/blog/git/git-tig).
 
 
-{% comment %}
+<!-- {% comment %}
 
  - forced push + `--force-with-lease`
  - git merge/rebase --abort
  - git blame
  - exercise about why rebasing public commits is bad
 
-{% endcomment %}
+{% endcomment %} -->

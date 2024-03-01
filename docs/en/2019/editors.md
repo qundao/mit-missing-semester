@@ -7,7 +7,7 @@ video:
   id: 1vLcusYSrI4
 ---
 
-# Importance of Editors
+## Importance of Editors
 
 As programmers, we spend most of our time editing plain-text files. It's worth
 investing time learning an editor that fits your needs.
@@ -39,19 +39,19 @@ survey](https://insights.stackoverflow.com/survey/2018/#development-environments
 (there may be some bias because Stack Overflow users may not be representative
 of programmers as a whole).
 
-## Command-line Editors
+### Command-line Editors
 
 Even if you eventually settle on using a GUI editor, it's worth learning a
 command-line editor for easily editing files on remote machines.
 
-# Nano
+## Nano
 
 Nano is a simple command-line editor.
 
 - Move with arrow keys
 - All other shortcuts (save, exit) shown at the bottom
 
-# Vim
+## Vim
 
 Vi/Vim is a powerful text editor. It's a command-line program that's usually
 installed everywhere, which makes it convenient for editing files on a remote
@@ -61,7 +61,7 @@ Vim also has graphical versions, such as GVim and
 [MacVim](https://macvim-dev.github.io/macvim/). These provide additional
 features such as 24-bit color, menus, and popups.
 
-## Philosophy of Vim
+### Philosophy of Vim
 
 - When programming, you spend most of your time reading/editing, not writing
     - Vim is a **modal** editor: different modes for inserting text vs manipulating text
@@ -72,9 +72,9 @@ features such as 24-bit color, menus, and popups.
 - Don't use the mouse: too slow
 - Editor should work at the speed you think
 
-## Introductory Vim
+### Introductory Vim
 
-### Modes
+#### Modes
 
 Vim shows the current mode in the bottom left.
 
@@ -90,7 +90,7 @@ visual line mode with `V`, and visual block mode with `<C-v>`.
 You use the `<ESC>` key a lot when using Vim: consider remapping Caps Lock to
 Escape.
 
-### Basics
+#### Basics
 
 Vim ex commands are issued through `:{command}` in normal mode.
 
@@ -103,7 +103,7 @@ Vim ex commands are issued through `:{command}` in normal mode.
     - `:help :w` opens help for the `:w` ex command
     - `:help w` opens help for the `w` movement
 
-### Movement
+#### Movement
 
 Vim is all about efficient movement. Navigate the file in Normal mode.
 
@@ -126,7 +126,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 - Repeating N times: `{number}{movement}`, e.g. `10j` moves down 10 lines
 - Search: `/{regex}`, `n` / `N` for navigating matches
 
-### Selection
+#### Selection
 
 Visual modes:
 
@@ -136,7 +136,7 @@ Visual modes:
 
 Can use movement keys to make selection.
 
-### Manipulating text
+#### Manipulating text
 
 Everything that you used to do with the mouse, you now do with keyboards (and
 powerful, composable commands).
@@ -158,12 +158,12 @@ powerful, composable commands).
 - `u` to undo, `<C-r>` to redo
 - Lots more to learn: e.g. `~` flips the case of a character
 
-### Resources
+#### Resources
 
 - `vimtutor` command-line program to teach you vim
 - [Vim Adventures](https://vim-adventures.com/) game to learn Vim
 
-## Customizing Vim
+### Customizing Vim
 
 Vim is customized through a plain-text configuration file in `~/.vimrc`
 (containing Vimscript commands). There are probably lots of basic settings that
@@ -180,14 +180,14 @@ Some customizations to consider:
 - Line numbers: `set nu` / `set rnu`
 - Backspacing through everything: `set backspace=indent,eol,start`
 
-## Advanced Vim
+### Advanced Vim
 
 Here are a few examples to show you the power of the editor. We can't teach you
 all of these kinds of things, but you'll learn them as you go. A good
 heuristic: whenever you're using your editor and you think "there must be a
 better way of doing this", there probably is: look it up online.
 
-### Search and replace
+#### Search and replace
 
 `:s` (substitute) command ([documentation](http://vim.wikia.com/wiki/Search_and_replace)).
 
@@ -196,17 +196,17 @@ better way of doing this", there probably is: look it up online.
 - `%s/\[.*\](\(.*\))/\1/g`
     - replace named Markdown links with plain URLs
 
-### Multiple windows
+#### Multiple windows
 
 - `sp` / `vsp` to split windows
 - Can have multiple views of the same buffer.
 
-### Mouse support
+#### Mouse support
 
 - `set mouse+=a`
     - can click, scroll select
 
-### Macros
+#### Macros
 
 - `q{character}` to start recording a macro in register `{character}`
 - `q` to stop recording
@@ -240,7 +240,7 @@ better way of doing this", there probably is: look it up online.
             - `999@q`
         - Manually remove last `,` and add `[` and `]` delimiters
 
-## Extending Vim
+### Extending Vim
 
 There are tons of plugins for extending vim.
 
@@ -264,7 +264,7 @@ Lists of plugins:
 
 - [Vim Awesome](https://vimawesome.com/)
 
-## Vim-mode in Other Programs
+### Vim-mode in Other Programs
 
 For many popular editors (e.g. vim and emacs), many other tools support editor
 emulation.
@@ -279,7 +279,7 @@ emulation.
 There are even vim keybinding extensions for web [browsers](http://vim.wikia.com/wiki/Vim_key_bindings_for_web_browsers), some popular ones are [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en) for Google Chrome and [Tridactyl](https://github.com/tridactyl/tridactyl) for Firefox.
 
 
-## Resources
+### Resources
 
 - [Vim Tips Wiki](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
 - [Vim Advent Calendar](https://vimways.org/2018/): various Vim tips
@@ -292,7 +292,7 @@ There are even vim keybinding extensions for web [browsers](http://vim.wikia.com
 TODO resources for other editors?
 {% endcomment %}
 
-# Exercises
+## Exercises
 
 1. Experiment with some editors. Try at least one command-line editor (e.g.
    Vim) and at least one GUI editor (e.g. Atom). Learn through tutorials like

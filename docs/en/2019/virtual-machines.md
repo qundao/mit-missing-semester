@@ -7,7 +7,7 @@ video:
   id: LJ9ki5zq6Ik
 ---
 
-# Virtual Machines
+## Virtual Machines
 
 Virtual machines are simulated computers. You can configure a guest virtual
 machine with some operating system and configuration and use it without
@@ -22,7 +22,7 @@ that only runs on a certain operating system (e.g. using a Windows VM on Linux
 to run Windows-specific software). They are often used for experimenting with
 potentially malicious software.
 
-## Useful features
+### Useful features
 
 - **Isolation**: hypervisors do a pretty good job of isolating the guest from
 the host, so you can use VMs to run buggy or untrusted software reasonably
@@ -33,12 +33,12 @@ the entire machine state (disk, memory, etc.), make changes to your machine,
 and then restore to an earlier state. This is useful for testing out
 potentially destructive actions, among other things.
 
-## Disadvantages
+### Disadvantages
 
 Virtual machines are generally slower than running on bare metal, so they may
 be unsuitable for certain applications.
 
-## Setup
+### Setup
 
 - **Resources**: shared with host machine; be aware of this when allocating
 physical resources.
@@ -49,7 +49,7 @@ cases.
 - **Guest addons**: many hypervisors can install software in the guest to
 enable nicer integration with host system. You should use this if you can.
 
-## Resources
+### Resources
 
 - Hypervisors
     - [VirtualBox](https://www.virtualbox.org/) (open-source)
@@ -59,7 +59,7 @@ enable nicer integration with host system. You should use this if you can.
 
 If you are already familiar with popular hypervisors/VMs you may want to learn more about how to do this from a command line friendly way. One option is the [libvirt](https://wiki.libvirt.org/page/UbuntuKVMWalkthrough) toolkit which allows you to manage multiple different virtualization providers/hypervisors.
 
-## Exercises
+### Exercises
 
 1. Download and install a hypervisor.
 
@@ -75,7 +75,7 @@ If you are already familiar with popular hypervisors/VMs you may want to learn m
 1. Install guest addons and experiment with different windowing modes, file
    sharing, and other features.
 
-# Containers
+## Containers
 
 Virtual Machines are relatively heavy-weight; what if you want to spin
 up machines in an automated fashion? Enter containers!
@@ -124,7 +124,7 @@ when the container is started (like a grading script).
 
 In a similar fashion to code repository websites (like [GitHub](https://github.com/)) there are some container repository websites (like [DockerHub](https://hub.docker.com/))where many software services have prebuilt images that one can easily deploy.
 
-## Exercises
+### Exercises
 
 1. Choose a container software (Docker, LXC, …) and install a simple Linux image. Try SSHing into it.
 

@@ -342,7 +342,7 @@ so far + `xargs` can be a powerful combo:
 rustup toolchain list | grep nightly | grep -vE "nightly-x86|01-17" | sed 's/-x86.*//' | xargs rustup toolchain uninstall
 ```
 
-# Exercises
+## Exercises
 
 1. If you are not familiar with Regular Expressions
    [here](https://regexone.com/) is a short interactive tutorial that

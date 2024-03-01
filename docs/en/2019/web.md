@@ -32,7 +32,6 @@ Web search engines like Google or DuckDuckGo provide search operators to enable 
 
 More through lists are available for popular engines like [Google](https://ahrefs.com/blog/google-advanced-search-operators/) and [DuckDuckGo](https://duck.co/help/results/syntax)
 
-
 ## Searchbar
 
 The searchbar is a powerful tool too. Most browsers can infer search engines from websites and will store them. By editing the keyword argument
@@ -64,12 +63,9 @@ You can access the source code of a website by inspecting it and changing its co
 
 If you want to permanently tell your browser to override the style settings for a webpage you will need to use an extension. Our recommendation is **[Stylus](https://github.com/openstyles/stylus)** ([Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/), [Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en)).
 
-
 For example, we can write the following style for the class website
 
-
 ```css
-
 body {
     background-color: #2d2d2d;
     color: #eee;
@@ -84,7 +80,6 @@ a:link {
 ```
 
 Moreover, Stylus can find styles written by other users and published in [userstyles.org](https://userstyles.org/). Most common websites have one or several dark theme stylesheets for instance. FYI, you should not use Stylish since it was shown to leak user data, more [here](https://arstechnica.com/information-technology/2018/07/stylish-extension-with-2m-downloads-banished-for-tracking-every-site-visit/)
-
 
 ## Functionality Customization
 
@@ -143,11 +138,9 @@ function c() {
 
 - **Piping**. Since some services with web APIs are rather popular, common web API "gluing" has already been implemented and is provided with server included. This is the case for services like [If This Then That](https://ifttt.com/) and [Zapier](https://zapier.com/)
 
-
 ## Web Automation
 
 Sometimes web APIs are not enough. If only reading is needed you can use a html parser like `pup` or use a library, for example python has BeautifulSoup. However if interactivity or javascript execution is required those solutions fall short. WebDriver
-
 
 For example, the following script will save the specified url using the wayback machine simulating the interaction of typing the website.
 
@@ -171,7 +164,6 @@ url = 'https://hacker-tools.github.io'
 snapshot_wayback(driver, url)
 ```
 
-
 ## Exercises
 
 1. Edit a keyword search engine that you use often in your web browser
@@ -179,5 +171,3 @@ snapshot_wayback(driver, url)
 1. Install Stylus and write a custom style for the class website using the CSS provided. Here are some common programming characters `=   ==   ===   >=   =>   ++   /=   ~=`. What happens to them when changing the font to Fira Code? If you want to know more search for programming font ligatures.
 1. Find a web api to get the weather in your city/area.
 1. Use a WebDriver software like [Selenium](https://docs.seleniumhq.org/) to automate some repetitive manual task that you perform often with your browser.
-
-

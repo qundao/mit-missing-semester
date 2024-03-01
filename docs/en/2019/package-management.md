@@ -13,7 +13,7 @@ dependency management.
 Package/dependency management programs are language-specific, but many share
 common ideas.
 
-# Package repositories
+## Package repositories
 
 Packages are hosted in _package repositories_. There are different repositories
 for different languages (and sometimes multiple for a particular language),
@@ -22,7 +22,7 @@ for Ruby, and [crates.io](https://crates.io/) for Rust. They generally store
 software (source code and sometimes pre-compiled binaries for specific
 platforms) for all versions of a package.
 
-# Semantic versioning
+## Semantic versioning
 
 Software evolves over time, and we need a way to refer to software versions.
 Some simple ways could be to refer to software by a sequence number or a commit
@@ -54,14 +54,14 @@ version `>= 2` (because you depend on a feature introduced in that minor
 version). You can use any newer minor version or patch version because
 they should not introduce any backward-incompatible changes.
 
-# Lock files
+## Lock files
 
 In addition to specifying versions, it can be nice to enforce that the
 _contents_ of the dependency have not changed to prevent tampering. Some tools
 use _lock files_ to specify cryptographic hashes of dependencies (along with
 versions) that are checked on package install.
 
-# Specifying versions
+## Specifying versions
 
 Tools often let you specify versions in multiple ways, such as:
 
@@ -75,7 +75,7 @@ faithfully follow semver, but sometimes people make mistakes). Specifying a
 minimum requirement has the advantage of allowing bug fixes to be installed
 (e.g. patch upgrades).
 
-# Dependency resolution
+## Dependency resolution
 
 Package managers use various dependency resolution algorithms to satisfy
 dependency requirements. This often gets challenging with complex dependencies
@@ -85,7 +85,7 @@ managers have different levels of sophistication in their dependency
 resolution, but it's something to be aware of: you may need to understand this
 if you are debugging dependencies.
 
-# Virtual environments
+## Virtual environments
 
 If you're developing multiple software projects, they may depend on different
 versions of a particular piece of software. Sometimes, your build tool will
@@ -98,7 +98,7 @@ Instead of installing dependencies system-wide, you can install dependencies
 per-project in a virtual environment, and _activate_ the virtual environment
 that you want to use when you're working on a specific project.
 
-# Vendoring
+## Vendoring
 
 Another very different approach to dependency management is _vendoring_.
 Instead of using a dependency manager or build tool to fetch software, you copy

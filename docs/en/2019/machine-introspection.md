@@ -117,11 +117,11 @@ your system services are doing. If your boot feels slow, it's probably
 due to a couple of slow services, and you can use `systemd-analyze` (try
 it with `blame`) to figure out which ones.
 
-# Exercises
+## Exercises
 
-`locate`?
-`dmidecode`?
-`tcpdump`?
-`/boot`?
-`iptables`?
-`/proc`?
+- `locate`?
+- `dmidecode`?
+- `tcpdump`?
+- `/boot`?
+- `iptables`?
+- `/proc`?

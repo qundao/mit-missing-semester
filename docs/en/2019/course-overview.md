@@ -7,7 +7,7 @@ video:
   id: qw2c6ffSVOM
 ---
 
-# Motivation
+## Motivation
 
 This class is about [hacker](https://en.wikipedia.org/wiki/Hacker_culture)
 tools, not [hacker](https://en.wikipedia.org/wiki/Security_hacker) tools.
@@ -19,7 +19,7 @@ time is very short).
 We want to teach you about new tools, how to make the most of your tools, how
 to customize your tools, and how to extend your tools.
 
-# Class structure
+## Class structure
 
 We have 6 lectures covering a [variety of topics](index.md). We have lecture
 notes online, but there will be a lot of content covered in class (e.g. in the
