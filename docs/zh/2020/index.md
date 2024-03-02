@@ -10,7 +10,7 @@
 - **1/27**: [元编程](metaprogramming.md)
 - **1/28**: [安全和密码学](security.md)
 - **1/29**: [大杂烩](potpourri.md)
-- **1/30**: [提问&回答](qa.md)
+- **1/30**: [提问与回答](qa.md)
 
 讲座视频可以在 [YouTube](https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J)上找到。
 
