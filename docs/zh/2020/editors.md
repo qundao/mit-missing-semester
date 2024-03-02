@@ -9,8 +9,8 @@ video:
   aspect: 56.25
   id: a6Q8Na575qc
 solution:
-    ready: true
-    url: editors-solution
+  ready: true
+  url: editors-solution
 ---
 
 <iframe src="https://www.youtube.com/embed/a6Q8Na575qc" frameborder="0" allowfullscreen></iframe>
@@ -23,7 +23,7 @@ solution:
 - 坚持使用它来完成你所有的编辑工作（即使一开始这会让你的工作效率降低）
 - 随时查阅：如果某个操作看起来像是有更方便的实现方法，一般情况下真的会有
 
-如果您能够遵循上述步骤，并且坚持使用新的编辑器完成您所有的文本编辑任务，那么学习一个复杂的代码编辑器的过程一般是这样的：头两个小时，您会学习到编辑器的基本操作，例如打开和编辑文件、保存与退出、浏览缓冲区。当学习时间累计达到20个小时之后，您使用新编辑器的效率应该已经和使用老编辑器一样快。在此之后，其益处开始显现：有了足够的知识和肌肉记忆后，使用新编辑器将大大节省你的时间。而现代文本编辑器都是些复杂且强大的工具，永远有新东西可学：学的越多，效率越高。
+如果您能够遵循上述步骤，并且坚持使用新的编辑器完成您所有的文本编辑任务，那么学习一个复杂的代码编辑器的过程一般是这样的：头两个小时，您会学习到编辑器的基本操作，例如打开和编辑文件、保存与退出、浏览缓冲区。当学习时间累计达到 20 个小时之后，您使用新编辑器的效率应该已经和使用老编辑器一样快。在此之后，其益处开始显现：有了足够的知识和肌肉记忆后，使用新编辑器将大大节省你的时间。而现代文本编辑器都是些复杂且强大的工具，永远有新东西可学：学的越多，效率越高。
 
 ## 该学哪个编辑器？
 
@@ -43,7 +43,7 @@ solution:
 
 ## Vim 的哲学
 
-在编程的时候，你会把大量时间花在阅读/编辑而不是在写代码上。所以，Vim 是一个*多模态*编辑
+在编程的时候，你会把大量时间花在阅读/编辑而不是在写代码上。所以，Vim 是一个**多模态**编辑
 器：它对于插入文字和操纵文字有不同的模式。Vim 是可编程的（可以使用 Vimscript 或者像
 Python 一样的其他程序语言），Vim 的接口本身也是一个程序语言：键入操作（以及其助记名）
 是命令，这些命令也是可组合的。Vim 避免了使用鼠标，因为那样太慢了；Vim 甚至避免用
@@ -102,8 +102,8 @@ Vim 默认打开一个标签页，这个标签也包含一个窗口。
 - `:e {文件名}` 打开要编辑的文件
 - `:ls` 显示打开的缓存
 - `:help {标题}` 打开帮助文档
-    - `:help :w` 打开 `:w` 命令的帮助文档
-    - `:help w` 打开 `w` 移动的帮助文档
+  - `:help :w` 打开 `:w` 命令的帮助文档
+  - `:help w` 打开 `w` 移动的帮助文档
 
 ## Vim 的接口其实是一种编程语言
 
@@ -124,8 +124,8 @@ Vim 最重要的设计思想是 Vim 的界面本身是一个程序语言。键�
 - 行数： `:{行数}<CR>` 或者 `{行数}G` ({行数}为行数)
 - 杂项： `%` （找到配对，比如括号或者 `/* */` 之类的注释对）
 - 查找： `f{字符}`， `t{字符}`， `F{字符}`， `T{字符}`
-    - 查找/到 向前/向后 在本行的{字符}
-    - `,` / `;` 用于导航匹配
+  - 查找/到 向前/向后 在本行的{字符}
+  - `,` / `;` 用于导航匹配
 - 搜索: `/{正则表达式}`, `n` / `N` 用于导航匹配
 
 ### 选择
@@ -145,19 +145,19 @@ Vim 最重要的设计思想是 Vim 的界面本身是一个程序语言。键�
 因为动词可以施动于名词。
 
 - `i` 进入插入模式
-    - 但是对于操纵/编辑文本，不单想用退格键完成
+  - 但是对于操纵/编辑文本，不单想用退格键完成
 - `O` / `o` 在之上/之下插入行
 - `d{移动命令}` 删除 {移动命令}
-    - 例如，`dw` 删除词, `d$` 删除到行尾, `d0` 删除到行头。
+  - 例如，`dw` 删除词, `d$` 删除到行尾, `d0` 删除到行头。
 - `c{移动命令}` 改变 {移动命令}
-    - 例如，`cw` 改变词
-    - 比如 `d{移动命令}` 再 `i`
+  - 例如，`cw` 改变词
+  - 比如 `d{移动命令}` 再 `i`
 - `x` 删除字符（等同于 `dl`）
 - `s` 替换字符（等同于 `xi`）
 - 可视化模式 + 操作
-    - 选中文字, `d` 删除 或者 `c` 改变
+  - 选中文字, `d` 删除 或者 `c` 改变
 - `u` 撤销, `<C-r>` 重做
-- `y` 复制 / "yank" （其他一些命令比如 `d` 也会复制）
+- `y` 复制 / “yank” （其他一些命令比如 `d` 也会复制）
 - `p` 粘贴
 - 更多值得学习的: 比如 `~` 改变字符的大小写
 
@@ -166,8 +166,8 @@ Vim 最重要的设计思想是 Vim 的界面本身是一个程序语言。键�
 你可以用一个计数来结合“名词”和“动词”，这会执行指定操作若干次。
 
 - `3w` 向后移动三个词
-- `5j` 向下移动5行
-- `7dw` 删除7个词
+- `5j` 向下移动 5 行
+- `7dw` 删除 7 个词
 
 ### 修饰语
 
@@ -200,8 +200,8 @@ def main():
 
 - 主函数没有被调用
 - 从 0 而不是 1 开始
-- 在 15 的整数倍的时候在不同行打印 "fizz" 和 "buzz"
-- 在 5 的整数倍的时候打印 "fizz"
+- 在 15 的整数倍的时候在不同行打印 “fizz” 和 “buzz”
+- 在 5 的整数倍的时候打印 “fizz”
 - 采用硬编码的参数 10 而不是从命令控制行读取参数
 - 主函数没有被调用
   - `G` 文件尾
@@ -210,19 +210,19 @@ def main():
 - 从 0 而不是 1 开始
   - 搜索 `/range`
   - `ww` 向后移动两个词
-  - `i` 插入文字， "1, "
-  - `ea` 在 limit 后插入， "+1"
-- 在新的一行 "fizzbuzz"
+  - `i` 插入文字， “1, ”
+  - `ea` 在 limit 后插入， “+1”
+- 在新的一行 “fizzbuzz”
   - `jj$i` 插入文字到行尾
-  - 加入 ", end=''"
+  - 加入 “, end=''”
   - `jj.` 重复第二个打印
   - `jjo` 在 if 打开一行
-  - 加入 "else: print()"
+  - 加入 “else: print()”
 - fizz fizz
   - `ci'` 变到 fizz
 - 命令控制行参数
   - `ggO` 向上打开
-  - "import sys"
+  - “import sys”
   - `/10`
   - `ci(` to `int(sys.argv[1])`
 
@@ -235,19 +235,20 @@ Vim 由一个位于 `~/.vimrc` 的文本配置文件（包含 Vim 脚本命令�
 
 我们提供一个文档详细的基本设置，你可以用它当作你的初始设置。我们推荐使用这个设置因为
 它修复了一些 Vim 默认设置奇怪行为。
-**在[这儿](files/vimrc) 下载我们的设置，然后将它保存成`~/.vimrc`.**
+**在 [这儿](files/vimrc) 下载我们的设置，然后将它保存成`~/.vimrc`。**
 
 Vim 能够被重度自定义，花时间探索自定义选项是值得的。你可以参考其他人的在 GitHub
-上共享的设置文件，比如，你的授课人的 Vim 设置
-([Anish](https://github.com/anishathalye/dotfiles/blob/master/vimrc),
-[Jon](https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim) (uses [neovim](https://neovim.io/)),
-[Jose](https://github.com/JJGO/dotfiles/blob/master/vim/.vimrc))。
-有很多好的博客文章也聊到了这个话题。尽量不要复制粘贴别人的整个设置文件，
+上共享的设置文件，比如，你的授课人的 Vim 设置（
+[Anish](https://github.com/anishathalye/dotfiles/blob/master/vimrc),
+[Jon](https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim)
+ (uses [neovim](https://neovim.io/)),
+[Jose](https://github.com/JJGO/dotfiles/blob/master/vim/.vimrc)
+）。有很多好的博客文章也聊到了这个话题。尽量不要复制粘贴别人的整个设置文件，
 而是阅读和理解它，然后采用对你有用的部分。
 
 ## 扩展 Vim
 
-Vim 有很多扩展插件。跟很多互联网上已经过时的建议相反，你*不*需要在 Vim 使用一个插件
+Vim 有很多扩展插件。跟很多互联网上已经过时的建议相反，你**不**需要在 Vim 使用一个插件
 管理器（从 Vim 8.0 开始）。你可以使用内置的插件管理系统。只需要创建一个
 `~/.vim/pack/vendor/start/` 的文件夹，然后把插件放到这里（比如通过 `git clone`）。
 
@@ -258,10 +259,11 @@ Vim 有很多扩展插件。跟很多互联网上已经过时的建议相反，�
 - [nerdtree](https://github.com/scrooloose/nerdtree): 文件浏览器
 - [vim-easymotion](https://github.com/easymotion/vim-easymotion): 魔术操作
 
-我们尽量避免在这里提供一份冗长的插件列表。你可以查看讲师们的开源的配置文件
-([Anish](https://github.com/anishathalye/dotfiles),
+我们尽量避免在这里提供一份冗长的插件列表。你可以查看讲师们的开源的配置文件（
+[Anish](https://github.com/anishathalye/dotfiles),
 [Jon](https://github.com/jonhoo/configs),
-[Jose](https://github.com/JJGO/dotfiles)) 来看看我们使用的其他插件。
+[Jose](https://github.com/JJGO/dotfiles)
+）来看看我们使用的其他插件。
 浏览 [Vim Awesome](https://vimawesome.com/) 来了解一些很棒的插件。
 这个话题也有很多博客文章：搜索 “best Vim plugins”。
 
@@ -296,7 +298,7 @@ set editing-mode vi
 用于 Google Chrome 的[Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)
 和用于 Firefox 的 [Tridactyl](https://github.com/tridactyl/tridactyl)。
 你甚至可以在 [Jupyter notebooks](https://github.com/lambdalisue/jupyter-vim-binding) 中用 Vim 快捷键。
-[这个列表](https://reversed.top/2016-08-13/big-list-of-vim-like-software) 中列举了支持类 vim 键位绑定的软件。
+[这个列表](https://reversed.top/2016-08-13/big-list-of-vim-like-software) 中列举了支持类 Vim 键位绑定的软件。
 
 ## Vim 进阶
 
@@ -309,9 +311,9 @@ set editing-mode vi
 `:s` （替换）命令（[文档](http://vim.wikia.com/wiki/Search_and_replace)）。
 
 - `%s/foo/bar/g`
-    - 在整个文件中将 foo 全局替换成 bar
+  - 在整个文件中将 foo 全局替换成 bar
 - `%s/\[.*\](\(.*\))/\1/g`
-    - 将有命名的 Markdown 链接替换成简单 URLs
+  - 将有命名的 Markdown 链接替换成简单 URLs
 
 ### 多窗口
 
@@ -326,31 +328,31 @@ set editing-mode vi
 - 宏的执行遇错误会停止
 - `{计数}@{字符}`执行一个宏{计数}次
 - 宏可以递归
-    - 首先用`q{字符}q`清除宏
-    - 录制该宏，用 `@{字符}` 来递归调用该宏
+  - 首先用`q{字符}q`清除宏
+  - 录制该宏，用 `@{字符}` 来递归调用该宏
     （在录制完成之前不会有任何操作）
 - 例子：将 xml 转成 json ([file](files/example-data.xml))
-    - 一个有 "name" / "email" 键对象的数组
-    - 用一个 Python 程序？
-    - 用 sed / 正则表达式
-        - `g/people/d`
-        - `%s/<person>/{/g`
-        - `%s/<name>\(.*\)<\/name>/"name": "\1",/g`
-        - ...
-    - Vim 命令 / 宏
-        - `ggdd`, `Gdd` 删除第一行和最后一行
-        - 格式化最后一个元素的宏 （寄存器 `e`）
-            - 跳转到有 `<name>` 的行
-            - `qe^r"f>s": "<ESC>f<C"<ESC>q`
-        - 格式化一个<person>的宏
-            - 跳转到有 `<person>` 的行
-            - `qpS{<ESC>j@eA,<ESC>j@ejS},<ESC>q`
-        - 格式化一个<person>标签然后转到另外一个<person>的宏
-            - 跳转到有 `<person>` 的行
-            - `qq@pjq`
-        - 执行宏到文件尾
-            - `999@q`
-        - 手动移除最后的 `,` 然后加上 `[` 和 `]` 分隔符
+  - 一个有 “name” / “email” 键对象的数组
+  - 用一个 Python 程序？
+  - 用 sed / 正则表达式
+    - `g/people/d`
+    - `%s/<person>/{/g`
+    - `%s/<name>\(.*\)<\/name>/"name": "\1",/g`
+    - ...
+  - Vim 命令 / 宏
+    - `ggdd`, `Gdd` 删除第一行和最后一行
+    - 格式化最后一个元素的宏 （寄存器 `e`）
+      - 跳转到有 `<name>` 的行
+      - `qe^r"f>s": "<ESC>f<C"<ESC>q`
+    - 格式化一个<person>的宏
+      - 跳转到有 `<person>` 的行
+      - `qpS{<ESC>j@eA,<ESC>j@ejS},<ESC>q`
+    - 格式化一个<person>标签然后转到另外一个<person>的宏
+      - 跳转到有 `<person>` 的行
+      - `qq@pjq`
+    - 执行宏到文件尾
+      - `999@q`
+    - 手动移除最后的 `,` 然后加上 `[` 和 `]` 分隔符
 
 ## 扩展资料
 
@@ -368,26 +370,21 @@ set editing-mode vi
 [习题解答](solutions/editors-solution.md)
 
 1. 完成 `vimtutor`。备注：它在一个
-   [80x24](https://en.wikipedia.org/wiki/VT100)（80 列，24 行）
-   终端窗口看起来效果最好。
-2. 下载我们提供的 [vimrc](files/vimrc)，然后把它保存到 `~/.vimrc`。 通读这个注释详细的文件
-   （用 Vim!）， 然后观察 Vim 在这个新的设置下看起来和使用起来有哪些细微的区别。
-3. 安装和配置一个插件：
+    [80x24](https://en.wikipedia.org/wiki/VT100)（80 列，24 行）终端窗口看起来效果最好。
+1. 下载我们提供的 [vimrc](files/vimrc)，然后把它保存到 `~/.vimrc`。 通读这个注释详细的文件
+    （用 Vim!）， 然后观察 Vim 在这个新的设置下看起来和使用起来有哪些细微的区别。
+1. 安装和配置一个插件：
     [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim).
     1. 用 `mkdir -p ~/.vim/pack/vendor/start` 创建插件文件夹
-    2. 下载这个插件： `cd ~/.vim/pack/vendor/start; git clone
-        https://github.com/ctrlpvim/ctrlp.vim`
-    3. 阅读这个插件的
-        [文档](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md)。
-        尝试用 CtrlP 来在一个工程文件夹里定位一个文件，打开 Vim, 然后用 Vim 命令控制行开始
-        `:CtrlP`.
-    4. 自定义 CtrlP：添加
-        [configuration](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md#basic-options)
-        到你的 `~/.vimrc` 来用按 Ctrl-P 打开 CtrlP
-4. 练习使用 Vim, 在你自己的机器上重做 [演示](#演示)。
-5. 下个月用 Vim 完成*所有的*文件编辑。每当不够高效的时候，或者你感觉 “一定有一个更好的方式”时，
-   尝试求助搜索引擎，很有可能有一个更好的方式。如果你遇到难题，可以来我们的答疑时间或者给我们发邮件。
-6. 在其他工具中设置 Vim 快捷键 （见上面的操作指南）。
-7. 进一步自定义你的 `~/.vimrc` 和安装更多插件。
-8. （高阶）用 Vim 宏将 XML 转换到 JSON ([例子文件](files/example-data.xml))。
+    1. 下载这个插件： `cd ~/.vim/pack/vendor/start; git clone https://github.com/ctrlpvim/ctrlp.vim`
+    1. 阅读这个插件的[文档](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md)。
+      尝试用 CtrlP 来在一个工程文件夹里定位一个文件，打开 Vim, 然后用 Vim 命令控制行开始`:CtrlP`.
+    1. 自定义 CtrlP：添加[configuration](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md#basic-options)
+      到你的 `~/.vimrc` 来用按 Ctrl-P 打开 CtrlP
+1. 练习使用 Vim, 在你自己的机器上重做 [演示](#演示)。
+1. 下个月用 Vim 完成*所有的*文件编辑。每当不够高效的时候，或者你感觉 “一定有一个更好的方式”时，
+    尝试求助搜索引擎，很有可能有一个更好的方式。如果你遇到难题，可以来我们的答疑时间或者给我们发邮件。
+1. 在其他工具中设置 Vim 快捷键 （见上面的操作指南）。
+1. 进一步自定义你的 `~/.vimrc` 和安装更多插件。
+1. （高阶）用 Vim 宏将 XML 转换到 JSON ([示例文件](files/example-data.xml))。
     尝试着先完全自己做，但是在你卡住的时候可以查看上面[宏](#宏) 章节。
