@@ -325,8 +325,7 @@ Fasd 基于 [*frecency*](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/P
     
     echo "Everything went according to plan"
     ```
-    ```
-    {% comment %}
+  <!-- {% comment %}
     #!/usr/bin/env bash
     
     count=0
@@ -338,8 +337,7 @@ Fasd 基于 [*frecency*](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/P
     
     echo "found error after $count runs"
     cat out.txt
-    {% endcomment %}
-    ```
+    {% endcomment %} -->
 
 1. 本节课我们讲解的 `find` 命令中的 `-exec` 参数非常强大，它可以对我们查找的文件进行操作。但是，如果我们要对所有文件进行操作呢？例如创建一个 zip 压缩文件？我们已经知道，命令行可以从参数或标准输入接受输入。在用管道连接命令时，我们将标准输出和标准输入连接起来，但是有些命令，例如`tar` 则需要从参数接受输入。这里我们可以使用[`xargs`](https://man7.org/linux/man-pages/man1/xargs.1.html) 命令，它可以使用标准输入中的内容作为参数。
 例如 `ls | xargs rm` 会删除当前目录中的所有文件。
