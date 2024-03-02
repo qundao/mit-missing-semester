@@ -9,17 +9,17 @@ video:
   aspect: 56.25
   id: e8BO_dYxk5c
 solution:
-    ready: true
-    url: command-line-solution
+  ready: true
+  url: command-line-solution
 ---
 
 <iframe src="https://www.youtube.com/embed/e8BO_dYxk5c" frameborder="0" allowfullscreen></iframe>
 
-当您使用 shell 进行工作时，可以使用一些方法改善您的工作流，本节课我们就来讨论这些方法。
+当您使用 Shell 进行工作时，可以使用一些方法改善您的工作流，本节课我们就来讨论这些方法。
 
-我们已经使用 shell 一段时间了，但是到目前为止我们的关注点主要集中在使用不同的命令上面。现在，我们将会学习如何同时执行多个不同的进程并追踪它们的状态、如何停止或暂停某个进程以及如何使进程在后台运行。
+我们已经使用 Shell 一段时间了，但是到目前为止我们的关注点主要集中在使用不同的命令上面。现在，我们将会学习如何同时执行多个不同的进程并追踪它们的状态、如何停止或暂停某个进程以及如何使进程在后台运行。
 
-我们还将学习一些能够改善您的 shell 及其他工具的工作流的方法，这主要是通过定义别名或基于配置文件对其进行配置来实现的。这些方法都可以帮您节省大量的时间。例如，仅需要执行一些简单的命令，我们就可以在所有的主机上使用相同的配置。我们还会学习如何使用 SSH 操作远端机器。
+我们还将学习一些能够改善您的 Shell 及其他工具的工作流的方法，这主要是通过定义别名或基于配置文件对其进行配置来实现的。这些方法都可以帮您节省大量的时间。例如，仅需要执行一些简单的命令，我们就可以在所有的主机上使用相同的配置。我们还会学习如何使用 SSH 操作远端机器。
 
 ## 任务控制
 
@@ -27,7 +27,7 @@ solution:
 
 ### 结束进程
 
-您的 shell 会使用 UNIX 提供的信号机制执行进程间通信。当一个进程接收到信号时，它会停止执行、处理该信号并基于信号传递的信息来改变其执行。就这一点而言，信号是一种*软件中断*。
+您的 Shell 会使用 UNIX 提供的信号机制执行进程间通信。当一个进程接收到信号时，它会停止执行、处理该信号并基于信号传递的信息来改变其执行。就这一点而言，信号是一种*软件中断*。
 
 在上面的例子中，当我们输入 `Ctrl-C` 时，shell 会发送一个`SIGINT` 信号到进程。
 
@@ -50,7 +50,7 @@ while True:
 
 如果我们向这个程序发送两次 `SIGINT` ，然后再发送一次 `SIGQUIT`，程序会有什么反应？注意 `^` 是我们在终端输入`Ctrl` 时的表示形式：
 
-```shell
+```console
 $ python sigint.py
 24^C
 I got a SIGINT, but I am not stopping
@@ -63,19 +63,19 @@ I got a SIGINT, but I am not stopping
 
 ### 暂停和后台执行进程
 
-信号可以让进程做其他的事情，而不仅仅是终止它们。例如，`SIGSTOP` 会让进程暂停。在终端中，键入 `Ctrl-Z` 会让 shell 发送 `SIGTSTP` 信号，`SIGTSTP`是 Terminal Stop 的缩写（即`terminal`版本的SIGSTOP）。
+信号可以让进程做其他的事情，而不仅仅是终止它们。例如，`SIGSTOP` 会让进程暂停。在终端中，键入 `Ctrl-Z` 会让 Shell 发送 `SIGTSTP` 信号，`SIGTSTP`是 Terminal Stop 的缩写（即`terminal`版本的 SIGSTOP）。
 
 我们可以使用 [`fg`](https://www.man7.org/linux/man-pages/man1/fg.1p.html) 或 [`bg`](http://man7.org/linux/man-pages/man1/bg.1p.html) 命令恢复暂停的工作。它们分别表示在前台继续或在后台继续。
 
 [`jobs`](http://man7.org/linux/man-pages/man1/jobs.1p.html) 命令会列出当前终端会话中尚未完成的全部任务。您可以使用 pid 引用这些任务（也可以用 [`pgrep`](https://www.man7.org/linux/man-pages/man1/pgrep.1.html) 找出 pid）。更加符合直觉的操作是您可以使用百分号 + 任务编号（`jobs` 会打印任务编号）来选取该任务。如果要选择最近的一个任务，可以使用 `$!` 这一特殊参数。
 
-还有一件事情需要掌握，那就是命令中的 `&` 后缀可以让命令在直接在后台运行，这使得您可以直接在 shell 中继续做其他操作，不过它此时还是会使用 shell 的标准输出，这一点有时会比较恼人（这种情况可以使用 shell 重定向处理）。
+还有一件事情需要掌握，那就是命令中的 `&` 后缀可以让命令在直接在后台运行，这使得您可以直接在 Shell 中继续做其他操作，不过它此时还是会使用 Shell 的标准输出，这一点有时会比较恼人（这种情况可以使用 Shell 重定向处理）。
 
-让已经在运行的进程转到后台运行，您可以键入`Ctrl-Z` ，然后紧接着再输入`bg`。注意，后台的进程仍然是您的终端进程的子进程，一旦您关闭终端（会发送另外一个信号`SIGHUP`），这些后台的进程也会终止。为了防止这种情况发生，您可以使用 [`nohup`](https://www.man7.org/linux/man-pages/man1/nohup.1.html) (一个用来忽略 `SIGHUP` 的封装) 来运行程序。针对已经运行的程序，可以使用`disown` 。除此之外，您可以使用终端多路复用器来实现，下一章节我们会进行详细地探讨。
+让已经在运行的进程转到后台运行，您可以键入`Ctrl-Z` ，然后紧接着再输入`bg`。注意，后台的进程仍然是您的终端进程的子进程，一旦您关闭终端（会发送另外一个信号`SIGHUP`），这些后台的进程也会终止。为了防止这种情况发生，您可以使用 [`nohup`](https://www.man7.org/linux/man-pages/man1/nohup.1.html)（一个用来忽略 `SIGHUP` 的封装）来运行程序。针对已经运行的程序，可以使用`disown` 。除此之外，您可以使用终端多路复用器来实现，下一章节我们会进行详细地探讨。
 
 下面这个简单的会话中展示来了些概念的应用。
 
-```shell
+```console
 $ sleep 1000
 ^Z
 [1]  + 18653 suspended  sleep 1000
@@ -122,13 +122,13 @@ $ jobs
 
 `SIGKILL` 是一个特殊的信号，它不能被进程捕获并且它会马上结束该进程。不过这样做会有一些副作用，例如留下孤儿进程。
 
-您可以在 [这里](https://en.wikipedia.org/wiki/Signal_(IPC)) 或输入 [`man signal`](https://www.man7.org/linux/man-pages/man7/signal.7.html) 或使用 `kill -l` 来获取更多关于信号的信息。
+您可以在 [这里](<https://en.wikipedia.org/wiki/Signal_(IPC)>) 或输入 [`man signal`](https://www.man7.org/linux/man-pages/man7/signal.7.html) 或使用 `kill -l` 来获取更多关于信号的信息。
 
 ## 终端多路复用
 
 当您在使用命令行时，您通常会希望同时执行多个任务。举例来说，您可以想要同时运行您的编辑器，并在终端的另外一侧执行程序。尽管再打开一个新的终端窗口也能达到目的，使用终端多路复用器则是一种更好的办法。
 
-像 [`tmux`](https://www.man7.org/linux/man-pages/man1/tmux.1.html) 这类的终端多路复用器可以允许我们基于面板和标签分割出多个终端窗口，这样您便可以同时与多个 shell 会话进行交互。
+像 [`tmux`](https://www.man7.org/linux/man-pages/man1/tmux.1.html) 这类的终端多路复用器可以允许我们基于面板和标签分割出多个终端窗口，这样您便可以同时与多个 Shell 会话进行交互。
 
 不仅如此，终端多路复用使我们可以分离当前终端会话并在将来重新连接。
 
@@ -137,41 +137,44 @@ $ jobs
 现在最流行的终端多路器是 [`tmux`](https://www.man7.org/linux/man-pages/man1/tmux.1.html)。`tmux` 是一个高度可定制的工具，您可以使用相关快捷键创建多个标签页并在它们间导航。
 
 `tmux` 的快捷键需要我们掌握，它们都是类似 `<C-b> x` 这样的组合，即需要先按下`Ctrl+b`，松开后再按下 `x`。`tmux` 中对象的继承结构如下：
+
 - **会话** - 每个会话都是一个独立的工作区，其中包含一个或多个窗口
-    + `tmux` 开始一个新的会话
-    + `tmux new -s NAME` 以指定名称开始一个新的会话
-    + `tmux ls` 列出当前所有会话
-    + 在 `tmux` 中输入 `<C-b> d`  ，将当前会话分离
-    + `tmux a` 重新连接最后一个会话。您也可以通过 `-t` 来指定具体的会话
+
+  - `tmux` 开始一个新的会话
+  - `tmux new -s NAME` 以指定名称开始一个新的会话
+  - `tmux ls` 列出当前所有会话
+  - 在 `tmux` 中输入 `<C-b> d` ，将当前会话分离
+  - `tmux a` 重新连接最后一个会话。您也可以通过 `-t` 来指定具体的会话
 
 - **窗口** - 相当于编辑器或是浏览器中的标签页，从视觉上将一个会话分割为多个部分
-    + `<C-b> c` 创建一个新的窗口，使用 `<C-d>`关闭
-    + `<C-b> N` 跳转到第  _N_ 个窗口，注意每个窗口都是有编号的
-    + `<C-b> p` 切换到前一个窗口
-    + `<C-b> n` 切换到下一个窗口
-    + `<C-b> ,`  重命名当前窗口
-    + `<C-b> w` 列出当前所有窗口
 
-- **面板** - 像 vim 中的分屏一样，面板使我们可以在一个屏幕里显示多个 shell
-    + `<C-b> "` 水平分割
-    + `<C-b> %` 垂直分割
-    + `<C-b> <方向>` 切换到指定方向的面板，<方向> 指的是键盘上的方向键
-    + `<C-b> z` 切换当前面板的缩放
-    + `<C-b> [` 开始往回卷动屏幕。您可以按下空格键来开始选择，回车键复制选中的部分
-    + `<C-b> <空格>` 在不同的面板排布间切换
+  - `<C-b> c` 创建一个新的窗口，使用 `<C-d>`关闭
+  - `<C-b> N` 跳转到第 _N_ 个窗口，注意每个窗口都是有编号的
+  - `<C-b> p` 切换到前一个窗口
+  - `<C-b> n` 切换到下一个窗口
+  - `<C-b> ,` 重命名当前窗口
+  - `<C-b> w` 列出当前所有窗口
+
+- **面板** - 像 vim 中的分屏一样，面板使我们可以在一个屏幕里显示多个 Shell
+  - `<C-b> "` 水平分割
+  - `<C-b> %` 垂直分割
+  - `<C-b> <方向>` 切换到指定方向的面板，<方向> 指的是键盘上的方向键
+  - `<C-b> z` 切换当前面板的缩放
+  - `<C-b> [` 开始往回卷动屏幕。您可以按下空格键来开始选择，回车键复制选中的部分
+  - `<C-b> <空格>` 在不同的面板排布间切换
 
 扩展阅读：
 [这里](https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/) 是一份 `tmux` 快速入门教程， [而这一篇](http://linuxcommand.org/lc3_adv_termmux.php) 文章则更加详细，它包含了 `screen` 命令。您也许想要掌握 [`screen`](https://www.man7.org/linux/man-pages/man1/screen.1.html) 命令，因为在大多数 UNIX 系统中都默认安装有该程序。
 
 ## 别名
 
-输入一长串包含许多选项的命令会非常麻烦。因此，大多数 shell 都支持设置别名。shell 的别名相当于一个长命令的缩写，shell 会自动将其替换成原本的命令。例如，bash 中的别名语法如下：
+输入一长串包含许多选项的命令会非常麻烦。因此，大多数 Shell 都支持设置别名。shell 的别名相当于一个长命令的缩写，shell 会自动将其替换成原本的命令。例如，bash 中的别名语法如下：
 
 ```bash
 alias alias_name="command_to_alias arg1 arg2"
 ```
 
-注意， `=`两边是没有空格的，因为 [`alias`](https://www.man7.org/linux/man-pages/man1/alias.1p.html) 是一个 shell 命令，它只接受一个参数。
+注意， `=`两边是没有空格的，因为 [`alias`](https://www.man7.org/linux/man-pages/man1/alias.1p.html) 是一个 Shell 命令，它只接受一个参数。
 
 别名有许多很方便的特性:
 
@@ -206,23 +209,23 @@ alias ll
 # 会打印 ll='ls -lh'
 ```
 
-值得注意的是，在默认情况下 shell 并不会保存别名。为了让别名持续生效，您需要将配置放进 shell 的启动文件里，像是`.bashrc` 或 `.zshrc`，下一节我们就会讲到。
+值得注意的是，在默认情况下 Shell 并不会保存别名。为了让别名持续生效，您需要将配置放进 Shell 的启动文件里，像是`.bashrc` 或 `.zshrc`，下一节我们就会讲到。
 
 ## 配置文件（Dotfiles）
 
 很多程序的配置都是通过纯文本格式的被称作*点文件*的配置文件来完成的（之所以称为点文件，是因为它们的文件名以 `.` 开头，例如 `~/.vimrc`。也正因为此，它们默认是隐藏文件，`ls`并不会显示它们）。
 
-shell 的配置也是通过这类文件完成的。在启动时，您的 shell 程序会读取很多文件以加载其配置项。根据 shell 本身的不同，您从登录开始还是以交互的方式完成这一过程可能会有很大的不同。关于这一话题，[这里](https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html) 有非常好的资源
+Shell 的配置也是通过这类文件完成的。在启动时，您的 Shell 程序会读取很多文件以加载其配置项。根据 Shell 本身的不同，您从登录开始还是以交互的方式完成这一过程可能会有很大的不同。关于这一话题，[这里](https://blog.flowblok.id.au/2013-02/Shell-startup-scripts.html) 有非常好的资源
 
 对于 `bash`来说，在大多数系统下，您可以通过编辑 `.bashrc` 或 `.bash_profile` 来进行配置。在文件中您可以添加需要在启动时执行的命令，例如上文我们讲到过的别名，或者是您的环境变量。
 
-实际上，很多程序都要求您在 shell 的配置文件中包含一行类似 `export PATH="$PATH:/path/to/program/bin"` 的命令，这样才能确保这些程序能够被 shell 找到。
+实际上，很多程序都要求您在 Shell 的配置文件中包含一行类似 `export PATH="$PATH:/path/to/program/bin"` 的命令，这样才能确保这些程序能够被 Shell 找到。
 
 还有一些其他的工具也可以通过*点文件*进行配置：
 
 - `bash` - `~/.bashrc`, `~/.bash_profile`
 - `git` - `~/.gitconfig`
-- `vim` - `~/.vimrc` 和  `~/.vim` 目录
+- `vim` - `~/.vimrc` 和 `~/.vim` 目录
 - `ssh` - `~/.ssh/config`
 - `tmux` - `~/.tmux.conf`
 
@@ -242,14 +245,14 @@ shell 的配置也是通过这类文件完成的。在启动时，您的 shell �
 
 ### 可移植性
 
-配置文件的一个常见的痛点是它可能并不能在多种设备上生效。例如，如果您在不同设备上使用的操作系统或者 shell 是不同的，则配置文件是无法生效的。或者，有时您仅希望特定的配置只在某些设备上生效。
+配置文件的一个常见的痛点是它可能并不能在多种设备上生效。例如，如果您在不同设备上使用的操作系统或者 Shell 是不同的，则配置文件是无法生效的。或者，有时您仅希望特定的配置只在某些设备上生效。
 
-有一些技巧可以轻松达成这些目的。如果配置文件 if 语句，则您可以借助它针对不同的设备编写不同的配置。例如，您的 shell 可以这样做：
+有一些技巧可以轻松达成这些目的。如果配置文件 if 语句，则您可以借助它针对不同的设备编写不同的配置。例如，您的 Shell 可以这样做：
 
 ```bash
 if [[ "$(uname)" == "Linux" ]]; then {do_something}; fi
 
-# 使用和 shell 相关的配置时先检查当前 shell 类型
+# 使用和 Shell 相关的配置时先检查当前 Shell 类型
 if [[ "$SHELL" == "zsh" ]]; then {do_something}; fi
 
 # 您也可以针对特定的设备进行配置
@@ -265,7 +268,7 @@ if [[ "$(hostname)" == "myServer" ]]; then {do_something}; fi
 
 然后我们可以在日常使用的设备上创建配置文件 `~/.gitconfig_local` 来包含与该设备相关的特定配置。您甚至应该创建一个单独的代码仓库来管理这些与设备相关的配置。
 
-如果您希望在不同的程序之间共享某些配置，该方法也适用。例如，如果您想要在 `bash` 和 `zsh` 中同时启用一些别名，您可以把它们写在 `.aliases` 里，然后在这两个 shell 里应用：
+如果您希望在不同的程序之间共享某些配置，该方法也适用。例如，如果您想要在 `bash` 和 `zsh` 中同时启用一些别名，您可以把它们写在 `.aliases` 里，然后在这两个 Shell 里应用：
 
 ```bash
 # Test if ~/.aliases exists and source it
@@ -288,13 +291,13 @@ ssh foo@bar.mit.edu
 
 ### 执行命令
 
- `ssh` 的一个经常被忽视的特性是它可以直接远程执行命令。
-`ssh foobar@server ls` 可以直接在用foobar的命令下执行 `ls` 命令。
+`ssh` 的一个经常被忽视的特性是它可以直接远程执行命令。
+`ssh foobar@server ls` 可以直接在用 foobar 的命令下执行 `ls` 命令。
 想要配合管道来使用也可以， `ssh foobar@server ls | grep PATTERN` 会在本地查询远端 `ls` 的输出而 `ls | ssh foobar@server grep PATTERN` 会在远端对本地 `ls` 输出的结果进行查询。
 
 ### SSH 密钥
 
-基于密钥的验证机制使用了密码学中的公钥，我们只需要向服务器证明客户端持有对应的私钥，而不需要公开其私钥。这样您就可以避免每次登录都输入密码的麻烦了秘密就可以登录。不过，私钥(通常是 `~/.ssh/id_rsa` 或者 `~/.ssh/id_ed25519`) 等效于您的密码，所以一定要好好保存它。
+基于密钥的验证机制使用了密码学中的公钥，我们只需要向服务器证明客户端持有对应的私钥，而不需要公开其私钥。这样您就可以避免每次登录都输入密码的麻烦了秘密就可以登录。不过，私钥（通常是 `~/.ssh/id_rsa` 或者 `~/.ssh/id_ed25519`）等效于您的密码，所以一定要好好保存它。
 
 #### 密钥生成
 
@@ -334,13 +337,13 @@ ssh-copy-id -i .ssh/id_ed25519.pub foobar@remote
 
 很多情况下我们都会遇到软件需要监听特定设备的端口。如果是在您的本机，可以使用 `localhost:PORT` 或 `127.0.0.1:PORT`。但是如果需要监听远程服务器的端口该如何操作呢？这种情况下远端的端口并不会直接通过网络暴露给您。
 
-此时就需要进行 *端口转发*。端口转发有两种，一种是本地端口转发和远程端口转发（参见下图，该图片引用自这篇[StackOverflow 文章](https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot)）中的图片。
+此时就需要进行 _端口转发_。端口转发有两种，一种是本地端口转发和远程端口转发（参见下图，该图片引用自这篇[StackOverflow 文章](https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot)）中的图片。
 
 **本地端口转发**
-![Local Port Forwarding](https://i.stack.imgur.com/a28N8.png  "本地端口转发")
+![Local Port Forwarding](https://i.stack.imgur.com/a28N8.png "本地端口转发")
 
 **远程端口转发**
-![Remote Port Forwarding](https://i.stack.imgur.com/4iK3b.png  "远程端口转发")
+![Remote Port Forwarding](https://i.stack.imgur.com/4iK3b.png "远程端口转发")
 
 常见的情景是使用本地端口转发，即远端设备上的服务监听一个端口，而您希望在本地设备上的一个端口建立连接并转发到远程端口上。例如，我们在远端服务器上运行 Jupyter notebook 并监听 `8888` 端口。 然后，建立从本地端口 `9999` 的转发，使用 `ssh -L 9999:localhost:8888 foobar@remote_server` 。这样只需要访问本地的 `localhost:9999` 即可。
 
@@ -375,23 +378,23 @@ Host *.mit.edu
 
 ### 杂项
 
-连接远程服务器的一个常见痛点是遇到由关机、休眠或网络环境变化导致的掉线。如果连接的延迟很高也很让人讨厌。[Mosh](https://mosh.org/)（即 mobile shell ）对 ssh 进行了改进，它允许连接漫游、间歇连接及智能本地回显。
+连接远程服务器的一个常见痛点是遇到由关机、休眠或网络环境变化导致的掉线。如果连接的延迟很高也很让人讨厌。[Mosh](https://mosh.org/)（即 mobile Shell ）对 ssh 进行了改进，它允许连接漫游、间歇连接及智能本地回显。
 
 有时将一个远端文件夹挂载到本地会比较方便， [sshfs](https://github.com/libfuse/sshfs) 可以将远端服务器上的一个文件夹挂载到本地，然后您就可以使用本地的编辑器了。
 
 ## Shell & 框架
 
-在 shell 工具和脚本那节课中我们已经介绍了 `bash` shell，因为它是目前最通用的 shell，大多数的系统都将其作为默认 shell。但是，它并不是唯一的选项。
+在 Shell 工具和脚本那节课中我们已经介绍了 `bash` shell，因为它是目前最通用的 shell，大多数的系统都将其作为默认 shell。但是，它并不是唯一的选项。
 
-例如，`zsh` shell 是 `bash` 的超集并提供了一些方便的功能：
+例如，`zsh` Shell 是 `bash` 的超集并提供了一些方便的功能：
 
 - 智能替换, `**`
 - 行内替换/通配符扩展
 - 拼写纠错
 - 更好的 tab 补全和选择
-- 路径展开 (`cd /u/lo/b` 会被展开为 `/usr/local/bin`)
+- 路径展开（`cd /u/lo/b` 会被展开为 `/usr/local/bin`）
 
-**框架** 也可以改进您的 shell。比较流行的通用框架包括[prezto](https://github.com/sorin-ionescu/prezto) 或 [oh-my-zsh](https://ohmyz.sh/)。还有一些更精简的框架，它们往往专注于某一个特定功能，例如[zsh 语法高亮](https://github.com/zsh-users/zsh-syntax-highlighting) 或 [zsh 历史子串查询](https://github.com/zsh-users/zsh-history-substring-search)。 像 [fish](https://fishshell.com/) 这样的 shell 包含了很多用户友好的功能，其中一些特性包括：
+**框架** 也可以改进您的 shell。比较流行的通用框架包括[prezto](https://github.com/sorin-ionescu/prezto) 或 [oh-my-zsh](https://ohmyz.sh/)。还有一些更精简的框架，它们往往专注于某一个特定功能，例如[zsh 语法高亮](https://github.com/zsh-users/zsh-syntax-highlighting) 或 [zsh 历史子串查询](https://github.com/zsh-users/zsh-history-substring-search)。 像 [fish](https://fishshell.com/) 这样的 Shell 包含了很多用户友好的功能，其中一些特性包括：
 
 - 向右对齐
 - 命令语法高亮
@@ -400,11 +403,11 @@ Host *.mit.edu
 - 更智能的自动补全
 - 提示符主题
 
-需要注意的是，使用这些框架可能会降低您 shell 的性能，尤其是如果这些框架的代码没有优化或者代码过多。您随时可以测试其性能或禁用某些不常用的功能来实现速度与功能的平衡。
+需要注意的是，使用这些框架可能会降低您 Shell 的性能，尤其是如果这些框架的代码没有优化或者代码过多。您随时可以测试其性能或禁用某些不常用的功能来实现速度与功能的平衡。
 
 ## 终端模拟器
 
-和自定义 shell 一样，花点时间选择适合您的 **终端模拟器**并进行设置是很有必要的。有许多终端模拟器可供您选择（这里有一些关于它们之间[比较](https://anarc.at/blog/2018-04-12-terminal-emulators-1/)的信息）
+和自定义 Shell 一样，花点时间选择适合您的 **终端模拟器**并进行设置是很有必要的。有许多终端模拟器可供您选择（这里有一些关于它们之间[比较](https://anarc.at/blog/2018-04-12-terminal-emulators-1/)的信息）
 
 您会花上很多时间在使用终端上，因此研究一下终端的设置是很有必要的，您可以从下面这些方面来配置您的终端：
 
@@ -413,7 +416,7 @@ Host *.mit.edu
 - 快捷键
 - 标签页/面板支持
 - 回退配置
-- 性能（像 [Alacritty](https://github.com/jwilm/alacritty) 或者 [kitty](https://sw.kovidgoyal.net/kitty/) 这种比较新的终端，它们支持GPU加速）。
+- 性能（像 [Alacritty](https://github.com/jwilm/alacritty) 或者 [kitty](https://sw.kovidgoyal.net/kitty/) 这种比较新的终端，它们支持 GPU 加速）。
 
 ## 课后练习
 
@@ -421,11 +424,11 @@ Host *.mit.edu
 
 ### 任务控制
 
-1. 我们可以使用类似 `ps aux | grep` 这样的命令来获取任务的 pid ，然后您可以基于pid 来结束这些进程。但我们其实有更好的方法来做这件事。在终端中执行 `sleep 10000` 这个任务。然后用 `Ctrl-Z` 将其切换到后台并使用 `bg`来继续允许它。现在，使用 [`pgrep`](https://www.man7.org/linux/man-pages/man1/pgrep.1.html) 来查找 pid 并使用 [`pkill`](https://www.man7.org/linux/man-pages/man1/pgrep.1.html) 结束进程而不需要手动输入pid。(提示：: 使用 `-af` 标记)。
+1. 我们可以使用类似 `ps aux | grep` 这样的命令来获取任务的 pid ，然后您可以基于 pid 来结束这些进程。但我们其实有更好的方法来做这件事。在终端中执行 `sleep 10000` 这个任务。然后用 `Ctrl-Z` 将其切换到后台并使用 `bg`来继续允许它。现在，使用 [`pgrep`](https://www.man7.org/linux/man-pages/man1/pgrep.1.html) 来查找 pid 并使用 [`pkill`](https://www.man7.org/linux/man-pages/man1/pgrep.1.html) 结束进程而不需要手动输入 pid。(提示：: 使用 `-af` 标记)。
 
-2. 如果您希望某个进程结束后再开始另外一个进程， 应该如何实现呢？在这个练习中，我们使用 `sleep 60 &` 作为先执行的程序。一种方法是使用 [`wait`](http://man7.org/linux/man-pages/man1/wait.1p.html) 命令。尝试启动这个休眠命令，然后待其结束后再执行 `ls` 命令。
+1. 如果您希望某个进程结束后再开始另外一个进程， 应该如何实现呢？在这个练习中，我们使用 `sleep 60 &` 作为先执行的程序。一种方法是使用 [`wait`](http://man7.org/linux/man-pages/man1/wait.1p.html) 命令。尝试启动这个休眠命令，然后待其结束后再执行 `ls` 命令。
 
-    但是，如果我们在不同的 bash 会话中进行操作，则上述方法就不起作用了。因为 `wait` 只能对子进程起作用。之前我们没有提过的一个特性是，`kill` 命令成功退出时其状态码为 0 ，其他状态则是非0。`kill -0` 则不会发送信号，但是会在进程不存在时返回一个不为0的状态码。请编写一个 bash 函数 `pidwait` ，它接受一个 pid 作为输入参数，然后一直等待直到该进程结束。您需要使用 `sleep` 来避免浪费 CPU 性能。
+    但是，如果我们在不同的 bash 会话中进行操作，则上述方法就不起作用了。因为 `wait` 只能对子进程起作用。之前我们没有提过的一个特性是，`kill` 命令成功退出时其状态码为 0 ，其他状态则是非 0。`kill -0` 则不会发送信号，但是会在进程不存在时返回一个不为 0 的状态码。请编写一个 bash 函数 `pidwait` ，它接受一个 pid 作为输入参数，然后一直等待直到该进程结束。您需要使用 `sleep` 来避免浪费 CPU 性能。
 
 ### 终端多路复用
 
@@ -434,17 +437,18 @@ Host *.mit.edu
 ### 别名
 
 1. 创建一个 `dc` 别名，它的功能是当我们错误的将 `cd` 输入为 `dc` 时也能正确执行。
-2. 执行 `history | awk '{$1="";print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10`  来获取您最常用的十条命令，尝试为它们创建别名。注意：这个命令只在 Bash 中生效，如果您使用 ZSH，使用`history 1` 替换 `history`。
+1. 执行 `history | awk '{$1="";print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10` 来获取您最常用的十条命令，尝试为它们创建别名。注意：这个命令只在 Bash 中生效，如果您使用 ZSH，使用`history 1` 替换 `history`。
 
 ### 配置文件
+
 让我们帮助您进一步学习配置文件：
 
 1. 为您的配置文件新建一个文件夹，并设置好版本控制
-2. 在其中添加至少一个配置文件，比如说您的 shell，在其中包含一些自定义设置（可以从设置 `$PS1` 开始）。
-3. 建立一种在新设备进行快速安装配置的方法（无需手动操作）。最简单的方法是写一个 shell 脚本对每个文件使用 `ln -s`，也可以使用[专用工具](https://dotfiles.github.io/utilities/)
-4. 在新的虚拟机上测试该安装脚本。
-5. 将您现有的所有配置文件移动到项目仓库里。
-6. 将项目发布到GitHub。
+1. 在其中添加至少一个配置文件，比如说您的 shell，在其中包含一些自定义设置（可以从设置 `$PS1` 开始）。
+1. 建立一种在新设备进行快速安装配置的方法（无需手动操作）。最简单的方法是写一个 Shell 脚本对每个文件使用 `ln -s`，也可以使用[专用工具](https://dotfiles.github.io/utilities/)
+1. 在新的虚拟机上测试该安装脚本。
+1. 将您现有的所有配置文件移动到项目仓库里。
+1. 将项目发布到 GitHub。
 
 ### 远端设备
 
@@ -452,15 +456,17 @@ Host *.mit.edu
 
 1. 前往 `~/.ssh/` 并查看是否已经存在 SSH 密钥对。如果不存在，请使用`ssh-keygen -o -a 100 -t ed25519`来创建一个。建议为密钥设置密码然后使用`ssh-agent`，更多信息可以参考 [这里](https://www.ssh.com/ssh/agent)；
 1. 在`.ssh/config`加入下面内容：
-    ```bash
+
+    ```plaintext
     Host vm
         User username_goes_here
         HostName ip_goes_here
         IdentityFile ~/.ssh/id_ed25519
         LocalForward 9999 localhost:8888
     ```
+
 1. 使用 `ssh-copy-id vm` 将您的 ssh 密钥拷贝到服务器。
 1. 使用`python -m http.server 8888` 在您的虚拟机中启动一个 Web 服务器并通过本机的`http://localhost:9999` 访问虚拟机上的 Web 服务器
 1. 使用`sudo vim /etc/ssh/sshd_config` 编辑 SSH 服务器配置，通过修改`PasswordAuthentication`的值来禁用密码验证。通过修改`PermitRootLogin`的值来禁用 root 登录。然后使用`sudo service sshd restart`重启 `ssh` 服务器，然后重新尝试。
-1. (附加题) 在虚拟机中安装 [`mosh`](https://mosh.org/) 并启动连接。然后断开服务器/虚拟机的网络适配器。mosh可以恢复连接吗？
-1. (附加题) 查看`ssh`的`-N` 和 `-f` 选项的作用，找出在后台进行端口转发的命令是什么？
+1. （附加题）在虚拟机中安装 [`mosh`](https://mosh.org/) 并启动连接。然后断开服务器/虚拟机的网络适配器。mosh 可以恢复连接吗？
+1. （附加题）查看`ssh`的`-N` 和 `-f` 选项的作用，找出在后台进行端口转发的命令是什么？
