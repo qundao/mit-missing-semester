@@ -1,6 +1,9 @@
+# Site information
 site_name: MIT - The Missing Semester of Your CS Education
-repo_url: https://github.com/hantang/wayback-missing-semester
 site_url: https://hantang.github.io/wayback-missing-semester/
+site_description: The Missing Semester of Your CS Education
+copyright: A backup of <a href="https://missing.csail.mit.edu/">MIT | The Missing Semester of Your CS Education</a>
+repo_url: https://github.com/hantang/wayback-missing-semester
 
 theme:
   name: material
@@ -16,13 +19,13 @@ theme:
         icon: material/brightness-auto
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
-      primary: blue
+      primary: deep purple
       scheme: default
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: blue grey
+      primary: black
       scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
@@ -80,15 +83,6 @@ extra_css:
 plugins:
   - search
 
-# extra:
-#   alternate:
-#     - name: English
-#       link: /en/ 
-#       lang: en
-#     - name: 简体中文
-#       link: /zh/
-#       lang: zh
-
 plugins:
   - search
   - i18n:
@@ -110,15 +104,16 @@ plugins:
             Lectures: 讲座列表
             Archive: 往年课程
             About: 关于本课程
-            Solution: 习题解答
+            Solutions: 习题解答
             Introduction: 课程简介
+            License: 许可证
           theme:
             palette:
               - media: "(prefers-color-scheme: light)"
-                primary: red
+                primary: deep orange
                 scheme: default
               - media: "(prefers-color-scheme: dark)"
-                primary: pink
+                primary: black
                 scheme: slate
 
 nav:
@@ -136,7 +131,8 @@ nav:
     - 2020/security.md
     - 2020/potpourri.md
     - 2020/qa.md
-  - Solution:
+  - Solutions:
+    - 2020/solutions/index.md
     - 2020/solutions/course-shell-solution.md
     - 2020/solutions/shell-tools-solution.md
     - 2020/solutions/editors-solution.md
