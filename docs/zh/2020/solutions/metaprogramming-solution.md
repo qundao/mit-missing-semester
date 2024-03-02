@@ -86,7 +86,7 @@ fi
 
 ![1.png](images/8/2.png)
 ![1.png](images/8/3.png)
-进入仓库的 [action](https://github.com/missing-semester-cn/The-Missing-Solutions/actions)
+进入仓库的 `action`（`https://github.com/user-name/repo-name/actions`）
 页面，修改`blank.yml`
 ![1.png](images/8/4.png)
 ```

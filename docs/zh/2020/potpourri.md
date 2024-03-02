@@ -194,7 +194,7 @@ Markdown 致力于将人们编写纯文本时的一些习惯标准化。比如�
 
 - 如果要添加超链接，将**需要显示**的文字用方括号包围，并在后面紧接着用圆括号包围链接：`[显示文字](指向的链接)`。
 
-Markdown 不仅容易上手，而且应用非常广泛。实际上本课程的课堂笔记和其他资料都是使用 Markdown 编写的。点击[这个链接](https://github.com/missing-semester-cn/missing-semester-cn.github.io/blob/master/_2020/potpourri.md)可以看到本页面的原始 Markdown 内容。
+Markdown 不仅容易上手，而且应用非常广泛。实际上本课程的课堂笔记和其他资料都是使用 Markdown 编写的。点击[这个链接](https://github.com/missing-semester/missing-semester/blob/master/_2020/potpourri.md)可以看到本页面的原始 Markdown 内容。
 
 ## Hammerspoon (macOS 桌面自动化)
 
