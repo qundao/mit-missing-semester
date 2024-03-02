@@ -1,4 +1,9 @@
-# 2020 Lectures
+---
+layout: lecture
+title: "2020 Lectures"
+---
+
+## Schedules
 
 - **1/13**: [Course overview + the shell](course-shell.md)
 - **1/14**: [Shell Tools and Scripting](shell-tools.md)

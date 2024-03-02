@@ -1,4 +1,9 @@
-# 2020 Lectures
+---
+layout: lecture
+title: "2020年度讲座列表"
+---
+
+## 日程安排
 
 - **1/13**: [课程概览与 shell](course-shell.md)
 - **1/14**: [Shell 工具和脚本](shell-tools.md)
