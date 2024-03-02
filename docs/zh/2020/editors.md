@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "编辑器 (Vim)"
+title: "编辑器（Vim）"
 date: 2020-01-15
 ready: true
 sync: true
@@ -382,9 +382,9 @@ set editing-mode vi
     1. 自定义 CtrlP：添加[configuration](https://github.com/ctrlpvim/ctrlp.vim/blob/master/readme.md#basic-options)
       到你的 `~/.vimrc` 来用按 Ctrl-P 打开 CtrlP
 1. 练习使用 Vim, 在你自己的机器上重做 [演示](#演示)。
-1. 下个月用 Vim 完成*所有的*文件编辑。每当不够高效的时候，或者你感觉 “一定有一个更好的方式”时，
+1. 下个月用 Vim 完成**所有的**文件编辑。每当不够高效的时候，或者你感觉 “一定有一个更好的方式”时，
     尝试求助搜索引擎，很有可能有一个更好的方式。如果你遇到难题，可以来我们的答疑时间或者给我们发邮件。
 1. 在其他工具中设置 Vim 快捷键 （见上面的操作指南）。
 1. 进一步自定义你的 `~/.vimrc` 和安装更多插件。
 1. （高阶）用 Vim 宏将 XML 转换到 JSON ([示例文件](files/example-data.xml))。
-    尝试着先完全自己做，但是在你卡住的时候可以查看上面[宏](#宏) 章节。
+    尝试着先完全自己做，但是在你卡住的时候可以查看上面 [宏](#宏) 章节。
