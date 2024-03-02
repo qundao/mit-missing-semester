@@ -8,8 +8,8 @@ theme:
   icon:
       logo: fontawesome/solid/terminal
   font:
-    text: Open Sans, Helvetica Neue, Roboto, sans-serif, serif
-    code: Fira Mono, Fira Code, Roboto Mono, monospace
+    text: Source Sans Pro, sans-serif
+    code: Source Code Pro, Menlo, DejaVu Sans Mono, Lucida Console, monospace
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
