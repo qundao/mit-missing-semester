@@ -15,26 +15,26 @@ solution:
 
 <iframe src="https://www.youtube.com/embed/tjwobAmnKTo" frameborder="0" allowfullscreen></iframe>
 
-去年的[这节课](../../en/2019/security.md)我们从计算机 _用户_ 的角度探讨了增强隐私保护和安全的方法。
+去年的[这节课](../../en/2019/security.md)我们从计算机**用户**的角度探讨了增强隐私保护和安全的方法。
 今年我们将关注比如散列函数、密钥生成函数、对称/非对称密码体系这些安全和密码学的概念是如何应用于前几节课所学到的工具（Git和SSH）中的。
 
-本课程不能作为计算机系统安全 ([6.858](https://css.csail.mit.edu/6.858/)) 或者
-密码学 ([6.857](https://courses.csail.mit.edu/6.857/)以及6.875)的替代。
+本课程不能作为计算机系统安全 ([MIT CSAIL 6.858](https://css.csail.mit.edu/6.858/)) 或者密码学 ([MIT CSAIL 6.857](https://courses.csail.mit.edu/6.857/)以及6.875)的替代。
 如果你不是密码学的专家，请不要[试图创造或者修改加密算法](https://www.schneier.com/blog/archives/2015/05/amateurs_produc.html)。从事和计算机系统安全相关的工作同理。
 
 这节课将对一些基本的概念进行简单（但实用）的说明。
-虽然这些说明不足以让你学会如何 _设计_ 安全系统或者加密协议，但我们希望你可以对现在使用的程序和协议有一个大概了解。
+虽然这些说明不足以让你学会如何**设计**安全系统或者加密协议，但我们希望你可以对现在使用的程序和协议有一个大概了解。
 
 ## 熵
 
 [熵](https://en.wikipedia.org/wiki/Entropy_(information_theory))(Entropy) 度量了不确定性并可以用来决定密码的强度。
 
-![XKCD 936: Password Strength](https://imgs.xkcd.com/comics/password_strength.png)
+<!-- ![XKCD 936: Password Strength](https://imgs.xkcd.com/comics/password_strength.png) -->
+![XKCD 936: Password Strength](https://xkcd.tw/strip/936.png)
 
-正如上面的 [XKCD 漫画](https://xkcd.com/936/) 所描述的，
-"correcthorsebatterystaple" 这个密码比 "Tr0ub4dor&3" 更安全——可是熵是如何量化安全性的呢？
+正如上面的 [XKCD 漫画](https://xkcd.com/936/) （上图来自[（繁体）中文翻译](https://xkcd.tw/936)）所描述的，
+“correcthorsebatterystaple” 这个密码比 “Tr0ub4dor&3” 更安全——可是熵是如何量化安全性的呢？
 
-熵的单位是 _比特_。对于一个均匀分布的随机离散变量，熵等于`log_2(所有可能的个数，即n)`。
+熵的单位是**比特**。对于一个均匀分布的随机离散变量，熵等于`log_2(所有可能的个数，即n)`。
 扔一次硬币的熵是1比特。掷一次（六面）骰子的熵大约为2.58比特。
 
 一般我们认为攻击者了解密码的模型（最小长度，最大长度，可能包含的字符种类等），但是不了解某个密码是如何随机选择的——
@@ -145,8 +145,8 @@ verify(message: array<byte>, signature: array<byte>, public key) -> bool  (验�
 ```
 
 非对称的加密/解密方法和对称的加密/解密方法有类似的特征。<br>
-信息在非对称加密中使用 _公钥_ 加密，
-且输出的密文很难在不知道 _私钥_ 的情况下得出明文。<br>
+信息在非对称加密中使用**公钥**加密，
+且输出的密文很难在不知道**私钥**的情况下得出明文。<br>
 解密方法`decrypt()`有明显的正确性。
 给定密文及私钥，解密方法一定会输出明文：
 `decrypt(encrypt(m, public key), private key) = m`。
@@ -156,7 +156,7 @@ verify(message: array<byte>, signature: array<byte>, public key) -> bool  (验�
 非对称加密好比一个可以拿下来的挂锁。你可以把打开状态的挂锁（公钥）给任何一个人并保留唯一的钥匙（私钥）。这样他们将给你的信息装进盒子里并用这个挂锁锁上以后，只有你可以用保留的钥匙开锁。
 
 签名/验证方法具有和书面签名类似的特征。<br>
-在不知道 _私钥_ 的情况下，不管需要签名的信息为何，很难计算出一个可以使
+在不知道**私钥**的情况下，不管需要签名的信息为何，很难计算出一个可以使
 `verify(message, signature, public key)` 返回为真的签名。<br>
 对于使用私钥签名的信息，验证方法验证和私钥相对应的公钥时一定返回为真： `verify(message,
 sign(message, private key), public key) = true`。
@@ -198,9 +198,9 @@ Keybase主要使用[社交网络证明 (social proof)](https://keybase.io/blog/c
 ### 全盘加密
 
 对笔记本电脑的硬盘进行全盘加密是防止因设备丢失而信息泄露的简单且有效方法。
-Linux的[cryptsetup +
-LUKS](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_a_non-root_file_system)，
-Windows的[BitLocker](https://fossbytes.com/enable-full-disk-encryption-windows-10/)，或者macOS的[FileVault](https://support.apple.com/en-us/HT204837)都使用一个由密码保护的对称密钥来加密盘上的所有信息。
+Linux的[cryptsetup + LUKS](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_a_non-root_file_system)，
+Windows的[BitLocker](https://fossbytes.com/enable-full-disk-encryption-windows-10/)，或者
+macOS的[FileVault](https://support.apple.com/en-us/HT204837)都使用一个由密码保护的对称密钥来加密盘上的所有信息。
 
 ### 聊天加密
 
@@ -246,12 +246,11 @@ security concepts, tips
     2. 假设另一个密码是用八个随机的大小写字母或数字组成。一个符合这样构造的例子是`rg8Ql34g`。这个密码又有多少比特的熵？
     3. 哪一个密码更强？
     4. 假设一个攻击者每秒可以尝试1万个密码，这个攻击者需要多久可以分别破解上述两个密码？
-2. **密码散列函数** 从[Debian镜像站](https://www.debian.org/CD/http-ftp/)下载一个光盘映像（比如这个来自阿根廷镜像站的[映像](http://debian.xfree.com.ar/debian-cd/10.2.0/amd64/iso-cd/debian-10.2.0-amd64-netinst.iso)）。使用`sha256sum`命令对比下载映像的哈希值和官方Debian站公布的哈希值。如果你下载了上面的映像，官方公布的哈希值可以参考[这个文件](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS)。
-3. **对称加密** 使用
-   [OpenSSL](https://www.openssl.org/)的AES模式加密一个文件: `openssl aes-256-cbc -salt -in {源文件名} -out {加密文件名}`。
-   使用`cat`或者`hexdump`对比源文件和加密的文件，再用 `openssl aes-256-cbc -d -in {加密文件名} -out
-   {解密文件名}` 命令解密刚刚加密的文件。最后使用`cmp`命令确认源文件和解密后的文件内容相同。
-4. **非对称加密**
+1. **密码散列函数**。 从[Debian镜像站](https://www.debian.org/CD/http-ftp/)下载一个光盘映像（比如这个来自阿根廷镜像站的[映像](http://debian.xfree.com.ar/debian-cd/10.2.0/amd64/iso-cd/debian-10.2.0-amd64-netinst.iso)）。使用`sha256sum`命令对比下载映像的哈希值和官方Debian站公布的哈希值。如果你下载了上面的映像，官方公布的哈希值可以参考[这个文件](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA256SUMS)。
+1. **对称加密** 使用。
+    [OpenSSL](https://www.openssl.org/)的AES模式加密一个文件: `openssl aes-256-cbc -salt -in {源文件名} -out {加密文件名}`。
+    使用`cat`或者`hexdump`对比源文件和加密的文件，再用 `openssl aes-256-cbc -d -in {加密文件名} -out {解密文件名}` 命令解密刚刚加密的文件。最后使用`cmp`命令确认源文件和解密后的文件内容相同。
+1. **非对称加密**
     1. 在你自己的电脑上使用更安全的[ED25519算法](https://wiki.archlinux.org/index.php/SSH_keys#Ed25519)生成一组[SSH 密钥对](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)。为了确保私钥不使用时的安全，一定使用密码加密你的私钥。
     2. [配置GPG](https://www.digitalocean.com/community/tutorials/how-to-use-gpg-to-encrypt-and-sign-messages)。
     3. 给Anish发送一封加密的电子邮件（[Anish的公钥](https://keybase.io/anish)）。
