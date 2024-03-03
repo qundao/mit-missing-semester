@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: "Dotfiles"
+title: "点文件（Dotfiles）"
 presenter: Anish
 video:
   aspect: 62.5

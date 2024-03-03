@@ -241,13 +241,13 @@ rustup toolchain list | grep nightly | grep -vE "nightly-x86|01-17" | sed 's/-x8
 1. 有时，一些操作（如重命名文件）可能使用原始命令（如 `mv`）会很棘手。`rename` 是一个聪明的工具，可以实现此目的，并具有类似于 sed 的语法。尝试创建一堆带有空格的文件名，并使用 `rename` 将它们替换为下划线。
 1. 查找在过去的三次重启之间**不共享**的启动消息（请参阅 `journalctl` 的 `-b` 标志）。您可能希望将所有引导日志混合在一个单独的文件中，因为这样可能会更容易一些。
 1. 使用消息的时间戳
-   ```
-   Logs begin at ...
-   ```
-   和
-   ```
-   systemd[577]: Startup finished in...
-   ```
-   产生您的系统启动时间的一些统计信息。
+    ```
+    Logs begin at ...
+    ```
+    和
+    ```
+    systemd[577]: Startup finished in...
+    ```
+    产生您的系统启动时间的一些统计信息。
 1. 找到至少包含三个 `a` 且没有以 `'s` 结尾的单词（在 `/usr/share/dict/words` 中）。这些单词的最后两个字母中最常见的是什么？`sed` 的 `y` 命令或 `tr` 程序可能会帮助您进行大小写不敏感的匹配。这些两个字母组合有多少？作为挑战：哪些组合不存在？
 1. 查找一个在线数据集，例如[这个](https://stats.wikimedia.org/EN/TablesWikipediaZZ.htm)或[这个](https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/topic-pages/tables/table-1)。也许还有其他的[这里](https://www.springboard.com/blog/data-science/free-public-data-sets-data-science-project/)。使用 `curl` 获取它，并提取出只有两列数值数据。如果您正在获取 HTML 数据，可能会有帮助的 [`pup`](https://github.com/EricChiang/pup)。对于 JSON 数据，尝试 [`jq`](https://stedolan.github.io/jq/)。在单个命令中找到一列的最小值和最大值，并找到两列之间差值的总和。

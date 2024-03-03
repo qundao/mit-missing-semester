@@ -32,9 +32,9 @@ video:
 ## 一般安全建议
 
 Tech Solidarity 有一个相当不错的[记者的做和不做](https://web.archive.org/web/20221123204419/https://techsolidarity.org/resources/basic_security.htm)清单，其中有很多明智的建议，并且是相当及时的。[@thegrugq](https://medium.com/@thegrugq)
-也有一篇关于[旅行安全的博客文章](https://medium.com/@thegrugq/stop-fabricating-travel-security-advice-35259bf0e869)，值得一读。我们将在这里重复大部分来自这些来源的建议，以及一些其他的建议。另外，购买一个[USB 数据
-阻塞器](https://www.amazon.com/dp/B00QRRZ2QM/)，因为[USB
-是可怕的](https://www.bleepingcomputer.com/news/security/heres-a-list-of-29-different-types-of-usb-attacks/)。
+也有一篇关于[旅行安全的博客文章](https://medium.com/@thegrugq/stop-fabricating-travel-security-advice-35259bf0e869)，值得一读。我们将在这里重复大部分来自这些来源的建议，以及一些其他的建议。另外，购买一个
+[USB 数据阻塞器](https://www.amazon.com/dp/B00QRRZ2QM/)，因为
+[USB 是可怕的](https://www.bleepingcomputer.com/news/security/heres-a-list-of-29-different-types-of-usb-attacks/)。
 
 ## 认证
 
@@ -52,10 +52,9 @@ Tech Solidarity 有一个相当不错的[记者的做和不做](https://web.arch
 
 ## 私人通信
 
-使用 [Signal](https://www.signal.org/)（[设置
-说明](https://medium.com/@mshelton/signal-for-beginners-c6b44f76a1f0)）。[Wire](https://wire.com/en/) 也可以 ([fine
-too](https://www.securemessagingapps.com/)); WhatsApp 可以; [不要使用
-Telegram](https://twitter.com/bascule/status/897187286554628096))。桌面通讯软件非常糟糕（部分原因是通常依赖于 Electron，这是一个巨大的信任堆栈）。
+使用 [Signal](https://www.signal.org/)（[设置说明](https://medium.com/@mshelton/signal-for-beginners-c6b44f76a1f0)）。
+[Wire](https://wire.com/en/) 也可以（[还行](https://www.securemessagingapps.com/)）；WhatsApp 可以；
+[不要使用Telegram](https://twitter.com/bascule/status/897187286554628096)。桌面通讯软件非常糟糕（部分原因是通常依赖于 Electron，这是一个巨大的信任堆栈）。
 
 邮件特别有问题，即使是 PGP 签名的也是如此。它通常不是前向安全的，并且密钥分发问题非常严重。[keybase.io](https://keybase.io/) 有所帮助，并且出于许多其他原因也是有用的。此外，PGP 密钥通常在桌面计算机上处理，这是最不安全的计算环境之一。相关地，考虑购买一个 Chromebook，或者只在带键盘的平板电脑上工作。
 
@@ -63,24 +62,25 @@ Telegram](https://twitter.com/bascule/status/897187286554628096))。桌面通讯
 
 文件安全很难，并且在很多层面上操作。你试图防范什么？
 
-[![$5 wrench](https://imgs.xkcd.com/comics/security.png)](https://xkcd.com/538/)
+<!-- [![$5 wrench](https://imgs.xkcd.com/comics/security.png)](https://xkcd.com/538/) -->
+[![5美元的扳手](https://xkcd.tw/strip/538.png)](https://xkcd.tw/538/)
 
-- 离线攻击（当你的笔记本电脑关机时有人偷走它）：打开全磁盘加密。([cryptsetup +
-  LUKS](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_a_non-root_file_system) 在 Linux,
-  [BitLocker](https://fossbytes.com/enable-full-disk-encryption-windows-10/) 在 Windows,
-  [FileVault](https://support.apple.com/en-us/HT204837) 在 macOS。注意，如果攻击者**同时**也有你，并且真的想要你的秘密，这是没用的。
+- 离线攻击（当你的笔记本电脑关机时有人偷走它）：打开全磁盘加密。（
+  在 Linux 可用 [cryptsetup + LUKS](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_a_non-root_file_system) ,
+  在 Windows 可用[BitLocker](https://fossbytes.com/enable-full-disk-encryption-windows-10/) ,
+  在 macOS 可用[FileVault](https://support.apple.com/en-us/HT204837)）。注意，如果攻击者的目标**同时**也有你，并且真的想要你的秘密，这是没用的。
 - 在线攻击（有人拿到你的笔记本电脑并且它开机了）：使用文件加密。有两种主要机制可以做到这一点
-  - 加密文件系统：叠加式文件系统加密软件单独加密文件，而不是使用加密块设备。你可以通过提供解密密钥来“挂载”这些文件系统，然后自由地浏览其中的文件。当你卸载它时，那些文件都不可用了。现代解决方案包括[gocryptfs](https://github.com/rfjakob/gocryptfs) 和 [eCryptFS](http://ecryptfs.org/)。可以在[这里](https://nuetzlich.net/gocryptfs/comparison/)和[这里](https://wiki.archlinux.org/index.php/disk_encryption#Comparison_table)找到更详细的比较。
-  - 加密文件：使用对称加密（见 `gpg -c`）和一个秘密密钥对单个文件进行加密。或者，像 `pass` 一样，还可以使用你的公钥加密密钥，这样只有你才能用你的私钥将它读回来。确切的加密设置很重要！
-- [似是而非的否认](https://en.wikipedia.org/wiki/Plausible_deniability)（警官看起来有问题？）：通常性能较低，并且更容易丢失数据。很难真正证明它提供了[可否认的加密](https://en.wikipedia.org/wiki/Deniable_encryption)! 参见[这里的讨论](https://security.stackexchange.com/questions/135846/is-plausible-deniability-actually-feasible-for-encrypted-volumes-disks)，然后考虑是否要尝试[ VeraCrypt](https://www.veracrypt.fr/en/Home.html)（好老的 TrueCrypt 的维护分支）。
+    - 加密文件系统：叠加式文件系统加密软件单独加密文件，而不是使用加密块设备。你可以通过提供解密密钥来“挂载”这些文件系统，然后自由地浏览其中的文件。当你卸载它时，那些文件都不可用了。现代解决方案包括[gocryptfs](https://github.com/rfjakob/gocryptfs) 和 [eCryptFS](http://ecryptfs.org/)。可以在[这里](https://nuetzlich.net/gocryptfs/comparison/)和[这里](https://wiki.archlinux.org/index.php/disk_encryption#Comparison_table)找到更详细的比较。
+    - 加密文件：使用对称加密（见 `gpg -c`）和一个秘密密钥对单个文件进行加密。或者，像 `pass` 一样，还可以使用你的公钥加密密钥，这样只有你才能用你的私钥将它读回来。确切的加密设置很重要！
+- [似是而非的否认](https://en.wikipedia.org/wiki/Plausible_deniability)（警官看起来有问题？）：通常性能较低，并且更容易丢失数据。很难真正证明它提供了[可否认的加密](https://en.wikipedia.org/wiki/Deniable_encryption)！参见[这里的讨论](https://security.stackexchange.com/questions/135846/is-plausible-deniability-actually-feasible-for-encrypted-volumes-disks)，然后考虑是否要尝试[ VeraCrypt](https://www.veracrypt.fr/en/Home.html)（好老的 TrueCrypt 的维护分支）。
 - 加密备份：使用[Tarsnap](https://www.tarsnap.com/) 或 [Borgbase](https://www.borgbase.com/)
-  - 想一想如果攻击者拿到了你的笔记本电脑，他们是否可以删除你的备份！
+    - 想一想如果攻击者拿到了你的笔记本电脑，他们是否可以删除你的备份！
 
 ## 互联网安全和隐私
 
 互联网是一个**非常**可怕的地方。开放的 WiFi 网络[很](https://www.troyhunt.com/the-beginners-guide-to-breaking-website/) [可怕](https://www.troyhunt.com/talking-with-scott-hanselman-on/)。确保在使用后将它们删除，否则你的手机将会愉快地宣布并重新连接到以后具有相同名称的某个东西！
 
-如果你曾经在你不信任的网络上，VPN **可能** 是值得的，但请记住你非常**信任** VPN 提供商。你真的比你的 ISP 更信任他们吗？如果你真的想要一个 VPN，请使用你确信可以信任的提供商，并且你应该为它付费。或者为自己设置[WireGuard](https://www.wireguard.com/) -- 它是[优秀的](https://web.archive.org/web/20210526211307/https://latacora.micro.blog/there-will-be/)！
+如果你曾经在你不信任的网络上，VPN **可能** 是值得的，但请记住你非常**信任** VPN 提供商。你真的比你的 ISP 更信任他们吗？如果你真的想要一个 VPN，请使用你确信可以信任的提供商，并且你应该为它付费。或者为自己设置[WireGuard](https://www.wireguard.com/)——它是[优秀的](https://web.archive.org/web/20210526211307/https://latacora.micro.blog/there-will-be/)！
 
 许多互联网应用程序也有安全的配置设置，[cipherlist.eu](https://cipherlist.eu/) 上有很多。如果你特别注重隐私，[privacytools.io](https://privacytools.io) 也是一个不错的资源。
 
@@ -101,6 +101,6 @@ Telegram](https://twitter.com/bascule/status/897187286554628096))。桌面通讯
 
 <!-- TODO -->
 
-1. 使用 PGP 加密文件
-1. 使用 veracrypt 创建一个简单的加密卷
-1. 为你最敏感的数据账户启用两步验证，例如 GMail、Dropbox、Github，等等
+1. 使用 PGP 加密文件；
+1. 使用 veracrypt 创建一个简单的加密卷；
+1. 为你最敏感的数据账户启用两步验证，例如 GMail、Dropbox、Github，等等。

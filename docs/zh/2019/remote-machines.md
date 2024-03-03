@@ -58,7 +58,7 @@ ssh-copy-id -i .ssh/id_dsa.pub foobar@remote
 
 ## 端口转发
 
-在许多情况下，您将遇到通过监听机器端口来运行的软件。当这种情况发生在您的本地机器上时，您可以简单地执行 `localhost:PORT` 或 `127.0.0.1:PORT`，但是对于没有直接通过网络/互联网提供其端口的远程服务器该怎么办呢？这称为端口转发，有两种类型：本地端口转发和远程端口转发（有关更多详细信息，请参见下面的图片，图片来源于[此 SO 帖子](https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot)）。
+在许多情况下，您将遇到通过监听机器端口来运行的软件。当这种情况发生在您的本地机器上时，您可以简单地执行 `localhost:PORT` 或 `127.0.0.1:PORT`，但是对于没有直接通过网络/互联网提供其端口的远程服务器该怎么办呢？这称为端口转发，有两种类型：本地端口转发和远程端口转发（有关更多详细信息，请参见下面的图片，图片来源于[此帖子](https://unix.stackexchange.com/questions/115897/whats-ssh-port-forwarding-and-whats-the-difference-between-ssh-local-and-remot)）。
 
 **本地端口转发**
 ![Local Port Forwarding](https://i.stack.imgur.com/a28N8.png "Local Port Forwarding")
@@ -138,10 +138,10 @@ Host *.mit.edu
 
 1. 本地端口转发的另一个用途是将某些主机隧道到服务器。如果您的网络过滤了一些网站，例如 `reddit.com`，您可以通过服务器进行隧道连接，操作如下：
 
-   - 运行 `ssh remote_server -L 80:reddit.com:80`
-   - 在 `/etc/hosts` 中将 `reddit.com` 和 `www.reddit.com` 设置为 `127.0.0.1`
-   - 检查您是否通过服务器访问该网站
-   - 如果不明显，请使用诸如[ipinfo.io](https://ipinfo.io/)之类的网站，它将根据您的主机公共 IP 更改。
+    - 运行 `ssh remote_server -L 80:reddit.com:80`
+    - 在 `/etc/hosts` 中将 `reddit.com` 和 `www.reddit.com` 设置为 `127.0.0.1`
+    - 检查您是否通过服务器访问该网站
+    - 如果不明显，请使用诸如[ipinfo.io](https://ipinfo.io/)之类的网站，它将根据您的主机公共 IP 更改。
 
 1. 可以通过添加一些额外的标志轻松实现后台端口转发。了解一下 `ssh` 中 `-N` 和 `-f` 标志的作用，弄清楚像 `ssh -N -f -L 9999:localhost:8888 foobar@remote_server` 这样的命令是做什么的。
 
