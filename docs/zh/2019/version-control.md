@@ -230,20 +230,21 @@ git 是一个**分布式**版本控制系统：每个人都有整个存储库的
     - 这里有更多 [内容](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
   - `git pull --rebase` 会为你开始这个过程
   - 是否应该合并还是重新应用是一个热门话题！一些好的阅读材料：
-    - [这个](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
-    - [这个](http://web.archive.org/web/20210106220723/https://derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/)
-    - [这个](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge)
+    - [这个（atlassian.com）](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+    - [这个（derekgourlay.com）](https://derekgourlay.com/blog/git-when-to-merge-vs-when-to-rebase/)
+    - [这个（stackoverflow.com）](https://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge)
 
 ## 进一步阅读
 
-[![XKCD 上的 git](https://imgs.xkcd.com/comics/git.png)](https://xkcd.com/1597/)
+<!-- [![XKCD 上的 git](https://imgs.xkcd.com/comics/git.png)](https://xkcd.com/1597/) -->
+[![XKCD 上的 Git](https://xkcd.tw/strip/1597.jpg)](https://xkcd.tw/1597/)
 
-- [学习 git 分支](https://learngitbranching.js.org/)
-- [用简单的话解释 git](https://smusamashah.github.io/blog/2017/10/14/explain-git-in-simple-words)
-- [从下往上学 git](https://jwiegley.github.io/git-from-the-bottom-up/)
-- [计算机科学家的 git](http://eagain.net/articles/git-for-computer-scientists/)
-- [哦，该死，git！](https://ohshitgit.com/)
-- [《Pro Git》书](https://git-scm.com/book/en/v2)
+- [学习 Git 分支](https://learngitbranching.js.org/)
+- [用简单的话解释 Git](https://smusamashah.github.io/blog/2017/10/14/explain-git-in-simple-words)
+- [从下往上学 Git](https://jwiegley.github.io/git-from-the-bottom-up/)
+- [计算机科学家的 Git](http://eagain.net/articles/git-for-computer-scientists/)
+- [哦，该死，Git！](https://ohshitgit.com/)
+- [书籍《Pro Git》](https://git-scm.com/book/en/v2)
 
 ## 练习
 
@@ -251,11 +252,11 @@ git 是一个**分布式**版本控制系统：每个人都有整个存储库的
 
 1. 在学习 git 时的一个常见错误是提交不应由 git 管理的大文件或添加敏感信息。尝试向存储库添加一个文件，进行一些提交，然后从历史记录中删除该文件（你可能想看看 [这个](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)）。此外，如果你确实希望 git 为你管理大文件，请查看 [Git-LFS](https://git-lfs.github.com/)
 
-1. git 非常方便地撤消更改，但即使是最不可能的更改也必须熟悉
+1. git 非常方便地撤消更改，但即使是最不可能的更改也必须熟悉：
 
-   1. 如果一个文件在某个提交中被错误地修改了，可以使用 `git revert` 恢复它。但是如果一个提交涉及多个更改，`revert` 可能不是最佳选项。我们如何使用 `git checkout` 从特定提交恢复文件的版本？
-   1. 创建一个分支，在该分支中进行一次提交，然后删除它。你仍然可以恢复该提交吗？尝试查看 `git reflog`。（注意：快速恢复悬空的东西，git 会定期自动清理没有指向的提交。）
-   1. 如果一个人过于轻率地使用 `git reset --hard` 而不是 `git reset`，更改可能会很容易丢失。然而，由于更改已被暂存，我们可以恢复它们。 （查看 `git fsck --lost-found` 和 `.git/lost-found`）
+    1. 如果一个文件在某个提交中被错误地修改了，可以使用 `git revert` 恢复它。但是如果一个提交涉及多个更改，`revert` 可能不是最佳选项。我们如何使用 `git checkout` 从特定提交恢复文件的版本？
+    1. 创建一个分支，在该分支中进行一次提交，然后删除它。你仍然可以恢复该提交吗？尝试查看 `git reflog`。（注意：快速恢复悬空的东西，git 会定期自动清理没有指向的提交。）
+    1. 如果一个人过于轻率地使用 `git reset --hard` 而不是 `git reset`，更改可能会很容易丢失。然而，由于更改已被暂存，我们可以恢复它们。 （查看 `git fsck --lost-found` 和 `.git/lost-found`）
 
 1. 在任何 git 仓库中查看 `.git/hooks` 文件夹，你会找到一堆以 `.sample` 结尾的脚本。如果你去掉 `.sample`，它们将根据其名称运行。例如，`pre-commit` 将在提交前执行。尝试一下
 
