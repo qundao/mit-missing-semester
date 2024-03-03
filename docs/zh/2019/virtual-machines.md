@@ -7,6 +7,8 @@ video:
   id: LJ9ki5zq6Ik
 ---
 
+<iframe src="https://www.youtube.com/embed/LJ9ki5zq6Ik" frameborder="0" allowfullscreen></iframe>
+
 ## 虚拟机
 
 虚拟机是模拟计算机。你可以配置一个客户虚拟机，安装某些操作系统和配置，并在不影响你的宿主环境的情况下使用它。
@@ -55,8 +57,6 @@ video:
 1. 安装客户端附加组件并尝试不同的窗口模式、文件共享和其他特性。
 
 ---
-
-<iframe src="https://www.youtube.com/embed/LJ9ki5zq6Ik" frameborder="0" allowfullscreen></iframe>
 
 ## 容器
 
