@@ -1,5 +1,7 @@
 # wayback: mit-missing-semester
 
+[![Deploy MkDocs Pages](https://github.com/qundao/mit-missing-semester/actions/workflows/pages.yml/badge.svg)](https://github.com/qundao/mit-missing-semester/actions/workflows/pages.yml)
+
 A Fork of MIT Course “The Missing Semester of Your CS Education” (2019/2020).
 
 ## Note
