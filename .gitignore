@@ -17,13 +17,5 @@ site/
 .idea/
 
 # others
-back/
-backup/
-tmp/
 temp/
 todo/
-
-# more
-.trash/
-.cache/
-
