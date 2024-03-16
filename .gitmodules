@@ -1,0 +1,3 @@
+[submodule "raw/missing-semester"]
+	path = raw/missing-semester
+	url = https://github.com/missing-semester/missing-semester.git
