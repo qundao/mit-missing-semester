@@ -10,7 +10,7 @@ theme:
   favicon: assets/favicon.ico
   language: "zh"
   icon:
-    logo: material/sprout
+    logo: material/island
     repo: fontawesome/brands/github-alt
   font:
     text: Open Sans, Helvetica Neue, Roboto, sans-serif, serif
