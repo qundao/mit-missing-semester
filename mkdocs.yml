@@ -1,34 +1,34 @@
 # Site information
 site_name: MIT - The Missing Semester of Your CS Education
-site_url: https://hantang.github.io/wayback-missing-semester/
+site_url: https://qundao.github.io/mit-missing-semester/
 site_description: The Missing Semester of Your CS Education
 copyright: A backup of <a href="https://missing.csail.mit.edu/">MIT | The Missing Semester of Your CS Education</a>
-repo_url: https://github.com/hantang/wayback-missing-semester
+repo_url: https://github.com/qundao/mit-missing-semester
 
 theme:
   name: material
   favicon: assets/favicon.ico
+  language: "zh"
   icon:
-      logo: fontawesome/solid/terminal
+    logo: material/sprout
+    repo: fontawesome/brands/github-alt
   font:
-    text: Source Sans Pro, sans-serif
-    code: Source Code Pro, Menlo, DejaVu Sans Mono, Lucida Console, monospace
+    text: Open Sans, Helvetica Neue, Roboto, sans-serif, serif
+    code: Fira Mono, Fira Code, Roboto Mono, monospace
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
-      primary: deep purple
       scheme: default
       toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
-      primary: black
       scheme: slate
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/brightness-4
         name: Switch to system preference
   features:
     - navigation.footer
